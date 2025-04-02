@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position = Input.get_vector("sword_left", "sword_right", "sword_up", "sword_down") * 100
-	move_and_slide()
+	position = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 160
+	
