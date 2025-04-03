@@ -12,5 +12,4 @@ func _physics_process(delta: float) -> void:
 	var right_stick_input = Input.get_vector("sword_left", "sword_right", "sword_up", "sword_down")
 	position = left_stick_input
 	look_at(global_position + right_stick_input)
-	print(right_stick_input)
 	

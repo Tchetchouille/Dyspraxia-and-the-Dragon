@@ -36,6 +36,7 @@ size = Vector2(190, 26)
 
 [node name="Body" type="CharacterBody2D" parent="."]
 position = Vector2(0, 90)
+collision_mask = 25
 script = ExtResource("1_55sdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
@@ -158,7 +159,7 @@ shape = SubResource("CircleShape2D_gctc5")
 [node name="Blade" type="CharacterBody2D" parent="Body/Sword"]
 rotation = 1.5708
 collision_layer = 4
-collision_mask = 4
+collision_mask = 28
 script = ExtResource("4_6s2yu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Body/Sword/Blade"]
