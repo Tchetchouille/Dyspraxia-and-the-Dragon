@@ -88,6 +88,7 @@ move_right={
 2d_physics/layer_3="Sword"
 2d_physics/layer_4="Fireballs"
 2d_physics/layer_5="Dragon"
+2d_physics/layer_6="Floor"
 
 [physics]
 

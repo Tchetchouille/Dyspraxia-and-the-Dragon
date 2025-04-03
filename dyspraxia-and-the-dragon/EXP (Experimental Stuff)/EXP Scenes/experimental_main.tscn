@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba2rqmnvxem0s"]
+[gd_scene load_steps=8 format=3 uid="uid://ba2rqmnvxem0s"]
 
 [ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_celestia_character.tscn" id="1_ctpsc"]
 [ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_dragon.tscn" id="2_a6sh8"]
-[ext_resource type="PackedScene" uid="uid://cqsfsi46c4js3" path="res://EXP (Experimental Stuff)/EXP Scenes/fireball.tscn" id="3_yb7sn"]
-[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_claws.tscn" id="4_shbmw"]
+[ext_resource type="PackedScene" uid="uid://cqsfsi46c4js3" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_fireball.tscn" id="3_yb7sn"]
+[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_left_claws.tscn" id="4_shbmw"]
+[ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="5_5jx3x"]
+[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_right_claws.tscn" id="6_lw3kf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
 [node name="ExperimentalMain" type="Node"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 750)
 scale = Vector2(60, 1)
+collision_layer = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_bavmj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,5 +38,13 @@ position = Vector2(422, 347)
 [node name="ExpCelestiaCharacter" parent="." instance=ExtResource("1_ctpsc")]
 position = Vector2(170, 102)
 
-[node name="ExpClaws" parent="." instance=ExtResource("4_shbmw")]
-position = Vector2(1098, 833)
+[node name="GameManager" parent="." instance=ExtResource("5_5jx3x")]
+
+[node name="ExpLeftClaws" parent="." instance=ExtResource("4_shbmw")]
+position = Vector2(944, 820)
+
+[node name="ExpRightClaw" parent="." instance=ExtResource("6_lw3kf")]
+position = Vector2(1085, 820)
+
+[connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaws" method="_on_game_manager_left_claw_attack"]
+[connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
