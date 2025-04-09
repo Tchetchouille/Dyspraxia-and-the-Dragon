@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba2rqmnvxem0s"]
+[gd_scene load_steps=7 format=3 uid="uid://ba2rqmnvxem0s"]
 
 [ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_celestia_character.tscn" id="1_ctpsc"]
 [ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_dragon.tscn" id="2_a6sh8"]
-[ext_resource type="PackedScene" uid="uid://cqsfsi46c4js3" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_fireball.tscn" id="3_yb7sn"]
-[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_left_claws.tscn" id="4_shbmw"]
+[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_left_claw.tscn" id="4_shbmw"]
 [ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="5_5jx3x"]
-[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_right_claws.tscn" id="6_lw3kf"]
+[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/exp_right_claw.tscn" id="6_lw3kf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
@@ -26,19 +25,11 @@ zoom = Vector2(0.8, 0.8)
 [node name="ExpDragon" parent="." instance=ExtResource("2_a6sh8")]
 position = Vector2(1335, 780)
 
-[node name="Fireball" parent="." instance=ExtResource("3_yb7sn")]
-position = Vector2(354, 498)
-
-[node name="Fireball2" parent="." instance=ExtResource("3_yb7sn")]
-position = Vector2(492, 491)
-
-[node name="Fireball3" parent="." instance=ExtResource("3_yb7sn")]
-position = Vector2(422, 347)
-
 [node name="ExpCelestiaCharacter" parent="." instance=ExtResource("1_ctpsc")]
 position = Vector2(170, 102)
 
 [node name="GameManager" parent="." instance=ExtResource("5_5jx3x")]
+available_claws = [null]
 
 [node name="ExpLeftClaws" parent="." instance=ExtResource("4_shbmw")]
 position = Vector2(944, 820)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bcim6q78vnor3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_body.gd" id="1_3duau"]
+[ext_resource type="Script" uid="uid://bwq6soga6ysgv" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_body.gd" id="1_3duau"]
 [ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_eq650"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_sword.gd" id="3_llanw"]
+[ext_resource type="Script" uid="uid://c5nfjb7mstb8l" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_sword.gd" id="3_llanw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2c5g"]
 size = Vector2(50, 100)
@@ -31,147 +31,145 @@ size = Vector2(12, 64)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pml3s"]
 radius = 6.0
 
-[node name="DYSPRAXIA" type="Node2D"]
-
-[node name="Body" type="CharacterBody2D" parent="."]
+[node name="ExpDyspraxia" type="CharacterBody2D"]
 position = Vector2(0, 20)
 script = ExtResource("1_3duau")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w2c5g")
 
-[node name="Model" type="Node2D" parent="Body"]
+[node name="Model" type="Node2D" parent="."]
 
-[node name="Body" type="Sprite2D" parent="Body/Model"]
+[node name="Body" type="Sprite2D" parent="Model"]
 scale = Vector2(50, 100)
 texture = SubResource("CanvasTexture_dkdim")
 
-[node name="Head" type="Sprite2D" parent="Body/Model"]
+[node name="Head" type="Sprite2D" parent="Model"]
 position = Vector2(0, -70)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_eq650")
 
-[node name="RightArm" type="Node2D" parent="Body/Model"]
+[node name="RightArm" type="Node2D" parent="Model"]
 
-[node name="LeftArm" type="Node2D" parent="Body"]
+[node name="LeftArm" type="Node2D" parent="."]
 position = Vector2(-15, -20)
 
-[node name="UpperLeftArm" type="RigidBody2D" parent="Body/LeftArm"]
+[node name="UpperLeftArm" type="RigidBody2D" parent="LeftArm"]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftArm/UpperLeftArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm/UpperLeftArm"]
 scale = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/LeftArm/UpperLeftArm"]
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm/UpperLeftArm"]
 scale = Vector2(10, 50)
 texture = SubResource("CanvasTexture_y370a")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/LeftArm/UpperLeftArm"]
+[node name="PinJoint2D" type="PinJoint2D" parent="LeftArm/UpperLeftArm"]
 position = Vector2(0, -20)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 
-[node name="LowerLeftArm" type="RigidBody2D" parent="Body/LeftArm"]
+[node name="LowerLeftArm" type="RigidBody2D" parent="LeftArm"]
 position = Vector2(7, 40)
 rotation = -0.349066
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftArm/LowerLeftArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm/LowerLeftArm"]
 scale = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/LeftArm/LowerLeftArm"]
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm/LowerLeftArm"]
 scale = Vector2(10, 50)
 texture = SubResource("CanvasTexture_y370a")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/LeftArm/LowerLeftArm"]
+[node name="PinJoint2D" type="PinJoint2D" parent="LeftArm/LowerLeftArm"]
 position = Vector2(0, -20)
 node_a = NodePath("..")
 node_b = NodePath("../../UpperLeftArm")
 
-[node name="RightArm" type="Node2D" parent="Body"]
+[node name="RightArm" type="Node2D" parent="."]
 position = Vector2(15, -20)
 
-[node name="UpperRightArm" type="RigidBody2D" parent="Body/RightArm"]
+[node name="UpperRightArm" type="RigidBody2D" parent="RightArm"]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightArm/UpperRightArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm/UpperRightArm"]
 scale = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/RightArm/UpperRightArm"]
+[node name="Sprite2D" type="Sprite2D" parent="RightArm/UpperRightArm"]
 scale = Vector2(10, 50)
 texture = SubResource("CanvasTexture_y370a")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/RightArm/UpperRightArm"]
+[node name="PinJoint2D" type="PinJoint2D" parent="RightArm/UpperRightArm"]
 position = Vector2(0, -20)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 
-[node name="LowerRightArm" type="RigidBody2D" parent="Body/RightArm"]
+[node name="LowerRightArm" type="RigidBody2D" parent="RightArm"]
 position = Vector2(-7, 40)
 rotation = 0.349066
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightArm/LowerRightArm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm/LowerRightArm"]
 scale = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/RightArm/LowerRightArm"]
+[node name="Sprite2D" type="Sprite2D" parent="RightArm/LowerRightArm"]
 scale = Vector2(10, 50)
 texture = SubResource("CanvasTexture_y370a")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/RightArm/LowerRightArm"]
+[node name="PinJoint2D" type="PinJoint2D" parent="RightArm/LowerRightArm"]
 position = Vector2(0, -20)
 node_a = NodePath("..")
 node_b = NodePath("../../UpperRightArm")
 
-[node name="Sword" type="Node2D" parent="Body"]
+[node name="Sword" type="Node2D" parent="."]
 position = Vector2(0, -20)
 
-[node name="Blade and Handle" type="RigidBody2D" parent="Body/Sword"]
+[node name="Blade and Handle" type="RigidBody2D" parent="Sword"]
 position = Vector2(0, 20)
 collision_layer = 0
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/Sword/Blade and Handle"]
+[node name="Sprite2D" type="Sprite2D" parent="Sword/Blade and Handle"]
 position = Vector2(0, 2)
 rotation = 1.5708
 scale = Vector2(1, 0.2)
 texture = SubResource("GradientTexture2D_qygp6")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Body/Sword/Blade and Handle"]
+[node name="Sprite2D2" type="Sprite2D" parent="Sword/Blade and Handle"]
 position = Vector2(0, 37)
 scale = Vector2(0.1, 0.2)
 texture = SubResource("GradientTexture2D_eur0k")
 
-[node name="LeftPin" type="PinJoint2D" parent="Body/Sword/Blade and Handle"]
+[node name="LeftPin" type="PinJoint2D" parent="Sword/Blade and Handle"]
 position = Vector2(0, 40)
 node_a = NodePath("..")
 node_b = NodePath("../../../LeftArm/LowerLeftArm")
 
-[node name="RightPin" type="PinJoint2D" parent="Body/Sword/Blade and Handle"]
+[node name="RightPin" type="PinJoint2D" parent="Sword/Blade and Handle"]
 position = Vector2(0, 40)
 node_a = NodePath("..")
 node_b = NodePath("../../../RightArm/LowerRightArm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sword/Blade and Handle"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Blade and Handle"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_mfnpv")
 
-[node name="Sword Tip" type="CharacterBody2D" parent="Body/Sword"]
+[node name="Sword Tip" type="CharacterBody2D" parent="Sword"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("3_llanw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sword/Sword Tip"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Sword Tip"]
 shape = SubResource("CircleShape2D_pml3s")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/Sword/Sword Tip"]
+[node name="PinJoint2D" type="PinJoint2D" parent="Sword/Sword Tip"]
 node_a = NodePath("..")
 node_b = NodePath("../../Blade and Handle")

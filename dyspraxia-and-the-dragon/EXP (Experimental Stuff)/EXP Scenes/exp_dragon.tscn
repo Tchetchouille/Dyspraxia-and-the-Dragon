@@ -18,26 +18,24 @@ size = Vector2(97, 663)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is0h6"]
 size = Vector2(229, 119)
 
-[node name="ExpDragon" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="ExpDragon" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 13
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -218.5)
 scale = Vector2(1.5, 8.76563)
 texture = SubResource("GradientTexture2D_5dkip")
 
-[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-68, -543.5)
 scale = Vector2(3.59375, 1.89063)
 texture = SubResource("GradientTexture2D_wectj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="Neck" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -271.5)
 shape = SubResource("RectangleShape2D_2icck")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="Head" type="CollisionShape2D" parent="."]
 position = Vector2(-68.5, -545.5)
 shape = SubResource("RectangleShape2D_is0h6")
