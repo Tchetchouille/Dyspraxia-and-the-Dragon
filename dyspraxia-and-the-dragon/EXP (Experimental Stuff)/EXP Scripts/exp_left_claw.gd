@@ -1,11 +1,14 @@
 extends Node2D
 
-@export var attack_speed = 3
-var active = 0
+@export var attack_speed = 0.2
+signal available
 
 func _on_game_manager_left_claw_attack() -> void:
-	active = 1
-
-func _physics_process(_delta: float) -> void:
-	# $Body.move_and_collide(Vector2(-attack_speed * active, 0))
-	pass
+	var tween = create_tween()
+	var initial_pos = position
+	# The claw goes to the specified position, and then returns to the intial position
+	tween.tween_property(self, "position", Vector2(150, initial_pos.y), 1 / attack_speed).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "position", initial_pos, 1 / attack_speed).set_trans(Tween.TRANS_BACK)
+	# When the attack is finished, it sends a signal to the game manager
+	await tween.finished
+	available.emit()

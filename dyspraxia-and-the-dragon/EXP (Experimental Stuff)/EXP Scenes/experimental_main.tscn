@@ -29,7 +29,6 @@ position = Vector2(1335, 780)
 position = Vector2(170, 102)
 
 [node name="GameManager" parent="." instance=ExtResource("5_5jx3x")]
-available_claws = [null]
 
 [node name="ExpLeftClaws" parent="." instance=ExtResource("4_shbmw")]
 position = Vector2(944, 820)
@@ -39,3 +38,5 @@ position = Vector2(1085, 820)
 
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaws" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
+[connection signal="available" from="ExpLeftClaws" to="GameManager" method="_on_exp_left_claws_available"]
+[connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]
