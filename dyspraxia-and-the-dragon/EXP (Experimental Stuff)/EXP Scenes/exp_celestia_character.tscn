@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce61kpweab77u"]
+[gd_scene load_steps=17 format=3 uid="uid://ce61kpweab77u"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_c_body.gd" id="1_55sdg"]
 [ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_52n2e"]
@@ -32,9 +32,15 @@ gradient = SubResource("Gradient_h5d87")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqk2"]
 size = Vector2(190, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrwe5"]
+size = Vector2(100, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1afq"]
+size = Vector2(67, 66)
+
 [node name="ExpCelestia" type="CharacterBody2D"]
 position = Vector2(0, 90)
-collision_mask = 57
+collision_mask = 33
 script = ExtResource("1_55sdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -213,3 +219,15 @@ texture = SubResource("CanvasTexture_y370a")
 position = Vector2(0, -50)
 node_a = NodePath("..")
 node_b = NodePath("../../../LeftArm1/UpperLeftArm")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_jrwe5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, -132)
+shape = SubResource("RectangleShape2D_u1afq")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

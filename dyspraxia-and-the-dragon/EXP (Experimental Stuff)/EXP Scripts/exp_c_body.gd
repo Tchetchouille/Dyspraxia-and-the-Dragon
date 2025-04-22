@@ -3,6 +3,15 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -1200.0
+var health = 100
+
+
+@onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
+
+
+func _ready() -> void:
+	health_bar.init_health(health)
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,3 +30,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	health -= 5
+	health_bar.set_health(health)

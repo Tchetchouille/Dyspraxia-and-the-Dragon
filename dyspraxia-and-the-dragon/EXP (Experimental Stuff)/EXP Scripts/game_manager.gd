@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 	if time >= 1:
 		dragon_action()
 		time = 0
-		print(available_claws)
 
 func dragon_action():
 	# The dragon "rolls a dice". If it is low enough and if a claw is available, it triggers a claw attack.

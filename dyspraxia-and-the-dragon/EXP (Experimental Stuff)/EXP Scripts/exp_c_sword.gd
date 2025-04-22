@@ -8,5 +8,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	position = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 160
-	
+	var pos = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 160
+	var tween = create_tween()
+	tween.tween_property(self, "position", pos, 0.2)

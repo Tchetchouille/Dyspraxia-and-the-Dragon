@@ -1,4 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://btyfs2ogh11q5"]
+[gd_scene load_steps=11 format=3 uid="uid://btyfs2ogh11q5"]
+
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_player_health_bar.gd" id="1_yllub"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_dragon_health_bar.gd" id="2_5upj8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d386c"]
 
@@ -70,6 +73,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_d386c")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qr3vu")
 value = 50.0
 show_percentage = false
+script = ExtResource("1_yllub")
 
 [node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar"]
 z_index = -1
@@ -111,6 +115,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_mhldi")
 value = 50.0
 fill_mode = 1
 show_percentage = false
+script = ExtResource("2_5upj8")
 
 [node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/DragonHealth/HealthBar"]
 z_index = -1
@@ -140,3 +145,5 @@ size_flags_stretch_ratio = 0.1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 15.0
+
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar/Timer" to="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar" method="_on_timer_timeout"]
