@@ -20,9 +20,9 @@ func _ready() -> void:
 
 func set_health(new_health):
 	var prev_health = health
-	print(health)
 	health = min(max_value, new_health)
-	value = health
+	var tween = create_tween()
+	tween.tween_property(self, "value", health, 0.15)
 	
 	if health <= 0:
 		game_over.emit()
@@ -45,4 +45,4 @@ func init_health(_health):
 func _on_timer_timeout() -> void:
 	# damage_bar.value = health
 	var tween = create_tween()
-	tween.tween_property(damage_bar, "value", health, 0.1)
+	tween.tween_property(damage_bar, "value", health, 0.15)

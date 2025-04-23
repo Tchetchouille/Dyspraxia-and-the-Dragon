@@ -12,7 +12,7 @@
 [node name="ExperimentalMain" type="Node"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 750)
+position = Vector2(0, 1300)
 scale = Vector2(60, 1)
 collision_layer = 32
 
@@ -22,9 +22,10 @@ shape = SubResource("WorldBoundaryShape2D_bavmj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
 
 [node name="ExpDragon" parent="." instance=ExtResource("2_a6sh8")]
-position = Vector2(1043, 735)
+position = Vector2(2200, 1200)
 
 [node name="ExpCelestiaCharacter" parent="." instance=ExtResource("1_ctpsc")]
 position = Vector2(170, 102)
@@ -32,12 +33,17 @@ position = Vector2(170, 102)
 [node name="GameManager" parent="." instance=ExtResource("5_5jx3x")]
 
 [node name="ExpLeftClaws" parent="." instance=ExtResource("4_shbmw")]
-position = Vector2(807, 679)
+position = Vector2(2000, 1200)
 
 [node name="ExpRightClaw" parent="." instance=ExtResource("6_lw3kf")]
-position = Vector2(881, 676)
+position = Vector2(1900, 1200)
 
 [node name="MainUi" parent="." instance=ExtResource("6_d7g1s")]
+anchors_preset = -1
+anchor_right = 2.0
+anchor_bottom = 2.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaws" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
