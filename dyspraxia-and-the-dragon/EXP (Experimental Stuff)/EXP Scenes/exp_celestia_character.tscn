@@ -40,7 +40,7 @@ size = Vector2(67, 66)
 
 [node name="ExpCelestia" type="CharacterBody2D"]
 position = Vector2(0, 90)
-collision_mask = 33
+collision_mask = 49
 script = ExtResource("1_55sdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -163,7 +163,7 @@ shape = SubResource("CircleShape2D_gctc5")
 [node name="Blade" type="CharacterBody2D" parent="Sword"]
 rotation = 1.5708
 collision_layer = 4
-collision_mask = 28
+collision_mask = 12
 script = ExtResource("4_6s2yu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sword/Blade"]
@@ -221,7 +221,7 @@ node_a = NodePath("..")
 node_b = NodePath("../../../LeftArm1/UpperLeftArm")
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_mask = 24
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_jrwe5")

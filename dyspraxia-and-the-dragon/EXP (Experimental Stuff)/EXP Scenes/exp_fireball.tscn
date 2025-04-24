@@ -15,18 +15,17 @@ radius = 36.4006
 collision_layer = 8
 collision_mask = 4
 gravity_scale = 0.2
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_8cwt8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_k4og2")
-
-[node name="TimerBeforeDragonThreat" type="Timer" parent="."]
-wait_time = 0.2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_me5nh")
 
-[connection signal="timeout" from="TimerBeforeDragonThreat" to="." method="_on_timer_before_dragon_threat_timeout"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

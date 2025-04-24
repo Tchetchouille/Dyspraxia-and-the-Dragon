@@ -14,3 +14,4 @@ func _ready() -> void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	health -= 5
 	health_bar.set_health(health)
+	body.queue_free()

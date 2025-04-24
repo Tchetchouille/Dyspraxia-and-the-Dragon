@@ -91,6 +91,7 @@ move_right={
 2d_physics/layer_6="Floor"
 2d_physics/layer_7="Hitbox"
 2d_physics/layer_8="Fireballs Dragon"
+2d_physics/layer_9="Claws"
 
 [physics]
 

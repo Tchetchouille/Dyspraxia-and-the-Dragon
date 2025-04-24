@@ -32,6 +32,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hit_box_body_entered(_body: Node2D) -> void:
+func _on_hit_box_body_entered(body: Node2D) -> void:
 	health -= 5
 	health_bar.set_health(health)
+	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
+		body.queue_free()

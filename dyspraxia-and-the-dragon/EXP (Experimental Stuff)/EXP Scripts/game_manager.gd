@@ -48,7 +48,7 @@ func fireball_attack():
 
 
 # When the claw has finished attacking, it sends a signal
-func _on_exp_left_claws_available() -> void:
+func _on_exp_left_claw_available() -> void:
 	# We check that the claw attack signal is not avaiable, as to avoid multiples in the array
 	if available_claws.has(left_claw_attack) == false:
 		# We add the signal to the list of available claw attacks
