@@ -1,8 +1,8 @@
 extends Node
 
 # Used to adapt the agressivity of the dragon
-@export var fireball_threshold : int = 50
-@export var claw_threshold : int = 25
+@export var fireball_threshold : int = 75
+@export var claw_threshold : int = 30
 var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/exp_fireball.tscn")
 # Count of currently available claws
 var claw_count : int = 2
@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Triggers a dragon action every second
 	time += delta
-	if time >= 1:
+	if time >= 0.5:
 		dragon_action()
 		time = 0
 
@@ -31,6 +31,7 @@ func dragon_action():
 	# The dragon "rolls a dice". If it is low enough and if a claw is available, it triggers a claw attack.
 	# Otherwise, if the roll is low enough, it triggers a fireball attack.
 	var chance = rng.randi_range(0, 100)
+	print(available_claws)
 	if claw_threshold >= chance and available_claws.size() > 0:
 		claw_attack()
 

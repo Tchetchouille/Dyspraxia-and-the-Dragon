@@ -45,6 +45,7 @@ anchor_bottom = 2.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]
 [connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]
