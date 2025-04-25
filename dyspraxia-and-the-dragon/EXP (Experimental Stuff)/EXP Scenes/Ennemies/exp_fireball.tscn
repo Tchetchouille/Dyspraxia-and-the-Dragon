@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqsfsi46c4js3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_fireball.gd" id="1_8cwt8"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
 
 [sub_resource type="Gradient" id="Gradient_ppv0j"]
 colors = PackedColorArray(0.704315, 0.254498, 0, 1, 0.725466, 0.483492, 0.129844, 1)
@@ -17,7 +17,7 @@ collision_mask = 4
 gravity_scale = 0.2
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_8cwt8")
+script = ExtResource("1_mi4nq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_k4og2")

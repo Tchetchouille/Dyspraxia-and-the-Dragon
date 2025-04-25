@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://btyfs2ogh11q5"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_player_health_bar.gd" id="1_yllub"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_dragon_health_bar.gd" id="2_5upj8"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/exp_player_health_bar.gd" id="1_yllub"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/exp_dragon_health_bar.gd" id="2_5upj8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d386c"]
 

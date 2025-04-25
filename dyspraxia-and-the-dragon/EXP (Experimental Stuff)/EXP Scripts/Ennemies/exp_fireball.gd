@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@export var dmg = 5
 @onready var player = $"../ExpCelestiaCharacter"
 @onready var dragon = $"../ExpDragon"
 @onready var dragon_head = $"../ExpDragon/Head"
@@ -30,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 		apply_force(Vector2.DOWN * gravity, Vector2(0, 0))
 
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	if is_reflected == false:
 		is_reflected = true
 		set_collision_layer_value(8, true)
