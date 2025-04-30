@@ -4,7 +4,7 @@ extends Node
 @export var fireball_threshold : int = 75
 @export var claw_threshold : int = 30
 var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
-@onready var player = $"../ExpCelestiaCharacter"
+@onready var player = $"../CelestiaCharacter"
 # Count of currently available claws
 var claw_count : int = 2
 # Used to count seconds

@@ -9,7 +9,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
-[node name="ExperimentalMain" type="Node"]
+[node name="Main" type="Node"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 1300)
@@ -24,10 +24,10 @@ shape = SubResource("WorldBoundaryShape2D_bavmj")
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
 
-[node name="ExpDragon" parent="." instance=ExtResource("1_1jfms")]
+[node name="Dragon" parent="." instance=ExtResource("1_1jfms")]
 position = Vector2(2200, 1200)
 
-[node name="ExpCelestiaCharacter" parent="." instance=ExtResource("2_6vsj1")]
+[node name="CelestiaCharacter" parent="." instance=ExtResource("2_6vsj1")]
 position = Vector2(250, 1100)
 
 [node name="GameManager" parent="." instance=ExtResource("3_a1aoi")]
@@ -45,8 +45,8 @@ anchor_bottom = 2.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="death" from="ExpDragon" to="GameManager" method="_on_exp_dragon_death"]
-[connection signal="death" from="ExpCelestiaCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
+[connection signal="death" from="CelestiaCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://ce61kpweab77u"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_celestia.gd" id="1_55sdg"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
 [ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_52n2e"]
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]

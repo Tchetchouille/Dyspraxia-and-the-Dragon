@@ -1,9 +1,9 @@
 extends RigidBody2D
 
 @export var dmg = 5
-@onready var player = $"../ExpCelestiaCharacter"
-@onready var dragon = $"../ExpDragon"
-@onready var dragon_head = $"../ExpDragon/Head"
+@onready var player = $"../CelestiaCharacter"
+@onready var dragon = $"../Dragon"
+@onready var dragon_head = $"../Dragon/Head"
 @export var fireball_impulse = 1600
 var gravity = 1000
 var target_offset = 0.1
