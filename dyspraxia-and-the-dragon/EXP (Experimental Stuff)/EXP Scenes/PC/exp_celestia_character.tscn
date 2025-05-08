@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce61kpweab77u"]
+[gd_scene load_steps=17 format=3 uid="uid://ce61kpweab77u"]
 
 [ext_resource type="Script" uid="uid://dqervw2ux7u7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
 [ext_resource type="Texture2D" uid="uid://b3pw83omr71ww" path="res://Assets/PC Pictures/dyspraxia_body.png" id="2_da8me"]
@@ -9,9 +9,11 @@
 [ext_resource type="Script" uid="uid://dscgvmi7owpsf" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
 [ext_resource type="Texture2D" uid="uid://cn2ako2466gvt" path="res://Assets/PC Pictures/d_lower_right_arm.png" id="5_llwpt"]
 [ext_resource type="Texture2D" uid="uid://v1355rel58ny" path="res://Assets/PC Pictures/d_upper_left_arm.png" id="6_0x1h6"]
+[ext_resource type="Texture2D" uid="uid://dk7bc7k0dy2tb" path="res://Assets/PC Pictures/pin.png" id="8_dclej"]
 [ext_resource type="Texture2D" uid="uid://bst24gxd110ah" path="res://Assets/PC Pictures/left_hand.png" id="9_pwsn2"]
 [ext_resource type="Texture2D" uid="uid://ccntot51tqaet" path="res://Assets/PC Pictures/dyspraxia_upper_right_arm.png" id="10_pwsn2"]
 [ext_resource type="Texture2D" uid="uid://dwh4exra4pehj" path="res://Assets/PC Pictures/sword.png" id="10_yx6nn"]
+[ext_resource type="Texture2D" uid="uid://bwo7xsph7pbfg" path="res://Assets/PC Pictures/stick2.png" id="12_56tte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rcr"]
 
@@ -19,7 +21,6 @@
 radius = 7.07107
 
 [node name="ExpCelestia" type="CharacterBody2D"]
-position = Vector2(0, 90)
 collision_mask = 49
 script = ExtResource("1_55sdg")
 
@@ -64,6 +65,11 @@ position = Vector2(0, -40)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 
+[node name="Sprite2D" type="Sprite2D" parent="RightArm/UpperRightArm/PinJoint2D"]
+rotation = 3.14159
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
 [node name="RightHand" type="RigidBody2D" parent="RightArm"]
 position = Vector2(-30, 0)
 rotation = 1.5708
@@ -105,6 +111,15 @@ position = Vector2(0, -50)
 node_a = NodePath("..")
 node_b = NodePath("../../UpperRightArm")
 
+[node name="Sprite2D" type="Sprite2D" parent="RightArm/LowerRightArm/PinJoint2D"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
+[node name="Sprite2D2" type="Sprite2D" parent="RightArm/LowerRightArm/PinJoint2D"]
+position = Vector2(0.000221252, 100)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
 [node name="LeftArm1" type="Node2D" parent="."]
 position = Vector2(-40, -90)
 rotation = 3.14159
@@ -129,6 +144,10 @@ position = Vector2(0, -40)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm1/UpperLeftArm/PinJoint2D"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
 [node name="Sword" type="Node2D" parent="."]
 position = Vector2(0, -90)
 
@@ -141,9 +160,19 @@ script = ExtResource("3_r13uh")
 node_a = NodePath("..")
 node_b = NodePath("../../../LeftArm2/LeftHand")
 
+[node name="Sprite2D" type="Sprite2D" parent="Sword/Handle/LeftPin"]
+rotation = 1.57079
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
 [node name="RightPin" type="PinJoint2D" parent="Sword/Handle"]
 node_a = NodePath("..")
 node_b = NodePath("../../../RightArm/RightHand")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword/Handle/RightPin"]
+rotation = 1.57079
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Handle"]
 shape = SubResource("CircleShape2D_gctc5")
@@ -153,6 +182,13 @@ rotation = 1.5708
 collision_layer = 4
 collision_mask = 12
 script = ExtResource("4_6s2yu")
+
+[node name="SwordStick" type="Sprite2D" parent="Sword/Blade"]
+position = Vector2(200, 5)
+rotation = -0.0349066
+scale = Vector2(0.24, 0.12)
+texture = ExtResource("12_56tte")
+offset = Vector2(850, 59)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sword/Blade"]
 position = Vector2(110, 0)
@@ -187,6 +223,12 @@ position = Vector2(0, -10)
 node_a = NodePath("..")
 node_b = NodePath("../../LowerLeftArm")
 
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm2/LeftHand/PinJoint2D"]
+position = Vector2(0, 20)
+rotation = 3.14159
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
 [node name="LowerLeftArm" type="RigidBody2D" parent="LeftArm2"]
 position = Vector2(-70, -90)
 rotation = -1.5708
@@ -206,6 +248,17 @@ texture = ExtResource("10_pwsn2")
 position = Vector2(0, -50)
 node_a = NodePath("..")
 node_b = NodePath("../../../LeftArm1/UpperLeftArm")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm2/LowerLeftArm/PinJoint2D"]
+position = Vector2(-0.000221252, 100)
+rotation = 3.14159
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LeftArm2/LowerLeftArm/PinJoint2D"]
+rotation = 3.14159
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dclej")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_mask = 264
