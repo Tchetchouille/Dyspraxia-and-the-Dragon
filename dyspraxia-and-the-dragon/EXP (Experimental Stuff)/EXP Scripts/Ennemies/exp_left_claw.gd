@@ -5,12 +5,11 @@ extends AnimatableBody2D
 @export var attack_speed = 1
 @export var recovery_speed = 0.8
 @export var overshoot_length = 100
+var initial_pos : Vector2
 signal available
-
-
+	
 func _on_game_manager_left_claw_attack(target) -> void:
 	# Attack phase
-	var initial_pos = position
 	var overshoot = (position - target).normalized() * -overshoot_length
 	var distance = (position - target).length() * 0.001
 	# Tween used for the attack

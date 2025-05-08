@@ -1,62 +1,45 @@
-[gd_scene load_steps=17 format=3 uid="uid://ce61kpweab77u"]
+[gd_scene load_steps=15 format=3 uid="uid://ce61kpweab77u"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
-[ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_52n2e"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2c5g"]
-size = Vector2(99, 197)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_dkdim"]
+[ext_resource type="Script" uid="uid://dqervw2ux7u7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
+[ext_resource type="Texture2D" uid="uid://b3pw83omr71ww" path="res://Assets/PC Pictures/dyspraxia_body.png" id="2_da8me"]
+[ext_resource type="Texture2D" uid="uid://c28n25rgvn2x4" path="res://Assets/PC Pictures/stick1.png" id="2_lrbdl"]
+[ext_resource type="Texture2D" uid="uid://cywrtb7sp4ygn" path="res://Assets/PC Pictures/d_upper_right_arm.png" id="3_nvo4m"]
+[ext_resource type="Script" uid="uid://c764c8cq48hb7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
+[ext_resource type="Texture2D" uid="uid://dpk7cidvthrjm" path="res://Assets/PC Pictures/right_hand.png" id="4_3hmvt"]
+[ext_resource type="Script" uid="uid://dscgvmi7owpsf" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
+[ext_resource type="Texture2D" uid="uid://cn2ako2466gvt" path="res://Assets/PC Pictures/d_lower_right_arm.png" id="5_llwpt"]
+[ext_resource type="Texture2D" uid="uid://v1355rel58ny" path="res://Assets/PC Pictures/d_upper_left_arm.png" id="6_0x1h6"]
+[ext_resource type="Texture2D" uid="uid://bst24gxd110ah" path="res://Assets/PC Pictures/left_hand.png" id="9_pwsn2"]
+[ext_resource type="Texture2D" uid="uid://ccntot51tqaet" path="res://Assets/PC Pictures/dyspraxia_upper_right_arm.png" id="10_pwsn2"]
+[ext_resource type="Texture2D" uid="uid://dwh4exra4pehj" path="res://Assets/PC Pictures/sword.png" id="10_yx6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rcr"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_y370a"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_gctc5"]
 radius = 7.07107
-
-[sub_resource type="Gradient" id="Gradient_7aa1e"]
-colors = PackedColorArray(0.371367, 0.226585, 0.140964, 1, 0.372549, 0.227451, 0.141176, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwwrr"]
-gradient = SubResource("Gradient_7aa1e")
-
-[sub_resource type="Gradient" id="Gradient_h5d87"]
-colors = PackedColorArray(0.61339, 0.61339, 0.61339, 1, 0.419813, 0.419813, 0.419813, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8edob"]
-gradient = SubResource("Gradient_h5d87")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqk2"]
-size = Vector2(190, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrwe5"]
-size = Vector2(100, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1afq"]
-size = Vector2(67, 66)
 
 [node name="ExpCelestia" type="CharacterBody2D"]
 position = Vector2(0, 90)
 collision_mask = 49
 script = ExtResource("1_55sdg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_w2c5g")
-
 [node name="Model" type="Node2D" parent="."]
 
-[node name="Body" type="Sprite2D" parent="Model"]
-scale = Vector2(100, 200)
-texture = SubResource("CanvasTexture_dkdim")
+[node name="BodyStick" type="Sprite2D" parent="Model"]
+position = Vector2(0, 200)
+rotation = 1.5708
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_lrbdl")
 
-[node name="Head" type="Sprite2D" parent="Model"]
-position = Vector2(0, -130)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_52n2e")
+[node name="Body" type="Sprite2D" parent="Model"]
+position = Vector2(5, -25)
+rotation = -0.0349066
+scale = Vector2(0.11791, 0.11791)
+texture = ExtResource("2_da8me")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-112, 96, -108, 97, -101, 97, -91, 95, -83, 91, -74, 85, -65, 75, -60, 67, -55, 56, -53, 48, -53, 35, -52, 24, -51, 6, -51, -11, -50, -24, -49, -37, -49, -52, -48, -62, -44, -74, -35, -91, -21, -104, -25, -114, -27, -132, -27, -143, -11, -147, 4, -148, 27, -144, 27, -128, 24, -114, 21, -103, 31, -97, 40, -89, 47, -76, 50, -63, 52, -33, 53, 9, 55, 53, 61, 71, 68, 81, 80, 91, 97, 99, 110, 102, -111, 98)
 
 [node name="RightArm" type="Node2D" parent="."]
 position = Vector2(40, -90)
@@ -72,8 +55,9 @@ scale = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightArm/UpperRightArm"]
-scale = Vector2(20, 100)
-texture = SubResource("CanvasTexture_y370a")
+rotation = -0.0261799
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_nvo4m")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RightArm/UpperRightArm"]
 position = Vector2(0, -40)
@@ -91,8 +75,10 @@ scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightArm/RightHand"]
-scale = Vector2(20, 40)
-texture = SubResource("CanvasTexture_y370a")
+position = Vector2(-3, 0)
+rotation = 3.33358
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_3hmvt")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RightArm/RightHand"]
 position = Vector2(0, -10)
@@ -110,8 +96,9 @@ scale = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightArm/LowerRightArm"]
-scale = Vector2(20, 120)
-texture = SubResource("CanvasTexture_y370a")
+position = Vector2(2, 0)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("5_llwpt")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RightArm/LowerRightArm"]
 position = Vector2(0, -50)
@@ -133,8 +120,9 @@ scale = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftArm1/UpperLeftArm"]
-scale = Vector2(20, 100)
-texture = SubResource("CanvasTexture_y370a")
+position = Vector2(2, 0)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("6_0x1h6")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="LeftArm1/UpperLeftArm"]
 position = Vector2(0, -40)
@@ -166,19 +154,15 @@ collision_layer = 4
 collision_mask = 12
 script = ExtResource("4_6s2yu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sword/Blade"]
-position = Vector2(15, 0)
-scale = Vector2(0.8, 0.2)
-texture = SubResource("GradientTexture2D_uwwrr")
-
 [node name="Sprite2D" type="Sprite2D" parent="Sword/Blade"]
 position = Vector2(110, 0)
-scale = Vector2(3, 0.4)
-texture = SubResource("GradientTexture2D_8edob")
+rotation = -1.5708
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("10_yx6nn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Blade"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Sword/Blade"]
 position = Vector2(111, 0)
-shape = SubResource("RectangleShape2D_bdqk2")
+polygon = PackedVector2Array(-79, 12.9999, -79, -11.0001, 93, -8.00074, 116, 3.99918, 95.0001, 14.9993)
 
 [node name="LeftArm2" type="Node2D" parent="."]
 
@@ -193,8 +177,10 @@ scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftArm2/LeftHand"]
-scale = Vector2(20, 40)
-texture = SubResource("CanvasTexture_y370a")
+position = Vector2(-1, 0)
+rotation = 3.31613
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("9_pwsn2")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="LeftArm2/LeftHand"]
 position = Vector2(0, -10)
@@ -212,8 +198,9 @@ scale = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_e1rcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftArm2/LowerLeftArm"]
-scale = Vector2(20, 120)
-texture = SubResource("CanvasTexture_y370a")
+position = Vector2(-2, 0)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("10_pwsn2")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="LeftArm2/LowerLeftArm"]
 position = Vector2(0, -50)
@@ -223,11 +210,7 @@ node_b = NodePath("../../../LeftArm1/UpperLeftArm")
 [node name="HitBox" type="Area2D" parent="."]
 collision_mask = 264
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("RectangleShape2D_jrwe5")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-0.5, -132)
-shape = SubResource("RectangleShape2D_u1afq")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(-112, 96, -108, 97, -101, 97, -91, 95, -83, 91, -74, 85, -65, 75, -60, 67, -55, 56, -53, 48, -53, 35, -52, 24, -51, 6, -51, -11, -50, -24, -49, -37, -49, -52, -48, -62, -44, -74, -35, -91, -21, -104, -25, -114, -27, -132, -27, -143, -11, -147, 4, -148, 27, -144, 27, -128, 24, -114, 21, -103, 31, -97, 40, -89, 47, -76, 50, -63, 52, -33, 53, 9, 55, 53, 61, 71, 68, 81, 80, 91, 97, 99, 110, 102, -111, 98)
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

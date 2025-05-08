@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqsfsi46c4js3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
+[ext_resource type="Script" uid="uid://mkbqs3xjhwia" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
 
 [sub_resource type="Gradient" id="Gradient_ppv0j"]
 colors = PackedColorArray(0.704315, 0.254498, 0, 1, 0.725466, 0.483492, 0.129844, 1)

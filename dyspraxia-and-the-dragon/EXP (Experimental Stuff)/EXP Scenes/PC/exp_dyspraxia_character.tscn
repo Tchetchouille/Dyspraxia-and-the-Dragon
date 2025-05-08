@@ -1,8 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcim6q78vnor3"]
+[gd_scene load_steps=12 format=3 uid="uid://bcim6q78vnor3"]
 
-[ext_resource type="Script" uid="uid://bwq6soga6ysgv" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_body.gd" id="1_3duau"]
 [ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_eq650"]
-[ext_resource type="Script" uid="uid://c5nfjb7mstb8l" path="res://EXP (Experimental Stuff)/EXP Scripts/exp_d_sword.gd" id="3_llanw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2c5g"]
 size = Vector2(50, 100)
@@ -33,7 +31,6 @@ radius = 6.0
 
 [node name="ExpDyspraxia" type="CharacterBody2D"]
 position = Vector2(0, 20)
-script = ExtResource("1_3duau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w2c5g")
@@ -165,7 +162,6 @@ shape = SubResource("RectangleShape2D_mfnpv")
 [node name="Sword Tip" type="CharacterBody2D" parent="Sword"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("3_llanw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Sword Tip"]
 shape = SubResource("CircleShape2D_pml3s")

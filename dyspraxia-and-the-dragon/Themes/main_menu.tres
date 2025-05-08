@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cwihu1ipcd6n6"]
+
+[resource]
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 40
+RichTextLabel/font_sizes/normal_font_size = 100
