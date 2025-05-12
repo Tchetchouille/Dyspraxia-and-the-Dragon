@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	stored_left_input = left_stick_input
 	stored_right_input = right_stick_input
 	
-func dyspraxia_process_hand(l_input, delta):
+func dyspraxia_process_hand(l_input, _delta):
 	var new_l_x = l_input.x + l_input.x * randf_range(-dyspraxia_hand, dyspraxia_hand)
 	var new_l_y = l_input.y + l_input.y * randf_range(-dyspraxia_hand, dyspraxia_hand)
 	l_input = Vector2(new_l_x, new_l_y)

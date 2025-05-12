@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqsfsi46c4js3"]
+[gd_scene load_steps=6 format=3 uid="uid://cqsfsi46c4js3"]
 
 [ext_resource type="Script" uid="uid://mkbqs3xjhwia" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
+[ext_resource type="Texture2D" uid="uid://8wts4b4dofbo" path="res://Assets/Fireball Pictures/o1.png" id="2_4b3eu"]
+[ext_resource type="Texture2D" uid="uid://5dqowesghfwa" path="res://Assets/Fireball Pictures/y1.png" id="2_05c8o"]
+[ext_resource type="Texture2D" uid="uid://c6m5b0sc2exli" path="res://Assets/Fireball Pictures/r1.png" id="2_rnf45"]
 
-[sub_resource type="Gradient" id="Gradient_ppv0j"]
-colors = PackedColorArray(0.704315, 0.254498, 0, 1, 0.725466, 0.483492, 0.129844, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4og2"]
-gradient = SubResource("Gradient_ppv0j")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_me5nh"]
-radius = 36.4006
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05c8o"]
+radius = 37.0
+height = 90.0
 
 [node name="ExpFireball" type="RigidBody2D"]
 collision_layer = 8
@@ -19,13 +17,27 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_mi4nq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_k4og2")
+[node name="RSprite" type="Sprite2D" parent="."]
+position = Vector2(41, -3)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_rnf45")
+
+[node name="OSprite" type="Sprite2D" parent="."]
+position = Vector2(11, 1)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_4b3eu")
+
+[node name="YSprite" type="Sprite2D" parent="."]
+position = Vector2(-9, 4)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_05c8o")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_me5nh")
+position = Vector2(2, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_05c8o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

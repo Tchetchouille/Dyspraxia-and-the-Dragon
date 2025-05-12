@@ -11,6 +11,7 @@ func _ready() -> void:
 	health_bar.init_health(health)
 
 
+
 func _process(_delta: float) -> void:
 	if health <= 0:
 		death.emit()

@@ -37,8 +37,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
 		body.queue_free()
 
-func dyspraxia_process(delta):
-
+func dyspraxia_process(_delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		# For Dyspraxia, we add a little randomness to throw the player off
@@ -52,7 +51,7 @@ func dyspraxia_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-func celestia_process(delta):
+func celestia_process(_delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

@@ -1,8 +1,8 @@
 extends Node
 
 # Used to adapt the agressivity of the dragon
-@export var fireball_threshold : int = 75
-@export var claw_threshold : int = 30
+@export var fireball_threshold : int = 90
+@export var claw_threshold : int = 0
 var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
 @onready var player = $"../CelestiaCharacter"
 # Count of currently available claws
