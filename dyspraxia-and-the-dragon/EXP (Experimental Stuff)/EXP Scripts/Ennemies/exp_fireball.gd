@@ -9,24 +9,30 @@ extends RigidBody2D
 @onready var red_sprite = $RSprite
 @onready var yellow_sprites = [
 	preload("res://Assets/Fireball Pictures/y1.png"),
-	preload("res://Assets/Fireball Pictures/y2.png")
+	preload("res://Assets/Fireball Pictures/y2.png"),
+	preload("res://Assets/Fireball Pictures/y3.png"),
+	preload("res://Assets/Fireball Pictures/y4.png")
 ]
 @onready var orange_sprites = [
 	preload("res://Assets/Fireball Pictures/o1.png"),
-	preload("res://Assets/Fireball Pictures/o2.png")
+	preload("res://Assets/Fireball Pictures/o2.png"),
+	preload("res://Assets/Fireball Pictures/o3.png"),
+	preload("res://Assets/Fireball Pictures/o4.png")
 ]
 @onready var red_sprites = [
 	preload("res://Assets/Fireball Pictures/r1.png"),
-	preload("res://Assets/Fireball Pictures/r2.png")
+	preload("res://Assets/Fireball Pictures/r2.png"),
+	preload("res://Assets/Fireball Pictures/r3.png"),
+	preload("res://Assets/Fireball Pictures/r4.png")
 ]
 var y_index = 0
 var o_index = 0
 var r_index = 0
 
-@export var fireball_impulse = 0
+@export var fireball_impulse = 500
 var gravity = 1000
 var target_offset = 0.1
-var impulse_offset = 200
+var impulse_offset = 100
 var is_reflected = false
 # Used to store the gravity scale
 # So the fireball can start with no gravity and aim for the player more precisely
