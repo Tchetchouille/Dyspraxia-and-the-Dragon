@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://xt7goiay5plq"]
+[gd_scene load_steps=2 format=3 uid="uid://cv1h6qws3dbrs"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_86hym"]
 
@@ -47,8 +47,6 @@ theme = ExtResource("1_86hym")
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/normal_font_size = 50
 text = "et le"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Dragon" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -56,5 +54,3 @@ size_flags_vertical = 3
 theme = ExtResource("1_86hym")
 text = "DRAGON
 "
-horizontal_alignment = 2
-vertical_alignment = 2

@@ -29,10 +29,10 @@ var y_index = 0
 var o_index = 0
 var r_index = 0
 
-@export var fireball_impulse = 500
+@export var fireball_impulse = 1000
 var gravity = 1000
 var target_offset = 0.1
-var impulse_offset = 100
+var impulse_offset = 200
 var is_reflected = false
 # Used to store the gravity scale
 # So the fireball can start with no gravity and aim for the player more precisely
