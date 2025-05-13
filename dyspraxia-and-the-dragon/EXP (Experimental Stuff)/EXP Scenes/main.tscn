@@ -35,10 +35,10 @@ position = Vector2(250, 1100)
 [node name="GameManager" parent="." instance=ExtResource("3_a1aoi")]
 
 [node name="ExpLeftClaw" parent="." instance=ExtResource("4_x0hwv")]
-position = Vector2(1950, 1200)
+position = Vector2(1800, 1200)
 
 [node name="ExpRightClaw" parent="." instance=ExtResource("5_eyi82")]
-position = Vector2(2050, 1200)
+position = Vector2(1700, 1200)
 
 [node name="MainUi" parent="." instance=ExtResource("6_a8mq2")]
 anchors_preset = -1
@@ -49,6 +49,7 @@ grow_vertical = 1
 
 [connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
 [connection signal="death" from="CelestiaCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="down_fireball" from="GameManager" to="Dragon" method="_on_game_manager_down_fireball"]
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]

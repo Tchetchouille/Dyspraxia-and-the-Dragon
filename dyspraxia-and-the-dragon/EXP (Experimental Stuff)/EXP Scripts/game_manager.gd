@@ -1,9 +1,8 @@
 extends Node
 
 # Used to adapt the agressivity of the dragon
-@export var fireball_threshold : int = 60
+@export var fireball_threshold : int = 30
 @export var claw_threshold : int = -10
-var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
 @onready var player = $"../CelestiaCharacter"
 # Count of currently available claws
 var claw_count : int = 2
@@ -13,6 +12,9 @@ var rng = RandomNumberGenerator.new()
 # Signal used to trigger the claw attacks
 signal left_claw_attack(target)
 signal right_claw_attack(target)
+# Signal used to trigger the fireballs attack
+signal up_fireball(target)
+signal down_fireball(target)
 # Array containing the claws that are available for attacks
 var available_claws : Array = [left_claw_attack, right_claw_attack]
 
@@ -36,16 +38,15 @@ func dragon_action(target):
 		claw_attack(target)
 
 	elif fireball_threshold >= chance:
-		fireball_attack()		
+		down_fireball_attack()		
 
 func claw_attack(target):
 	var r = rng.randi_range(0, available_claws.size()-1)
 	available_claws[r].emit(target)
 	available_claws.remove_at(r)
 
-func fireball_attack():
-	var fb_instance = fireball.instantiate()
-	$"..".add_child(fb_instance)	
+func down_fireball_attack():
+	down_fireball.emit()
 
 
 # When the claw has finished attacking, it sends a signal

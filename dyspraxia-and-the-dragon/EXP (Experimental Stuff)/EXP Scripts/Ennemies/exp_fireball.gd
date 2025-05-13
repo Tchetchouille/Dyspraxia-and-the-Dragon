@@ -2,8 +2,7 @@ extends RigidBody2D
 
 @export var dmg = 5
 @onready var player = $"../CelestiaCharacter"
-@onready var dragon = $"../Dragon"
-@onready var dragon_head = $"../Dragon/Head"
+@onready var fireball_spawn = $"../Dragon/FireballSpawn"
 @onready var yellow_sprite = $YSprite
 @onready var orange_sprite = $OSprite
 @onready var red_sprite = $RSprite
@@ -42,7 +41,7 @@ var frame_count = 0
 func _ready() -> void:
 	original_gravity_scale = gravity_scale
 	gravity_scale = 0
-	var spawn_point = dragon_head.global_position + Vector2(-50, 0)
+	var spawn_point = fireball_spawn.global_position
 	position = spawn_point
 	var x_offset = randf_range(-target_offset,target_offset)
 	var y_offset = randf_range(-target_offset,target_offset)
@@ -69,7 +68,6 @@ func _flicker(t, start, delay):
 		y_indexes.remove_at(y_index)
 		y_index = y_indexes.pick_random()
 		yellow_sprite.texture = yellow_sprites[y_index]
-		print(y_index)
 	if (t - delay) % start == 0:
 		var o_indexes = range(orange_sprites.size())
 		o_indexes.remove_at(o_index)
