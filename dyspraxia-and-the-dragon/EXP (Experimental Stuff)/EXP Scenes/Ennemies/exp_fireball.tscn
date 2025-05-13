@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqsfsi46c4js3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
+[ext_resource type="Script" uid="uid://mkbqs3xjhwia" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
 [ext_resource type="Texture2D" uid="uid://8wts4b4dofbo" path="res://Assets/Fireball Pictures/o1.png" id="2_4b3eu"]
 [ext_resource type="Texture2D" uid="uid://5dqowesghfwa" path="res://Assets/Fireball Pictures/y1.png" id="2_05c8o"]
 [ext_resource type="Texture2D" uid="uid://c6m5b0sc2exli" path="res://Assets/Fireball Pictures/r1.png" id="2_rnf45"]
@@ -17,18 +17,21 @@ max_contacts_reported = 1
 script = ExtResource("1_mi4nq")
 
 [node name="RSprite" type="Sprite2D" parent="."]
-position = Vector2(46.6308, 3.32338)
+z_index = 1
+position = Vector2(42, 4)
 rotation = 0.122173
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_rnf45")
 
 [node name="OSprite" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(15.6308, 4.32338)
 rotation = 0.0523599
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_4b3eu")
 
 [node name="YSprite" type="Sprite2D" parent="."]
+z_index = 3
 position = Vector2(-4.36916, 3.32338)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_05c8o")
