@@ -1,7 +1,7 @@
 extends Node
 
 # Used to adapt the agressivity of the dragon
-@export var fireball_threshold : int = 30
+@export var fireball_threshold : int = 60
 @export var claw_threshold : int = -10
 @onready var player = $"../CelestiaCharacter"
 # Count of currently available claws
@@ -13,14 +13,10 @@ var rng = RandomNumberGenerator.new()
 signal left_claw_attack(target)
 signal right_claw_attack(target)
 # Signal used to trigger the fireballs attack
-signal up_fireball(target)
-signal down_fireball(target)
+signal up_fireball()
+signal down_fireball()
 # Array containing the claws that are available for attacks
 var available_claws : Array = [left_claw_attack, right_claw_attack]
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,7 +34,7 @@ func dragon_action(target):
 		claw_attack(target)
 
 	elif fireball_threshold >= chance:
-		down_fireball_attack()		
+		down_fireball_attack()
 
 func claw_attack(target):
 	var r = rng.randi_range(0, available_claws.size()-1)

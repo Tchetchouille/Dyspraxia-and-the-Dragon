@@ -35,9 +35,11 @@ position = Vector2(250, 1100)
 [node name="GameManager" parent="." instance=ExtResource("3_a1aoi")]
 
 [node name="ExpLeftClaw" parent="." instance=ExtResource("4_x0hwv")]
+visible = false
 position = Vector2(1800, 1200)
 
 [node name="ExpRightClaw" parent="." instance=ExtResource("5_eyi82")]
+visible = false
 position = Vector2(1700, 1200)
 
 [node name="MainUi" parent="." instance=ExtResource("6_a8mq2")]

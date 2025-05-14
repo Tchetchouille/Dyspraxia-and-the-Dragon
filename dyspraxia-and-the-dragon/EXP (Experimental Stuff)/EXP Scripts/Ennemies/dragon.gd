@@ -12,10 +12,17 @@ var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_f
 	$Animation/RestUp,
 	$Animation/UpOpen
 ]
-var current_frame = 1
-var next_frame = 0
-var animation_state = "rest"
+var top_fb_frame
+var top_rest_frame = 2
+var bottom_rest_frame = 1
+var bottom_fb_frame = 0
+	
+# Animation variables
+var up_fireball = false
+var down_fireball = false
 var target_frame = 2
+var current_frame = 1
+var last_frame = 2
 
 func _ready() -> void:
 	health_bar.init_health(health)
@@ -25,6 +32,7 @@ func _ready() -> void:
 		frame.visible = false
 	animation_frames[current_frame].set_process(true)
 	animation_frames[current_frame].visible = true
+	top_fb_frame = animation_frames.size() -1
 
 
 
@@ -38,39 +46,45 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	health_bar.set_health(health)
 	body.queue_free()
 
-func _animate(frame_index):
-	animation_frames[current_frame].set_process(false)
-	animation_frames[current_frame].visible = false
-	animation_frames[frame_index].set_process(true)
-	animation_frames[frame_index].visible = true
-
 
 func _on_animation_timer_timeout() -> void:
-	# If the target is reached, we define the next target
-	if next_frame == target_frame:
-		# We define the next target based on the animation state
-		match animation_state:
-			"rest":
-				if current_frame < target_frame:
-					target_frame = 1
-				elif current_frame > target_frame:
-					target_frame = 2
-			"down_fireball":
-				animation_state = "rest"
-				var fb_instance = fireball.instantiate()
-				$"..".add_child(fb_instance)
-				target_frame = 0
-			"up_fireball":
-					target_frame = 3
-	_animate(next_frame)
-	current_frame = next_frame
-	if next_frame > target_frame:
-		next_frame -= 1
-	elif next_frame < target_frame:
-		next_frame += 1
-	print(str(current_frame) + " " + str(next_frame))	
+	# If we have reached the animation target, we define the next one
+	if current_frame == target_frame:
+		match current_frame:
+			top_fb_frame:
+				target_frame = top_rest_frame
+			top_rest_frame:
+				if up_fireball:
+					target_frame = top_fb_frame
+				else:
+					target_frame = bottom_rest_frame
+			bottom_rest_frame:
+				if down_fireball:
+					target_frame = bottom_fb_frame
+				else:
+					target_frame = top_rest_frame
+			bottom_fb_frame:
+				target_frame = bottom_rest_frame
+				if down_fireball:
+					var fb_instance = fireball.instantiate()
+					$"..".add_child(fb_instance)
+					down_fireball = false
+	# Animating
+	_animate()
+	print(str(current_frame) + " " + str(target_frame))
+	# We then update the current and last frames
+	last_frame = current_frame
+	if current_frame < target_frame:
+		current_frame += 1
+	elif current_frame > target_frame:
+		current_frame -= 1
 	
 
+func _animate():
+	animation_frames[last_frame].set_process(false)
+	animation_frames[last_frame].visible = false
+	animation_frames[current_frame].set_process(true)
+	animation_frames[current_frame].visible = true
 
 func _on_game_manager_down_fireball() -> void:
-	animation_state = "down_fireball"
+	down_fireball = true
