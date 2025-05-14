@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var dmg = 5
 @onready var player = $"../CelestiaCharacter"
 @onready var fireball_spawn = $"../Dragon/UpFireballSpawn"
+@onready var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")
 @onready var yellow_sprite = $YSprite
 @onready var orange_sprite = $OSprite
 @onready var red_sprite = $RSprite
@@ -76,11 +77,11 @@ func _flicker(t, start, delay):
 		red_sprite.texture = red_sprites[r_index]
 
 func _emit_particles():
-	for child in $Particles.get_children():
-		if child.get_class() == "CPUParticles2D":
-			child.emitting = true
-		if child.get_class() == "Timer":
-			child.start()
+	var particles_instance = particles.instantiate()
+	particles_instance.position = global_position
+	$"..".add_child(particles_instance)
+	for particle in particles_instance.get_child(0).get_children():
+		particle.restart()
 
 func _on_timer_timeout() -> void:
 	position = player.global_position - Vector2(0, 1500)

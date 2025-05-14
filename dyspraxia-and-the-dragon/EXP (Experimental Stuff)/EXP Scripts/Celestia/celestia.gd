@@ -8,8 +8,8 @@ var health = 100
 var dyspraxia = true
 signal death
 
-@onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
-
+@onready var health_bar = get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
+@onready var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")
 
 func _ready() -> void:
 	health_bar.init_health(health)
@@ -36,6 +36,14 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	health_bar.set_health(health)
 	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
 		body.queue_free()
+		_emit_particles(body)
+
+func _emit_particles(body):
+	var particles_instance = particles.instantiate()
+	particles_instance.position = body.global_position
+	$"..".add_child(particles_instance)
+	for particle in particles_instance.get_child(1).get_children():
+		particle.restart()
 
 func dyspraxia_process(_delta):
 	# Handle jump.

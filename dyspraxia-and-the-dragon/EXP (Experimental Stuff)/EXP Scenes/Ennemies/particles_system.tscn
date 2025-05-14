@@ -1,49 +1,227 @@
-[gd_scene load_steps=4 format=3 uid="uid://kqfnvtcuwoav"]
+[gd_scene load_steps=8 format=3 uid="uid://kqfnvtcuwoav"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/particles.gd" id="1_i4ogd"]
+[ext_resource type="Script" uid="uid://cqybs1m7tk0um" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/particles.gd" id="1_i4ogd"]
 [ext_resource type="Texture2D" uid="uid://dj6elmjr2tgh0" path="res://Assets/Particle Pictures/o_1_1.png" id="2_33q7v"]
 [ext_resource type="Texture2D" uid="uid://dixayqxied48w" path="res://Assets/Particle Pictures/o_1_2.png" id="3_l37f2"]
+[ext_resource type="Texture2D" uid="uid://cq2oy8hygkuh5" path="res://Assets/Particle Pictures/y_1_1.png" id="4_gcstc"]
+[ext_resource type="Texture2D" uid="uid://okfmq1qpgb23" path="res://Assets/Particle Pictures/y_1_2.png" id="5_y2ev2"]
+[ext_resource type="Texture2D" uid="uid://d2cp3uyrnermp" path="res://Assets/Particle Pictures/r_1_1.png" id="6_1ktkl"]
+[ext_resource type="Texture2D" uid="uid://6eecjgk44ato" path="res://Assets/Particle Pictures/r_1_2.png" id="7_o2wmv"]
 
-[node name="Particles" type="Node2D"]
+[node name="ParticlesSystem" type="Node2D"]
 script = ExtResource("1_i4ogd")
 
-[node name="o_1_1" type="CPUParticles2D" parent="."]
+[node name="BounceParticles" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="o_1_1" type="CPUParticles2D" parent="BounceParticles"]
 emitting = false
+amount = 1
+texture = ExtResource("2_33q7v")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("2_33q7v")
-emission_shape = 1
-emission_sphere_radius = 30.0
 spread = 180.0
 gravity = Vector2(0, 1000)
-initial_velocity_min = 120.0
+initial_velocity_min = 50.0
 initial_velocity_max = 160.0
 angular_velocity_min = -1000.0
 angular_velocity_max = 1000.0
 angle_max = 360.0
-scale_amount_min = 0.2
+scale_amount_min = 0.1
 scale_amount_max = 0.2
 
-[node name="o_1_2" type="CPUParticles2D" parent="."]
+[node name="o_1_2" type="CPUParticles2D" parent="BounceParticles"]
 emitting = false
+amount = 1
+texture = ExtResource("3_l37f2")
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("3_l37f2")
-emission_shape = 1
-emission_sphere_radius = 30.0
 spread = 180.0
 gravity = Vector2(0, 1000)
-initial_velocity_min = 120.0
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="o_1_3" type="CPUParticles2D" parent="BounceParticles"]
+emitting = false
+amount = 1
+texture = ExtResource("4_gcstc")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="o_1_4" type="CPUParticles2D" parent="BounceParticles"]
+emitting = false
+amount = 1
+texture = ExtResource("5_y2ev2")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="o_1_5" type="CPUParticles2D" parent="BounceParticles"]
+emitting = false
+amount = 1
+texture = ExtResource("6_1ktkl")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="o_1_6" type="CPUParticles2D" parent="BounceParticles"]
+emitting = false
+amount = 1
+texture = ExtResource("7_o2wmv")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="DestructParticles" type="Node2D" parent="."]
+
+[node name="o_1_1" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("2_33q7v")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+
+[node name="o_1_2" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("3_l37f2")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
 initial_velocity_max = 160.0
 angular_velocity_min = -1000.0
 angular_velocity_max = 1000.0
 angle_max = 360.0
 scale_amount_min = 0.2
-scale_amount_max = 0.2
+scale_amount_max = 0.3
+
+[node name="o_1_3" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("4_gcstc")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+
+[node name="o_1_4" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("5_y2ev2")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+
+[node name="o_1_5" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("6_1ktkl")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+
+[node name="o_1_6" type="CPUParticles2D" parent="DestructParticles"]
+emitting = false
+amount = 4
+texture = ExtResource("7_o2wmv")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 1000.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

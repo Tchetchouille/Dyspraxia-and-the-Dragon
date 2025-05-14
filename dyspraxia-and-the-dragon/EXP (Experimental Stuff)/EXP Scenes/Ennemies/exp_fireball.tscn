@@ -1,17 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqsfsi46c4js3"]
+[gd_scene load_steps=6 format=3 uid="uid://cqsfsi46c4js3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
+[ext_resource type="Script" uid="uid://mkbqs3xjhwia" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
 [ext_resource type="Texture2D" uid="uid://8wts4b4dofbo" path="res://Assets/Fireball Pictures/o1.png" id="2_4b3eu"]
 [ext_resource type="Texture2D" uid="uid://5dqowesghfwa" path="res://Assets/Fireball Pictures/y1.png" id="2_05c8o"]
 [ext_resource type="Texture2D" uid="uid://c6m5b0sc2exli" path="res://Assets/Fireball Pictures/r1.png" id="2_rnf45"]
-[ext_resource type="PackedScene" uid="uid://kqfnvtcuwoav" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn" id="5_h1g2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a088f"]
 radius = 37.6563
 
 [node name="ExpFireball" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 12
 gravity_scale = 0.2
 contact_monitor = true
 max_contacts_reported = 1
@@ -42,8 +41,6 @@ texture = ExtResource("2_05c8o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.69297
 shape = SubResource("CircleShape2D_a088f")
-
-[node name="Particles" parent="." instance=ExtResource("5_h1g2m")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

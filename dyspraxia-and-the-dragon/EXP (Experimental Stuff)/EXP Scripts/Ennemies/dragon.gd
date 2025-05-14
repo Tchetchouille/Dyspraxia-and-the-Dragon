@@ -6,6 +6,7 @@ signal death
 
 var up_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_up_fireball.tscn")
 var down_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
+var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")
 @onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/DragonHealth/HealthBar")
 @onready var animation_frames = [
 	$Animation/DownOpen,
@@ -46,6 +47,15 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	health -= 5
 	health_bar.set_health(health)
 	body.queue_free()
+	_emit_particles(body)
+
+
+func _emit_particles(body):
+	var particles_instance = particles.instantiate()
+	particles_instance.position = body.global_position
+	$"..".add_child(particles_instance)
+	for particle in particles_instance.get_child(1).get_children():
+		particle.restart()
 
 
 func _on_animation_timer_timeout() -> void:
@@ -76,7 +86,6 @@ func _on_animation_timer_timeout() -> void:
 					down_fireball = false
 	# Animating
 	_animate()
-	print(str(current_frame) + " " + str(target_frame))
 	# We then update the current and last frames
 	last_frame = current_frame
 	if current_frame < target_frame:
