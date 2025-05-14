@@ -27,7 +27,7 @@ zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_1jyn2")
 
 [node name="Dragon" parent="." instance=ExtResource("1_1jfms")]
-position = Vector2(2109, 1298)
+position = Vector2(2000, 1298)
 
 [node name="CelestiaCharacter" parent="." instance=ExtResource("2_6vsj1")]
 position = Vector2(250, 1100)
@@ -54,5 +54,6 @@ grow_vertical = 1
 [connection signal="down_fireball" from="GameManager" to="Dragon" method="_on_game_manager_down_fireball"]
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
+[connection signal="up_fireball" from="GameManager" to="Dragon" method="_on_game_manager_up_fireball"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]
 [connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]

@@ -4,7 +4,8 @@ extends CharacterBody2D
 var health = 100
 signal death
 
-var fireball = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
+var up_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_up_fireball.tscn")
+var down_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
 @onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/DragonHealth/HealthBar")
 @onready var animation_frames = [
 	$Animation/DownOpen,
@@ -53,6 +54,10 @@ func _on_animation_timer_timeout() -> void:
 		match current_frame:
 			top_fb_frame:
 				target_frame = top_rest_frame
+				if up_fireball:
+					var fb_instance = up_fireball_scene.instantiate()
+					$"..".add_child(fb_instance)
+					up_fireball = false
 			top_rest_frame:
 				if up_fireball:
 					target_frame = top_fb_frame
@@ -66,7 +71,7 @@ func _on_animation_timer_timeout() -> void:
 			bottom_fb_frame:
 				target_frame = bottom_rest_frame
 				if down_fireball:
-					var fb_instance = fireball.instantiate()
+					var fb_instance = down_fireball_scene.instantiate()
 					$"..".add_child(fb_instance)
 					down_fireball = false
 	# Animating
@@ -88,3 +93,7 @@ func _animate():
 
 func _on_game_manager_down_fireball() -> void:
 	down_fireball = true
+
+
+func _on_game_manager_up_fireball() -> void:
+	up_fireball = true

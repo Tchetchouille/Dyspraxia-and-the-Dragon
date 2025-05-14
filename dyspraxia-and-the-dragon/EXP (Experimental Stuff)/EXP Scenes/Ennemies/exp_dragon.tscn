@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dycyyeox54y7t" path="res://Assets/Dragon Pictures/up_open.png" id="5_l6dei"]
 
 [node name="Dragon" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.9, 0.9)
 collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_x5usq")
@@ -89,6 +91,9 @@ autostart = true
 
 [node name="FireballSpawn" type="Marker2D" parent="."]
 position = Vector2(-389, -543)
+
+[node name="UpFireballSpawn" type="Marker2D" parent="."]
+position = Vector2(-79, -1012)
 
 [connection signal="body_entered" from="Animation/DownOpen/HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="Animation/RestDown/HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,7 +1,8 @@
 extends Node
 
 # Used to adapt the agressivity of the dragon
-@export var fireball_threshold : int = 60
+@export var down_fireball_threshold : int = 60
+@export var up_fireball_threshold : int = 20
 @export var claw_threshold : int = -10
 @onready var player = $"../CelestiaCharacter"
 # Count of currently available claws
@@ -32,8 +33,11 @@ func dragon_action(target):
 	var chance = rng.randi_range(0, 100)
 	if claw_threshold >= chance and available_claws.size() > 0:
 		claw_attack(target)
+	
+	elif up_fireball_threshold >= chance:
+		up_fireball_attack() 
 
-	elif fireball_threshold >= chance:
+	elif down_fireball_threshold >= chance:
 		down_fireball_attack()
 
 func claw_attack(target):
@@ -44,6 +48,8 @@ func claw_attack(target):
 func down_fireball_attack():
 	down_fireball.emit()
 
+func up_fireball_attack():
+	up_fireball.emit()
 
 # When the claw has finished attacking, it sends a signal
 func _on_exp_left_claw_available() -> void:
