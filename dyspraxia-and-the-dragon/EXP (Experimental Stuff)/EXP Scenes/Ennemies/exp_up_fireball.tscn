@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcwhlb0vu6bsa"]
+[gd_scene load_steps=7 format=3 uid="uid://bcwhlb0vu6bsa"]
 
-[ext_resource type="Script" uid="uid://mnoh5ll55ueg" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_up_fireball.gd" id="1_c0pcf"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_up_fireball.gd" id="1_c0pcf"]
 [ext_resource type="Texture2D" uid="uid://c6m5b0sc2exli" path="res://Assets/Fireball Pictures/r1.png" id="2_jquw3"]
 [ext_resource type="Texture2D" uid="uid://8wts4b4dofbo" path="res://Assets/Fireball Pictures/o1.png" id="3_t60j2"]
 [ext_resource type="Texture2D" uid="uid://5dqowesghfwa" path="res://Assets/Fireball Pictures/y1.png" id="4_b3o0f"]
-[ext_resource type="Texture2D" uid="uid://dj6elmjr2tgh0" path="res://Assets/Particle Pictures/o_1_1.png" id="5_jquw3"]
-[ext_resource type="Texture2D" uid="uid://dixayqxied48w" path="res://Assets/Particle Pictures/o_1_2.png" id="6_t60j2"]
+[ext_resource type="PackedScene" uid="uid://kqfnvtcuwoav" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn" id="5_s30yl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a088f"]
 radius = 37.6563
@@ -48,43 +47,7 @@ shape = SubResource("CircleShape2D_a088f")
 one_shot = true
 autostart = true
 
-[node name="Particles" type="Node2D" parent="."]
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
-emitting = false
-texture = ExtResource("5_jquw3")
-lifetime = 4.0
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 30.0
-spread = 180.0
-gravity = Vector2(0, 200)
-initial_velocity_min = 120.0
-initial_velocity_max = 160.0
-angular_velocity_min = -1000.0
-angular_velocity_max = 1000.0
-angle_max = 360.0
-scale_amount_min = 0.2
-scale_amount_max = 0.2
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="Particles"]
-emitting = false
-texture = ExtResource("6_t60j2")
-lifetime = 4.0
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 30.0
-spread = 180.0
-gravity = Vector2(0, 200)
-initial_velocity_min = 120.0
-initial_velocity_max = 160.0
-angular_velocity_min = -1000.0
-angular_velocity_max = 1000.0
-angle_max = 360.0
-scale_amount_min = 0.2
-scale_amount_max = 0.2
+[node name="Particles" parent="." instance=ExtResource("5_s30yl")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

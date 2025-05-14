@@ -61,6 +61,14 @@ func _on_body_entered(_body: Node) -> void:
 	if is_reflected == false:
 		is_reflected = true
 		set_collision_layer_value(8, true)
+		_emit_particles()
+
+func _emit_particles():
+	for child in $Particles.get_children():
+		if child.get_class() == "CPUParticles2D":
+			child.emitting = true
+		if child.get_class() == "Timer":
+			child.start()
 
 func _flicker(t, start, delay):
 	if t % start == 0:

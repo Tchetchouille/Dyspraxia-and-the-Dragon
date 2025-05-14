@@ -56,9 +56,7 @@ func _on_body_entered(_body: Node) -> void:
 	if is_reflected == false:
 		is_reflected = true
 		set_collision_layer_value(8, true)
-		for particles in $Particles:
-			particles.emitting = true
-			particles.restart()
+		_emit_particles()
 
 func _flicker(t, start, delay):
 	if t % start == 0:
@@ -77,6 +75,12 @@ func _flicker(t, start, delay):
 		r_index = r_indexes.pick_random()
 		red_sprite.texture = red_sprites[r_index]
 
+func _emit_particles():
+	for child in $Particles.get_children():
+		if child.get_class() == "CPUParticles2D":
+			child.emitting = true
+		if child.get_class() == "Timer":
+			child.start()
 
 func _on_timer_timeout() -> void:
 	position = player.global_position - Vector2(0, 1500)
