@@ -56,6 +56,9 @@ func _on_body_entered(_body: Node) -> void:
 	if is_reflected == false:
 		is_reflected = true
 		set_collision_layer_value(8, true)
+		for particles in $Particles:
+			particles.emitting = true
+			particles.restart()
 
 func _flicker(t, start, delay):
 	if t % start == 0:
