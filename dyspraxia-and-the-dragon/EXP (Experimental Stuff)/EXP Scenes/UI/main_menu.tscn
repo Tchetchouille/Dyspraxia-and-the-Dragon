@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=2 format=3 uid="uid://b7alq6j8svvkn"]
+
+[ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +9,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.323058, 0.192593, 0.10795, 1)
+
+[node name="Title" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Dyspraxia" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme = ExtResource("1_iiuee")
+bbcode_enabled = true
+text = "[wave amp=100.0 freq=5.0 connected=1]DYSPRAXIA[/wave]"
+
+[node name="et le" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme = ExtResource("1_iiuee")
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "ET LE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dragon" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme = ExtResource("1_iiuee")
+bbcode_enabled = true
+text = "[shake rate=25.0 level=20 connected=1]DRAGON[/shake]"
+horizontal_alignment = 2
+vertical_alignment = 2

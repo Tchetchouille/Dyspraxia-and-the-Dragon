@@ -19,7 +19,6 @@ scale = Vector2(0.6, 0.6)
 [node name="DownOpen" type="Node2D" parent="Animation"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Animation/DownOpen"]
-z_index = 4
 position = Vector2(-406, -818)
 texture = ExtResource("2_u1brw")
 

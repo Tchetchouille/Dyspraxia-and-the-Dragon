@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://mcamfsagicj"]
+
+[ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="1_y3vqo"]
+
+[node name="Birth" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y3vqo")
+color = Color(0.852843, 0.806152, 0.72215, 1)
