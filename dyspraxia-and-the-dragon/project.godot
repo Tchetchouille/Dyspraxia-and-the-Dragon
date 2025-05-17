@@ -13,7 +13,6 @@ config_version=5
 config/name="Dyspraxia and the Dragon"
 run/main_scene="res://Actual Project/Scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Assets/icon.svg"
 
 [display]
 
