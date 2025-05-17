@@ -1,3 +1,11 @@
-[gd_resource type="Theme" format=3 uid="uid://d10kavfvudbv2"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d10kavfvudbv2"]
+
+[ext_resource type="FontFile" uid="uid://c2dbfw3j63hqk" path="res://Assets/Fonts/OldLondon.ttf" id="1_500fj"]
 
 [resource]
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 20
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/fonts/bold_font = ExtResource("1_500fj")
+RichTextLabel/fonts/normal_font = ExtResource("1_500fj")

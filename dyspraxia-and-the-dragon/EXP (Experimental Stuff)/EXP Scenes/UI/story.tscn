@@ -1,0 +1,301 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpeo2apemj4oo"]
+
+[ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="1_87163"]
+[ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="2_2rwbu"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.713726)
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_87163")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="1_Presentation" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="1_Presentation"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Il était une fois une princesse,
+Que l’on appelait Dyspraxia.
+Elle était d’une grande maladresse,
+Laissez-moi vous expliquer pourquoi."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="1_Presentation"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="2_Fee" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="2_Fee"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Une fée maladroite était venue bénir sa naissance,
+Voulant lui accorder toutes sortes de dons magiques.
+Mais la fée glissa, cassant sa baguette par malchance,
+Et, d’un coup, rendit la princesse [shake rate=0.0 level=5 connected=1][tornado radius=2.0 freq=10.0 connected=1]dyspraxique[/tornado][/shake]. "
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="2_Fee"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="3_Chaussures" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="3_Chaussures"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Quand elle laçait ses chaussures,
+Ses doigts refusaient de lui obéir.
+Et quant à son écriture,
+Personne ne réussissait à la lire."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="3_Chaussures"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="4_Cogner" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="4_Cogner"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Elle se cognait partout, tout le temps,
+À chaque fois qu’elle bougeait.
+Elle était couverte de bleus, souvent,
+Tant elle se cognait."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="4_Cogner"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="5_Moquer" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="5_Moquer"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Elle se sentait invalide,
+Et les autres princesses se moquaient.
+« Regardez comme elle est stupide,
+Avec ses lacets défaits ! »."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="5_Moquer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="6_Celestia" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="6_Celestia"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Seule l’une d’elles ne se moquait pas,
+Et apportait à la princesse du réconfort.
+Son nom était Celestia,
+Et Dyspraxia l’aimait très fort."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="6_Celestia"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="7_Dragon" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="7_Dragon"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Mais un jour un Dragon vint,
+Et emmena Celestia.
+Alors Dyspraxia prit son épée dans son poing,
+Et sa quête commença."
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="7_Dragon"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="2_1_Revenche" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="2_1_Revenche"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "La princesse pense avoir triomphé,
+Et s’empresse de libérer Celestia.
+Mais le monstre se relève, énervé,
+Et fait prisonnier Dyspraxia !"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="2_1_Revenche"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="2_2_Celestia" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 30.0
+offset_right = 1042.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="2_2_Celestia"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+text = "Celestia s’empare de l’épée,
+Et la brandit contre le dragon.
+« C’est à mon tour de t’aider,
+On va lui régler son compte pour de bon ! »"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="2_2_Celestia"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
