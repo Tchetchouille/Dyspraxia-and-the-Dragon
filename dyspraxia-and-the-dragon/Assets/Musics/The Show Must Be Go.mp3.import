@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g00fatytyjeg"
+path="res://.godot/imported/The Show Must Be Go.mp3-4ae8622adb4b9761dc5a1280a7d05840.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics/The Show Must Be Go.mp3"
+dest_files=["res://.godot/imported/The Show Must Be Go.mp3-4ae8622adb4b9761dc5a1280a7d05840.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

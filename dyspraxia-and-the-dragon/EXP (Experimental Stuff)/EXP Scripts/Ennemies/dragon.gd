@@ -4,6 +4,11 @@ extends CharacterBody2D
 var health = 100
 signal death
 
+# Sound effects
+@onready var down_fireball_sounds = $SoundEffects/DownFireballSounds
+@onready var up_fireball_sounds = $SoundEffects/UpFireballSounds
+@onready var dragon_hurt_sounds = $SoundEffects/DragonHurtSounds
+
 var up_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_up_fireball.tscn")
 var down_fireball_scene = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_fireball.tscn")
 var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")
@@ -48,6 +53,8 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	health_bar.set_health(health)
 	body.queue_free()
 	_emit_particles(body)
+	dragon_hurt_sounds.get_child(randi_range(0, 3))
+
 
 
 func _emit_particles(body):
@@ -67,6 +74,7 @@ func _on_animation_timer_timeout() -> void:
 				if up_fireball:
 					var fb_instance = up_fireball_scene.instantiate()
 					$"..".add_child(fb_instance)
+					up_fireball_sounds.get_child(randi_range(0, 2)).play()
 					up_fireball = false
 			top_rest_frame:
 				if up_fireball:
@@ -82,6 +90,7 @@ func _on_animation_timer_timeout() -> void:
 				target_frame = bottom_rest_frame
 				if down_fireball:
 					var fb_instance = down_fireball_scene.instantiate()
+					down_fireball_sounds.get_child(randi_range(0, 2)).play()
 					$"..".add_child(fb_instance)
 					down_fireball = false
 	# Animating

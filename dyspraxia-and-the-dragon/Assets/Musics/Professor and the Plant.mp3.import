@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8bvljke45g66"
+path="res://.godot/imported/Professor and the Plant.mp3-04050040eae27546b52cb0d064e28282.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics/Professor and the Plant.mp3"
+dest_files=["res://.godot/imported/Professor and the Plant.mp3-04050040eae27546b52cb0d064e28282.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

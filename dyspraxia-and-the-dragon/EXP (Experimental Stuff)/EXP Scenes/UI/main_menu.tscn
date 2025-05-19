@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=8 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
+[ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
 [ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
 [ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+[ext_resource type="AudioStream" uid="uid://8bvljke45g66" path="res://Assets/Musics/Professor and the Plant.mp3" id="5_hlj22"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")
@@ -19,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jum1s")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -119,6 +122,9 @@ text = "Quitter
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hlj22")
+autoplay = true
+parameters/looping = true
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -176,3 +182,5 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Police \"Old London\" - Dieter Steffmann
 (http://www.steffmann.de/wordpress/)"
+
+[connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]

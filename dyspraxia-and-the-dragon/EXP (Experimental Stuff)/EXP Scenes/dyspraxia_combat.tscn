@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba2rqmnvxem0s"]
+[gd_scene load_steps=8 format=3 uid="uid://ba2rqmnvxem0s"]
 
 [ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_dragon.tscn" id="1_1jfms"]
-[ext_resource type="Script" uid="uid://d36u83rloyhrw" path="res://EXP (Experimental Stuff)/EXP Scripts/camera.gd" id="1_1jyn2"]
 [ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/PC/exp_celestia_character.tscn" id="2_6vsj1"]
 [ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="3_a1aoi"]
 [ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_left_claw.tscn" id="4_x0hwv"]
@@ -10,7 +9,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
-[node name="Main" type="Node"]
+[node name="DyspraxiaCombat" type="Node"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 1300)
@@ -20,11 +19,6 @@ collision_layer = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(0, -100)
 shape = SubResource("WorldBoundaryShape2D_bavmj")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(0.5, 0.5)
-script = ExtResource("1_1jyn2")
 
 [node name="Dragon" parent="." instance=ExtResource("1_1jfms")]
 position = Vector2(2000, 1298)
@@ -48,6 +42,10 @@ anchor_right = 2.0
 anchor_bottom = 2.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
 
 [connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
 [connection signal="death" from="CelestiaCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
