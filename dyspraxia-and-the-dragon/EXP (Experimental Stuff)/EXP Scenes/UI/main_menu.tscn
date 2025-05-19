@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=6 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
+[ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
+[ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
+script = ExtResource("2_xvmiy")
+metadata/_custom_type_script = "uid://cep44qbqp73y0"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_xvmiy"]
+script = ExtResource("2_b27td")
+metadata/_custom_type_script = "uid://ffxabvsgyeh8"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -31,26 +41,138 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Dyspraxia" type="RichTextLabel" parent="Title"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Title"]
 layout_mode = 2
+
+[node name="Dyspraxia" type="RichTextLabel" parent="Title/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
 text = "[wave amp=100.0 freq=5.0 connected=1]DYSPRAXIA[/wave]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_jum1s")]
 
-[node name="et le" type="RichTextLabel" parent="Title"]
+[node name="et le" type="RichTextLabel" parent="Title/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 theme = ExtResource("1_iiuee")
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "ET LE"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Dragon" type="RichTextLabel" parent="Title"]
+[node name="Dragon" type="RichTextLabel" parent="Title/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
 text = "[shake rate=25.0 level=20 connected=1]DRAGON[/shake]"
-horizontal_alignment = 2
-vertical_alignment = 2
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_xvmiy")]
+
+[node name="Margin" type="Control" parent="Title/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Buttons" type="Control" parent="Title/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Title/VBoxContainer/Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mode Histoire" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mode Histoire"
+
+[node name="Mode Infini" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mode Infini"
+
+[node name="Crédits" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Crédits"
+
+[node name="Quitter" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quitter
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MUSIQUES ET SONS" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "MUSIQUES ET SONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="m et s" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Musique \"Professor and the Plant\" -  Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Musique \"The Show Must Be Go\" - Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+
+[node name="RESSOURCES VISUELLES" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESSOURCES VISUELLES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="r v" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Police \"Old London\" - Dieter Steffmann
+(http://www.steffmann.de/wordpress/)"

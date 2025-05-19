@@ -62,7 +62,6 @@ offset_bottom = 595.0
 grow_horizontal = 0
 
 [node name="2_Fee" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 107.0
 offset_top = 30.0
@@ -79,7 +78,7 @@ bbcode_enabled = true
 text = "Une fée maladroite était venue bénir sa naissance,
 Voulant lui accorder toutes sortes de dons magiques.
 Mais la fée glissa, cassant sa baguette par malchance,
-Et, d’un coup, rendit la princesse [shake rate=0.0 level=5 connected=1][tornado radius=2.0 freq=10.0 connected=1]dyspraxique[/tornado][/shake]. "
+Et, d’un coup, rendit la princesse [shake rate=2.0 level=5 connected=1][tornado radius=2.0 freq=5.0 connected=1][color=web_maroon]dyspraxique[/color][/tornado][/shake]. "
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="2_Fee"]
@@ -272,6 +271,7 @@ offset_bottom = 595.0
 grow_horizontal = 0
 
 [node name="2_2_Celestia" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 107.0
 offset_top = 30.0

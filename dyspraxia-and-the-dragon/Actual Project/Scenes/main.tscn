@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xy4u7hybih7n"]
 
-[ext_resource type="PackedScene" uid="uid://ba2rqmnvxem0s" path="res://EXP (Experimental Stuff)/EXP Scenes/main.tscn" id="1_a2kmr"]
+[ext_resource type="PackedScene" uid="uid://ba2rqmnvxem0s" path="res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn" id="1_a2kmr"]
 
 [node name="Main" type="Node"]
 
