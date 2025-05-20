@@ -38,12 +38,15 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
 		body.queue_free()
 		_emit_particles(body)
+		print(body.name)
 
 func _emit_particles(body):
 	var particles_instance = particles.instantiate()
 	particles_instance.position = body.global_position
 	$"..".add_child(particles_instance)
 	for particle in particles_instance.get_child(1).get_children():
+		if body is UpFireball:
+			particle.modulate = Color(0, 1, 1)
 		particle.restart()
 
 func dyspraxia_process(_delta):

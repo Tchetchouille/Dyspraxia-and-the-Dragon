@@ -2,7 +2,7 @@ extends Node
 
 # Used to adapt the agressivity of the dragon
 @export var down_fireball_threshold : int = 60
-@export var up_fireball_threshold : int = 20
+@export var up_fireball_threshold : int = 5
 @export var claw_threshold : int = -10
 @onready var player = $"../CelestiaCharacter"
 # Count of currently available claws

@@ -1,6 +1,8 @@
 extends RigidBody2D
+class_name UpFireball
 
-@export var dmg = 5
+var size = Vector2(2, 2)
+var dmg = 10
 @onready var player = $"../CelestiaCharacter"
 @onready var fireball_spawn = $"../Dragon/UpFireballSpawn"
 @onready var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")
@@ -45,8 +47,11 @@ func _ready() -> void:
 	var spawn_point = fireball_spawn.global_position
 	position = spawn_point
 	apply_impulse(Vector2(-130, -fireball_impulse))
+	scale = size
 
 func _physics_process(_delta: float) -> void:
+	scale = size
+	$CollisionShape2D.scale = size
 	if is_reflected:
 		apply_force(Vector2.DOWN * gravity, Vector2(0, 0))
 	look_at(global_position - linear_velocity)
@@ -82,9 +87,7 @@ func _emit_particles():
 	particles_instance.position = global_position
 	$"..".add_child(particles_instance)
 	for particle in particles_instance.get_child(0).get_children():
-		print(particle.texture)
-		print(particle)
-		particle.texture.modulate = Color(0, 1, 1)
+		particle.modulate = Color(0, 1, 1)
 		particle.restart()
 
 func _on_timer_timeout() -> void:
