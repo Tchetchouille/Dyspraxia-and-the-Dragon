@@ -29,8 +29,8 @@ var y_index = 0
 var o_index = 0
 var r_index = 0
 
-@export var fireball_impulse = 1000
-var gravity = 1000
+@export var fireball_impulse = 300
+var gravity = 300
 var target_offset = 0.1
 var impulse_offset = 200
 var is_reflected = false
@@ -44,7 +44,7 @@ func _ready() -> void:
 	gravity_scale = 0
 	var spawn_point = fireball_spawn.global_position
 	position = spawn_point
-	apply_impulse(Vector2(-200, -fireball_impulse))
+	apply_impulse(Vector2(-130, -fireball_impulse))
 
 func _physics_process(_delta: float) -> void:
 	if is_reflected:
@@ -84,5 +84,5 @@ func _emit_particles():
 		particle.restart()
 
 func _on_timer_timeout() -> void:
-	position = player.global_position - Vector2(0, 1500)
-	apply_impulse(Vector2(200, fireball_impulse * 2))
+	position = player.global_position - Vector2(-50, 1000)
+	apply_impulse(Vector2(100, fireball_impulse * 2))

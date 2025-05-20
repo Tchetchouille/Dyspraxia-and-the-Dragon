@@ -1,8 +1,5 @@
 extends Node
 
-# Other scenes
-var dyspraxia_game_over_preload = preload("res://EXP (Experimental Stuff)/EXP Scenes/UI/game_over.tscn")
-
 # Used to adapt the agressivity of the dragon
 @export var down_fireball_threshold : int = 60
 @export var up_fireball_threshold : int = 20
@@ -70,11 +67,11 @@ func _on_exp_right_claw_available() -> void:
 
 
 func _on_exp_dragon_death() -> void:
-	print("win")
-	get_tree().change_scene_to_file("res://EXP (Experimental Stuff)/EXP Scenes/UI/win1.tscn")
-
+	var dyspraxia_win_scene = load("res://EXP (Experimental Stuff)/EXP Scenes/UI/win1.tscn").instantiate()
+	get_tree().root.add_child(dyspraxia_win_scene)
+	$"..".queue_free()
 
 func _on_exp_celestia_character_death() -> void:
-	var dyspraxia_game_over_scene = dyspraxia_game_over_preload.instantiate()
+	var dyspraxia_game_over_scene = load("res://EXP (Experimental Stuff)/EXP Scenes/UI/game_over.tscn").instantiate()
 	get_tree().root.add_child(dyspraxia_game_over_scene)
 	$"..".queue_free()

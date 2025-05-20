@@ -1,8 +1,26 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d10kavfvudbv2"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d10kavfvudbv2"]
 
 [ext_resource type="FontFile" uid="uid://c2dbfw3j63hqk" path="res://Assets/Fonts/OldLondon.ttf" id="1_500fj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_500fj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mh8ee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpye8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6v7dv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0u3h"]
+
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.48962, 0.489623, 0.489623, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_500fj")
+Button/styles/focus = SubResource("StyleBoxEmpty_mh8ee")
+Button/styles/hover = SubResource("StyleBoxEmpty_kpye8")
+Button/styles/normal = SubResource("StyleBoxEmpty_6v7dv")
+Button/styles/pressed = SubResource("StyleBoxEmpty_s0u3h")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/line_separation = 20
 RichTextLabel/font_sizes/bold_font_size = 20

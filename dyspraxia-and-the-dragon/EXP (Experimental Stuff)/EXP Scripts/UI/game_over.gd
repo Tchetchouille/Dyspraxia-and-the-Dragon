@@ -4,7 +4,9 @@ var listening = false
 
 func _process(_delta: float) -> void:
 	if Input.is_anything_pressed() and listening:
-		get_tree().change_scene_to_file("res://EXP (Experimental Stuff)/EXP Scenes/main.tscn")
+		var dyspraxia_fight_scene = load("res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn").instantiate()
+		get_tree().root.add_child(dyspraxia_fight_scene)
+		queue_free()
 
 
 func _on_timer_timeout() -> void:

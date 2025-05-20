@@ -5,3 +5,5 @@
 [node name="Main" type="Node"]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_fhut2")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]

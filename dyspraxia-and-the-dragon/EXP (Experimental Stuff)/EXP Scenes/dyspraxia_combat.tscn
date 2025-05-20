@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba2rqmnvxem0s"]
+[gd_scene load_steps=10 format=3 uid="uid://ba2rqmnvxem0s"]
 
 [ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_dragon.tscn" id="1_1jfms"]
+[ext_resource type="Script" uid="uid://4uidhjs7dxl6" path="res://EXP (Experimental Stuff)/EXP Scripts/dyspraxia_combat.gd" id="1_h6uyb"]
+[ext_resource type="Texture2D" uid="uid://dw5i6knspfsrh" path="res://Assets/Other Pictures/Sky.jpeg" id="1_y8fg8"]
 [ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/PC/exp_celestia_character.tscn" id="2_6vsj1"]
 [ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="3_a1aoi"]
 [ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_left_claw.tscn" id="4_x0hwv"]
@@ -10,9 +12,23 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
 [node name="DyspraxiaCombat" type="Node"]
+script = ExtResource("1_h6uyb")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 383.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_y8fg8")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 1300)
+position = Vector2(0, 900)
 scale = Vector2(60, 1)
 collision_layer = 32
 
@@ -21,10 +37,11 @@ position = Vector2(0, -100)
 shape = SubResource("WorldBoundaryShape2D_bavmj")
 
 [node name="Dragon" parent="." instance=ExtResource("1_1jfms")]
-position = Vector2(2000, 1298)
+position = Vector2(1350, 864)
+scale = Vector2(0.6, 0.6)
 
 [node name="CelestiaCharacter" parent="." instance=ExtResource("2_6vsj1")]
-position = Vector2(250, 1100)
+position = Vector2(250, 657)
 
 [node name="GameManager" parent="." instance=ExtResource("3_a1aoi")]
 
@@ -37,15 +54,12 @@ visible = false
 position = Vector2(1700, 1200)
 
 [node name="MainUi" parent="." instance=ExtResource("6_a8mq2")]
-anchors_preset = -1
-anchor_right = 2.0
-anchor_bottom = 2.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_right = 386.0
+offset_bottom = 216.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.75, 0.75)
 
 [connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
 [connection signal="death" from="CelestiaCharacter" to="GameManager" method="_on_exp_celestia_character_death"]

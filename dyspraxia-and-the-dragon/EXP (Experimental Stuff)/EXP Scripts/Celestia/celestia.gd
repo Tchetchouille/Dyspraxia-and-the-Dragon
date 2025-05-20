@@ -33,6 +33,7 @@ func _process(_delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	health -= body.dmg
+	$Sounds/DyspraxiaHurt.get_child(randi_range(0, 2)).play()
 	health_bar.set_health(health)
 	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
 		body.queue_free()

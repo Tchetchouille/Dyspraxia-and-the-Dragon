@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ce61kpweab77u"]
+[gd_scene load_steps=22 format=3 uid="uid://ce61kpweab77u"]
 
 [ext_resource type="Script" uid="uid://dqervw2ux7u7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
 [ext_resource type="Texture2D" uid="uid://b3pw83omr71ww" path="res://Assets/PC Pictures/dyspraxia_body.png" id="2_da8me"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c764c8cq48hb7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
 [ext_resource type="Texture2D" uid="uid://dpk7cidvthrjm" path="res://Assets/PC Pictures/right_hand.png" id="4_3hmvt"]
 [ext_resource type="Script" uid="uid://dscgvmi7owpsf" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
+[ext_resource type="Texture2D" uid="uid://s63teny2sy7b" path="res://Assets/PC Pictures/celestia_body.png" id="4_nqx63"]
 [ext_resource type="Texture2D" uid="uid://cn2ako2466gvt" path="res://Assets/PC Pictures/d_lower_right_arm.png" id="5_llwpt"]
 [ext_resource type="Texture2D" uid="uid://v1355rel58ny" path="res://Assets/PC Pictures/d_upper_left_arm.png" id="6_0x1h6"]
 [ext_resource type="Texture2D" uid="uid://dk7bc7k0dy2tb" path="res://Assets/PC Pictures/pin.png" id="8_dclej"]
@@ -15,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://dwh4exra4pehj" path="res://Assets/PC Pictures/sword.png" id="10_yx6nn"]
 [ext_resource type="Script" uid="uid://b2vkyghlp7s0m" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/sword_stick.gd" id="12_6wh8i"]
 [ext_resource type="Texture2D" uid="uid://bwo7xsph7pbfg" path="res://Assets/PC Pictures/stick2.png" id="12_56tte"]
+[ext_resource type="AudioStream" uid="uid://0g5imjkhoc1c" path="res://Assets/Sounds/dyspraxia_hurt_1.mp3" id="17_si6x4"]
+[ext_resource type="AudioStream" uid="uid://dspts23ww3qvr" path="res://Assets/Sounds/dyspraxia_hurt_2.mp3" id="18_kykl7"]
+[ext_resource type="AudioStream" uid="uid://bsx2qxv7pmfj" path="res://Assets/Sounds/dyspraxia_hurt_3.mp3" id="19_yioi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rcr"]
 
@@ -33,11 +37,18 @@ rotation = 1.5708
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_lrbdl")
 
-[node name="Body" type="Sprite2D" parent="Model"]
+[node name="DyspraxiaBody" type="Sprite2D" parent="Model"]
 position = Vector2(5, -25)
 rotation = -0.0349066
 scale = Vector2(0.11791, 0.11791)
 texture = ExtResource("2_da8me")
+
+[node name="CelestiaBody" type="Sprite2D" parent="Model"]
+visible = false
+position = Vector2(-2.8215, -44.7303)
+rotation = -0.0174533
+scale = Vector2(0.371597, 0.371597)
+texture = ExtResource("4_nqx63")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -276,5 +287,26 @@ collision_mask = 264
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
 polygon = PackedVector2Array(-112, 96, -108, 97, -101, 97, -91, 95, -83, 91, -74, 85, -65, 75, -60, 67, -55, 56, -53, 48, -53, 35, -52, 24, -51, 6, -51, -11, -50, -24, -49, -37, -49, -52, -48, -62, -44, -74, -35, -91, -21, -104, -25, -114, -27, -132, -27, -143, -11, -147, 4, -148, 27, -144, 27, -128, 24, -114, 21, -103, 31, -97, 40, -89, 47, -76, 50, -63, 52, -33, 53, 9, 55, 53, 61, 71, 68, 81, 80, 91, 97, 99, 110, 102, -111, 98)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="CelestiaHurt" type="Node2D" parent="Sounds"]
+
+[node name="DyspraxiaHurt" type="Node2D" parent="Sounds"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/DyspraxiaHurt"]
+stream = ExtResource("17_si6x4")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/DyspraxiaHurt"]
+stream = ExtResource("18_kykl7")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/DyspraxiaHurt"]
+stream = ExtResource("19_yioi1")
+volume_db = 5.0
+pitch_scale = 1.1
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

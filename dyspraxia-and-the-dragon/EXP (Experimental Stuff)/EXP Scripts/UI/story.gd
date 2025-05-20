@@ -1,0 +1,66 @@
+extends Control
+
+var page_number
+@onready var prev_button = $Flip/HBoxContainer/LeftFLip
+@onready var next_button = $Flip/HBoxContainer/RightFlip
+@onready var begin_button = $Flip/HBoxContainer/BeginGame
+@onready var book = $"."
+@onready var dyspraxia_fight_preload = preload("res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn")
+
+func _ready() -> void:
+	$"../Main/Music".stream = load("res://Assets/Musics/Thaxted.mp3")
+	$"../Main/Music".play()
+	page_number = 1
+	prev_button.disabled = true
+	prev_button.visible = false
+	begin_button.disabled = true
+	begin_button.visible = false
+	print(prev_button)
+	print(next_button)
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("page_left") and page_number != 1:
+		go_to_prev_page()
+	if Input.is_action_just_pressed("page_right") and page_number != 4:
+		go_to_next_page()
+
+func _on_left_f_lip_pressed() -> void:
+	go_to_prev_page()
+
+func _on_right_flip_pressed() -> void:
+	go_to_next_page()
+
+func go_to_next_page():
+	$AudioStreamPlayer.play()
+	book.get_child(page_number+1).visible = false
+	page_number += 1
+	book.get_child(page_number+1).visible = true
+	if page_number == 4:
+		next_button.disabled = true
+		next_button.visible = false
+		begin_button.disabled = false
+		begin_button.visible = true
+	if page_number == 2:
+		prev_button.disabled = false
+		prev_button.visible = true
+
+func go_to_prev_page():
+	$AudioStreamPlayer.play()
+	book.get_child(page_number+1).visible = false
+	page_number -= 1
+	book.get_child(page_number+1).visible = true
+	if page_number == 1:
+		prev_button.disabled = true
+		prev_button.visible = false
+	if page_number == 3:
+		next_button.disabled = false
+		next_button.visible = true
+		begin_button.disabled = true
+		begin_button.visible = false
+
+
+func _on_begin_game_pressed() -> void:
+	var dyspraxia_fight_scene = dyspraxia_fight_preload.instantiate()
+	get_tree().root.add_child(dyspraxia_fight_scene)
+	queue_free()

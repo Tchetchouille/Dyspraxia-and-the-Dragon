@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://ba5ie71uncq4q" path="res://Assets/Sounds/dragon_hurt_4.mp3" id="15_4hoaj"]
 
 [node name="Dragon" type="CharacterBody2D"]
-z_index = 2
+z_index = 4
 scale = Vector2(0.9, 0.9)
 collision_layer = 16
 collision_mask = 5
@@ -121,26 +121,33 @@ stream = ExtResource("11_v38n8")
 
 [node name="DownFireballSound1" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
 stream = ExtResource("6_5vbfk")
+volume_db = 10.0
 
 [node name="DownFireballSound2" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
 stream = ExtResource("7_l6dei")
+volume_db = 10.0
 
 [node name="DownFireballSound3" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
 stream = ExtResource("8_k44ki")
+volume_db = 10.0
 
 [node name="DragonHurtSounds" type="Node" parent="SoundEffects"]
 
 [node name="DragonHurtSound1" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
 stream = ExtResource("12_t8lux")
+volume_db = 5.0
 
 [node name="DragonHurtSound2" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
 stream = ExtResource("13_u2jdl")
+volume_db = 5.0
 
 [node name="DragonHurtSound3" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
 stream = ExtResource("14_7l0vx")
+volume_db = 5.0
 
 [node name="DragonHurtSound4" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
 stream = ExtResource("15_4hoaj")
+volume_db = 5.0
 
 [connection signal="body_entered" from="Animation/DownOpen/HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="Animation/RestDown/HitBox" to="." method="_on_hit_box_body_entered"]

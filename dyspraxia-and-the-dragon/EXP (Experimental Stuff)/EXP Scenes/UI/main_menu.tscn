@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=7 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
 [ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
 [ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
 [ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
-[ext_resource type="AudioStream" uid="uid://8bvljke45g66" path="res://Assets/Musics/Professor and the Plant.mp3" id="5_hlj22"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")
@@ -76,7 +75,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
-text = "[shake rate=25.0 level=20 connected=1]DRAGON[/shake]"
+text = "[shake rate=20.0 level=20 connected=1]DRAGON[/shake]"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -121,11 +120,6 @@ size_flags_horizontal = 3
 text = "Quitter
 "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_hlj22")
-autoplay = true
-parameters/looping = true
-
 [node name="Credits" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -144,43 +138,79 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
 
-[node name="MUSIQUES ET SONS" type="RichTextLabel" parent="Credits/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
+layout_mode = 2
+
+[node name="MUSIQUES ET SONS" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "MUSIQUES ET SONS"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="m et s" type="RichTextLabel" parent="Credits/VBoxContainer"]
+[node name="m et s" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Musique \"Professor and the Plant\" -  Kevin MacLeod (incompetech.com)
+text = "Musique \"Professor and the Plant\" -  Kevin MacLeod
+(incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-Musique \"The Show Must Be Go\" - Kevin MacLeod (incompetech.com)
+Musique \"Thaxted (Holst)\"- Kevin MacLeod
+(incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/"
+http://creativecommons.org/licenses/by/4.0/
 
-[node name="RESSOURCES VISUELLES" type="RichTextLabel" parent="Credits/VBoxContainer"]
+Musique \"The Show Must Be Go\" - Kevin MacLeod
+(incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Voix de Dyspraxia - Dayani Tscherrig
+
+Voix de Celestia - Mei Chi Lam
+
+Voix des méchantes princesses - Dayani Tscherrig
+
+Narration - Jeremias Kuehne
+
+Sons du grimoire - yd
+(https://opengameart.org/content/old-pagesflip-with-sound)
+
+Autres effets sonores - Jeremias Kuehne"
+fit_content = true
+
+[node name="RESSOURCES VISUELLES" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "RESSOURCES VISUELLES"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="r v" type="RichTextLabel" parent="Credits/VBoxContainer"]
+[node name="r v" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Police \"Old London\" - Dieter Steffmann
-(http://www.steffmann.de/wordpress/)"
+(http://www.steffmann.de/wordpress/)
+
+Grimoire \"Old Pages\" - yd
+(https://opengameart.org/content/old-pagesflip-with-sound)"
+fit_content = true
 
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
