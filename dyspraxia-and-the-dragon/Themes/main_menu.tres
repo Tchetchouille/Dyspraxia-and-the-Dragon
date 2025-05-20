@@ -1,6 +1,22 @@
-[gd_resource type="Theme" format=3 uid="uid://cwihu1ipcd6n6"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cwihu1ipcd6n6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3wqya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yprp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_br6cy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5l5u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fepae"]
 
 [resource]
+Button/colors/font_focus_color = Color(0.94902, 0.215686, 0.94902, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_3wqya")
+Button/styles/focus = SubResource("StyleBoxEmpty_8yprp")
+Button/styles/hover = SubResource("StyleBoxEmpty_br6cy")
+Button/styles/normal = SubResource("StyleBoxEmpty_c5l5u")
+Button/styles/pressed = SubResource("StyleBoxEmpty_fepae")
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 30
 RichTextLabel/font_sizes/normal_font_size = 100

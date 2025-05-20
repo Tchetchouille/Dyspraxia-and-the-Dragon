@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2a68jhocntnm"]
 
-[ext_resource type="Script" uid="uid://brh4tb2jcud1i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_b5ol1"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_b5ol1"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -49,7 +49,6 @@ size_flags_stretch_ratio = 0.5
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[tornado radius=1.5 freq=10.0 connected=1][pulse freq=1.0 color=#680000 ease=-2.0][b][color=#680000]GAME OVER[/color][/b][/pulse]"
-horizontal_alignment = 1
 
 [node name="Text" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
@@ -60,7 +59,6 @@ C'est tout-à-fait normal. La dyspraxie est un réel handicap.
 N'hésite pas à réessayer!
 
 Appuye sur n'importe quelle touche pour réessayer !"
-horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

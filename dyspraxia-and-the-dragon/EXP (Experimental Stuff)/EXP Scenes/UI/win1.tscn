@@ -46,7 +46,6 @@ size_flags_stretch_ratio = 0.5
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][color=#084e27][b]VICTOIRE[/b][/color][/wave]"
-horizontal_alignment = 1
 
 [node name="Text" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
 layout_mode = 2
@@ -56,4 +55,3 @@ text = "Tu as réussi à vaincre le dragon !
 Mais le jeu n'est pas fini. Réessaie sans la dyspraxie !
 
 Appuye sur n'importe quelle touche pour continuer."
-horizontal_alignment = 1

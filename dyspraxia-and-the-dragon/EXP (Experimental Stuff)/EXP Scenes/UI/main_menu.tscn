@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
-[ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
-[ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
-[ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
-[ext_resource type="Script" uid="uid://dm05p1mfjqeu" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
-[ext_resource type="Script" uid="uid://c3qdupa4ufo7l" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")
@@ -53,10 +53,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
-text = "[wave amp=100.0 freq=5.0 connected=1]DYSPRAXIA[/wave]"
+text = "[center][wave amp=100.0 freq=5.0 connected=1]DYSPRAXIA[/wave][/center]"
 scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_jum1s")]
 
 [node name="et le" type="RichTextLabel" parent="Title/VBoxContainer"]
@@ -67,20 +65,16 @@ theme = ExtResource("1_iiuee")
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "ET LE"
+text = "[center]ET LE[/center]"
 scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Dragon" type="RichTextLabel" parent="Title/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
-text = "[shake rate=20.0 level=20 connected=1]DRAGON[/shake]"
+text = "[center][shake rate=20.0 level=20 connected=1]DRAGON[/shake][/center]"
 scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_xvmiy")]
 
 [node name="Margin" type="Control" parent="Title/VBoxContainer"]
@@ -104,24 +98,40 @@ grow_vertical = 2
 [node name="Mode Histoire" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_iiuee")
 text = "Mode Histoire"
 script = ExtResource("5_j6vtd")
 
 [node name="Mode Infini" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_iiuee")
 text = "Mode Infini"
 
 [node name="Crédits" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_iiuee")
 text = "Crédits"
 
 [node name="Quitter" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_iiuee")
 text = "Quitter
 "
+
+[node name="Pointer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("5_hlj22")
+
+[node name="ColorRect" type="ColorRect" parent="Pointer"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 583.0
+offset_right = 198.0
+offset_bottom = 683.0
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -161,8 +171,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "MUSIQUES ET SONS"
 fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="m et s" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -201,8 +209,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "RESSOURCES VISUELLES"
 fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="r v" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -211,21 +217,11 @@ text = "Police \"Old London\" - Dieter Steffmann
 (http://www.steffmann.de/wordpress/)
 
 Grimoire \"Old Pages\" - yd
-(https://opengameart.org/content/old-pagesflip-with-sound)"
+(https://opengameart.org/content/old-pagesflip-with-sound)
+
+Icône de manette - alxl
+(https://opengameart.org/content/mouse-keyboard-gamepad-inputs)"
 fit_content = true
-
-[node name="Pointer" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_hlj22")
-
-[node name="ColorRect" type="ColorRect" parent="Pointer"]
-layout_mode = 0
-offset_left = 345.0
-offset_top = 162.0
-offset_right = 385.0
-offset_bottom = 262.0
 
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
