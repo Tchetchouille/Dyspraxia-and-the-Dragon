@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=8 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
 [ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
 [ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
 [ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+[ext_resource type="Script" uid="uid://dm05p1mfjqeu" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")
@@ -211,6 +212,20 @@ Grimoire \"Old Pages\" - yd
 (https://opengameart.org/content/old-pagesflip-with-sound)"
 fit_content = true
 
+[node name="Pointer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_hlj22")
+
+[node name="ColorRect" type="ColorRect" parent="Pointer"]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 162.0
+offset_right = 385.0
+offset_bottom = 262.0
+
+[connection signal="mouse_entered" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="Pointer" method="_on_mode_histoire_mouse_entered"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Quitter" to="." method="_on_quitter_pressed"]

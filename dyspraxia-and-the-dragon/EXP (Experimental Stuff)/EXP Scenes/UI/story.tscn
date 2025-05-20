@@ -247,8 +247,10 @@ size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
 text = "Combattre le dragon"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="FlippingPages" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_60yup")
+
+[node name="StoryAudio" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Flip/HBoxContainer/LeftFLip" to="." method="_on_left_f_lip_pressed"]
 [connection signal="pressed" from="Flip/HBoxContainer/RightFlip" to="." method="_on_right_flip_pressed"]

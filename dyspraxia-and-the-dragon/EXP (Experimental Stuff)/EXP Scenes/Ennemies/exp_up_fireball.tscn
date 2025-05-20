@@ -9,6 +9,8 @@
 radius = 37.6563
 
 [node name="ExpFireball" type="RigidBody2D"]
+scale = Vector2(1, 2)
+skew = 0.279253
 collision_layer = 8
 collision_mask = 12
 gravity_scale = 0.2

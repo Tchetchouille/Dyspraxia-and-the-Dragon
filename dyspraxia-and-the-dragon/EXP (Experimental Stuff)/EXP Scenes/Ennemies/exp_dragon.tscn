@@ -99,7 +99,7 @@ wait_time = 0.3
 autostart = true
 
 [node name="FireballSpawn" type="Marker2D" parent="."]
-position = Vector2(-389, -543)
+position = Vector2(-404.444, -585.556)
 
 [node name="UpFireballSpawn" type="Marker2D" parent="."]
 position = Vector2(-79, -1012)

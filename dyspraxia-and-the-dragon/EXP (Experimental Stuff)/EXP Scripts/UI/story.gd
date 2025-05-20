@@ -6,6 +6,8 @@ var page_number
 @onready var begin_button = $Flip/HBoxContainer/BeginGame
 @onready var book = $"."
 @onready var dyspraxia_fight_preload = preload("res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn")
+@onready var story_audio_01 = "res://Assets/Sounds/story01.mp3"
+var story_audios = []
 
 func _ready() -> void:
 	$"../Main/Music".stream = load("res://Assets/Musics/Thaxted.mp3")
@@ -15,8 +17,6 @@ func _ready() -> void:
 	prev_button.visible = false
 	begin_button.disabled = true
 	begin_button.visible = false
-	print(prev_button)
-	print(next_button)
 
 
 func _process(_delta: float) -> void:
@@ -32,7 +32,7 @@ func _on_right_flip_pressed() -> void:
 	go_to_next_page()
 
 func go_to_next_page():
-	$AudioStreamPlayer.play()
+	$FlippingPages.play()
 	book.get_child(page_number+1).visible = false
 	page_number += 1
 	book.get_child(page_number+1).visible = true
@@ -46,7 +46,7 @@ func go_to_next_page():
 		prev_button.visible = true
 
 func go_to_prev_page():
-	$AudioStreamPlayer.play()
+	$FlippingPages.play()
 	book.get_child(page_number+1).visible = false
 	page_number -= 1
 	book.get_child(page_number+1).visible = true
@@ -59,6 +59,9 @@ func go_to_prev_page():
 		begin_button.disabled = true
 		begin_button.visible = false
 
+func play_story_audio(index):
+	var audio = load(story_audios[index])
+	
 
 func _on_begin_game_pressed() -> void:
 	var dyspraxia_fight_scene = dyspraxia_fight_preload.instantiate()

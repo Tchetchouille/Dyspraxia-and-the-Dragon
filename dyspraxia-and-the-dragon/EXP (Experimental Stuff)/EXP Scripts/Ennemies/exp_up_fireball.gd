@@ -60,6 +60,7 @@ func _on_body_entered(_body: Node) -> void:
 		_emit_particles()
 
 func _flicker(t, start, delay):
+	modulate = Color(0,1,1)
 	if t % start == 0:
 		var y_indexes = range(yellow_sprites.size())
 		y_indexes.remove_at(y_index)
@@ -81,8 +82,11 @@ func _emit_particles():
 	particles_instance.position = global_position
 	$"..".add_child(particles_instance)
 	for particle in particles_instance.get_child(0).get_children():
+		print(particle.texture)
+		print(particle)
+		particle.texture.modulate = Color(0, 1, 1)
 		particle.restart()
 
 func _on_timer_timeout() -> void:
-	position = player.global_position - Vector2(-50, 1000)
+	position = player.global_position - Vector2(-30, 1000)
 	apply_impulse(Vector2(100, fireball_impulse * 2))
