@@ -104,9 +104,9 @@ func _on_animation_timer_timeout() -> void:
 	
 
 func _animate():
-	animation_frames[last_frame].set_process(false)
+	animation_frames[last_frame].get_child(1).set_collision_mask_value(8, false)
 	animation_frames[last_frame].visible = false
-	animation_frames[current_frame].set_process(true)
+	animation_frames[current_frame].get_child(1).set_collision_mask_value(8, true)
 	animation_frames[current_frame].visible = true
 
 func _on_game_manager_down_fireball() -> void:

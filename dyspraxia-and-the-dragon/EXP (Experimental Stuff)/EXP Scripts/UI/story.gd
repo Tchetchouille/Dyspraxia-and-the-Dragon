@@ -5,7 +5,6 @@ var page_number
 @onready var next_button = $Flip/HBoxContainer/RightFlip
 @onready var begin_button = $Flip/HBoxContainer/BeginGame
 @onready var book = $"."
-@onready var dyspraxia_fight_preload = preload("res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn")
 @onready var story_audio_01 = "res://Assets/Sounds/story01.mp3"
 var story_audios = []
 
@@ -24,6 +23,8 @@ func _process(_delta: float) -> void:
 		go_to_prev_page()
 	if Input.is_action_just_pressed("page_right") and page_number != 4:
 		go_to_next_page()
+	if Input.is_action_just_pressed("page_right") and page_number == 4:
+		begin_game()
 
 func _on_left_f_lip_pressed() -> void:
 	go_to_prev_page()
@@ -61,9 +62,11 @@ func go_to_prev_page():
 
 func play_story_audio(index):
 	var audio = load(story_audios[index])
-	
 
-func _on_begin_game_pressed() -> void:
-	var dyspraxia_fight_scene = dyspraxia_fight_preload.instantiate()
+func begin_game():
+	var dyspraxia_fight_scene = load("res://EXP (Experimental Stuff)/EXP Scenes/dyspraxia_combat.tscn").instantiate()
 	get_tree().root.add_child(dyspraxia_fight_scene)
 	queue_free()
+
+func _on_begin_game_pressed() -> void:
+	begin_game()
