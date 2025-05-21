@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dptogfynpfrby"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/dragon.gd" id="1_x5usq"]
+[ext_resource type="Script" uid="uid://si27aky8x3bp" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/dragon.gd" id="1_x5usq"]
 [ext_resource type="Texture2D" uid="uid://cjgysg8fp042o" path="res://Assets/Dragon Pictures/down_open.png" id="2_u1brw"]
 [ext_resource type="Texture2D" uid="uid://iq66r5lhhnxr" path="res://Assets/Dragon Pictures/rest_down.png" id="3_5vbfk"]
 [ext_resource type="Texture2D" uid="uid://ceot37f8k0uka" path="res://Assets/Dragon Pictures/rest_up.png" id="4_w0imx"]

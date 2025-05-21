@@ -1,11 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bcim6q78vnor3"]
 
-[ext_resource type="Texture2D" uid="uid://b6wfbl2ghjdut" path="res://Assets/icon.svg" id="2_eq650"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2c5g"]
 size = Vector2(50, 100)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dkdim"]
+
+[sub_resource type="Resource" id="Resource_tnfm1"]
+metadata/__load_path__ = "res://Assets/icon.svg"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rcr"]
 
@@ -44,7 +45,7 @@ texture = SubResource("CanvasTexture_dkdim")
 [node name="Head" type="Sprite2D" parent="Model"]
 position = Vector2(0, -70)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_eq650")
+texture = SubResource("Resource_tnfm1")
 
 [node name="RightArm" type="Node2D" parent="Model"]
 

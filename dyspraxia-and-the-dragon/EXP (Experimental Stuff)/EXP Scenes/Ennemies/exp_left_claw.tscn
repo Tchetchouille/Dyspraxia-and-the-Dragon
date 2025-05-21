@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://diuvwq45ssf53"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_left_claw.gd" id="1_no4qw"]
+[ext_resource type="Script" uid="uid://bctscru8xbmnt" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_left_claw.gd" id="1_no4qw"]
 
 [sub_resource type="Gradient" id="Gradient_y0dt5"]
 colors = PackedColorArray(0.360784, 0.631373, 0.368627, 1, 0.360784, 0.631373, 0.368627, 1)

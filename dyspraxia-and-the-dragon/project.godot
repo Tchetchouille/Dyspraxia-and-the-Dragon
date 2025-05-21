@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Dyspraxia and the Dragon"
 run/main_scene="res://EXP (Experimental Stuff)/EXP Scenes/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [display]
 

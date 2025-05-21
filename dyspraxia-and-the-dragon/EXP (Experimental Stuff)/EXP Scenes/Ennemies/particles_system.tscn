@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://kqfnvtcuwoav"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/particles.gd" id="1_i4ogd"]
+[ext_resource type="Script" uid="uid://cqybs1m7tk0um" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/particles.gd" id="1_i4ogd"]
 [ext_resource type="Texture2D" uid="uid://dj6elmjr2tgh0" path="res://Assets/Particle Pictures/o_1_1.png" id="2_33q7v"]
 [ext_resource type="Texture2D" uid="uid://dixayqxied48w" path="res://Assets/Particle Pictures/o_1_2.png" id="3_l37f2"]
 [ext_resource type="Texture2D" uid="uid://cq2oy8hygkuh5" path="res://Assets/Particle Pictures/y_1_1.png" id="4_gcstc"]

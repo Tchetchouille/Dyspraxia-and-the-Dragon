@@ -14,10 +14,25 @@ signal death
 func _ready() -> void:
 	dyspraxia = $"../../Main".global_dyspraxia
 	health_bar.init_health(health)
+	# Changing character model
 	if not dyspraxia:
 		$Model/DyspraxiaBody.visible = false
 		$Model/CelestiaBody.visible = true
-
+		$RightArm/UpperRightArm/Dyspraxia.visible = false
+		$RightArm/UpperRightArm/Celestia.visible = true
+		$RightArm/RightHand/Dyspraxia.visible = false
+		$RightArm/RightHand/Celestia.visible = true
+		$RightArm/LowerRightArm/Dyspraxia.visible = false
+		$RightArm/LowerRightArm/Celestia.visible = true
+		$LeftArm1/UpperLeftArm/Dyspraxia.visible = false
+		$LeftArm1/UpperLeftArm/Celestia.visible = true
+		$LeftArm2/LeftHand/Dyspraxia.visible = false
+		$LeftArm2/LeftHand/Celestia.visible = true
+		$LeftArm2/LowerLeftArm/Dyspraxia.visible = false
+		$LeftArm2/LowerLeftArm/Celestia.visible = true
+		
+		
+		
 
 func _physics_process(delta: float) -> void:
 	
