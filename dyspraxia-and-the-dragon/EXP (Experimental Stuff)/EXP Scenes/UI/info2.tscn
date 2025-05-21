@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jx2japq1keil"]
+[gd_scene load_steps=3 format=3 uid="uid://jx2japq1keil"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_w4nw3"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_rqk3e"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -51,10 +52,20 @@ text = "[center]Tu incarnes à présent Celestia.
 
 Celestia n'est pas dyspraxique.
 
-Le combat sera-t-il plus facile ?
+Le combat sera-t-il plus facile ?[/center]"
 
-Appuie sur n'importe quelle touche pour continuer.[/center]"
+[node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]Appuye sur n'importe quelle touche pour continuer.[/center]"
+script = ExtResource("2_rqk3e")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="TextControl/VBoxContainer/Text2" method="_on_timer_timeout"]

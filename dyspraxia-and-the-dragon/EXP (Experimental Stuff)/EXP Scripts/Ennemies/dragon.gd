@@ -65,6 +65,8 @@ func _emit_particles(body):
 	particles_instance.position = body.global_position
 	$"..".add_child(particles_instance)
 	for particle in particles_instance.get_child(1).get_children():
+		if body is UpFireball:
+			particle.modulate = Color(0, 1, 1)
 		particle.restart()
 
 

@@ -107,6 +107,7 @@ Et quant à son écriture,
 Personne ne réussissait à la lire."
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="BookContent/2"]
+layout_mode = 0
 offset_left = 508.0
 offset_right = 939.0
 offset_bottom = 597.0
@@ -147,6 +148,7 @@ Et les autres princesses se moquaient.
 Avec ses lacets défaits ! »"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="BookContent/3"]
+layout_mode = 0
 offset_left = 508.0
 offset_right = 939.0
 offset_bottom = 597.0

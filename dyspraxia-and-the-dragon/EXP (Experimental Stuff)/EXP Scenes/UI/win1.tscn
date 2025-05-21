@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfh18yp5au4v6"]
+[gd_scene load_steps=3 format=3 uid="uid://cfh18yp5au4v6"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_m5pxg"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_5hcgx"]
 
 [node name="Win1" type="Control"]
 layout_mode = 3
@@ -57,12 +58,20 @@ size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Tu as réussi à vaincre le dragon !
-Mais le jeu n'est pas fini. Réessaie sans la dyspraxie !
+Mais le jeu n'est pas fini. Réessaie sans la dyspraxie ![/center]"
 
-Appuie sur n'importe quelle touche pour continuer.[/center]"
+[node name="Text2" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]Appuye sur n'importe quelle touche pour continuer.[/center]"
+script = ExtResource("2_5hcgx")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="TextControl2/VBoxContainer/Text2" method="_on_timer_timeout"]

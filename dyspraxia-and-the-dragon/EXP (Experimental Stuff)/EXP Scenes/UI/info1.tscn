@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmm1phuf34kpo"]
+[gd_scene load_steps=3 format=3 uid="uid://cmm1phuf34kpo"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_ti3ou"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_4nh2e"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -51,12 +52,20 @@ text = "[center]Tu incarnes Dyspraxia.
 
 Essaie de vaincre le dragon en lui renvoyant ses boules de feu avec ton épée !
 
-Utilise le stick gauche pour bouger tes bras, et le stick droit pour bouger ton épée.
+Utilise le stick gauche pour bouger tes bras, et le stick droit pour bouger ton épée..[/center]"
 
-Appuie sur n'importe quelle touche pour continuer.[/center]"
+[node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]Appuye sur n'importe quelle touche pour continuer.[/center]"
+script = ExtResource("2_4nh2e")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="TextControl/VBoxContainer/Text2" method="_on_timer_timeout"]
