@@ -45,6 +45,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center][tornado radius=1.5 freq=10.0 connected=1][pulse freq=1.0 color=#680000 ease=-2.0][b][color=#680000]GAME OVER[/color][/b][/pulse][/tornado][/center]"
+scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
@@ -55,8 +56,10 @@ bbcode_enabled = true
 text = "[center]Malheureusement, tu as perdu face au dragon...
 C'est tout-à-fait normal. La dyspraxie est un réel handicap.
 N'hésite pas à réessayer ![/center]"
+scroll_active = false
 
 [node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
@@ -64,9 +67,11 @@ theme = ExtResource("2_v88l7")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Appuie sur n'importe quelle touche pour réessayer ![/center]"
+scroll_active = false
 script = ExtResource("2_ea6gt")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true
 

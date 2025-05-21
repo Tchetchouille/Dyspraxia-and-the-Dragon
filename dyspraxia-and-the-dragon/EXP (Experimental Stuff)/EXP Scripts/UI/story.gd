@@ -1,9 +1,9 @@
 extends Control
 
 var page_number
-@onready var prev_button = $BookContent/Flip/HBoxContainer/LeftFLip
-@onready var next_button = $BookContent/Flip/HBoxContainer/RightFlip
-@onready var begin_button = $BookContent/Flip/HBoxContainer/BeginGame
+#@onready var prev_button = $BookContent/Flip/LeftFLip
+@onready var next_button = $BookContent/Flip/RightFlip
+@onready var begin_button = $BookContent/Flip/BeginGame
 @onready var book = $"BookContent"
 @onready var story_audio_01 = "res://Assets/Sounds/story01.mp3"
 var story_audios = []
@@ -12,8 +12,8 @@ func _ready() -> void:
 	$"../Main/Music".stream = load("res://Assets/Musics/Thaxted.mp3")
 	$"../Main/Music".play()
 	page_number = 1
-	prev_button.disabled = true
-	prev_button.visible = false
+	#prev_button.disabled = true
+	#prev_button.visible = false
 	begin_button.disabled = true
 	begin_button.visible = false
 
@@ -42,18 +42,18 @@ func go_to_next_page():
 		next_button.visible = false
 		begin_button.disabled = false
 		begin_button.visible = true
-	if page_number == 2:
-		prev_button.disabled = false
-		prev_button.visible = true
+	#if page_number == 2:
+		#prev_button.disabled = false
+		#prev_button.visible = true
 
 func go_to_prev_page():
 	$FlippingPages.play()
 	book.get_child(page_number-1).visible = false
 	page_number -= 1
 	book.get_child(page_number-1).visible = true
-	if page_number == 1:
-		prev_button.disabled = true
-		prev_button.visible = false
+	#if page_number == 1:
+		#prev_button.disabled = true
+		#prev_button.visible = false
 	if page_number == 3:
 		next_button.disabled = false
 		next_button.visible = true

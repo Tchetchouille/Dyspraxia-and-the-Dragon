@@ -48,8 +48,10 @@ text = "[center]Tu incarnes à présent Celestia.
 Celestia n'est pas dyspraxique.
 
 Le combat sera-t-il plus facile ?[/center]"
+scroll_active = false
 
 [node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
@@ -57,6 +59,7 @@ theme = ExtResource("2_um7f4")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Appuie sur n'importe quelle touche pour continuer.[/center]"
+scroll_active = false
 script = ExtResource("2_rqk3e")
 
 [node name="Timer" type="Timer" parent="."]

@@ -45,6 +45,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center][wave amp=50.0 freq=5.0 connected=1][color=#084e27][b]VICTOIRE[/b][/color][/wave][/center]"
+scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
 layout_mode = 2
@@ -54,8 +55,10 @@ theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Tu as réussi à vaincre le dragon une seconde fois !
 As-tu trouvé ça plus facile sans la dyspraxie ?[/center]"
+scroll_active = false
 
 [node name="Text2" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
@@ -63,6 +66,7 @@ theme = ExtResource("2_6dti3")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Appuie sur n'importe quelle touche pour continuer.[/center]"
+scroll_active = false
 script = ExtResource("2_4ur27")
 
 [node name="Timer" type="Timer" parent="."]
