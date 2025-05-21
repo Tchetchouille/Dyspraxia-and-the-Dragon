@@ -133,6 +133,14 @@ offset_top = 583.0
 offset_right = 198.0
 offset_bottom = 683.0
 
+[node name="Block Mouse" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Quitter" to="." method="_on_quitter_pressed"]

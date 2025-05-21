@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxydf4q08fhwx"]
+
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story_2.gd" id="1_r0qby"]
+[ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="2_7nymo"]
+[ext_resource type="AudioStream" uid="uid://d3ty5pr3nyqfn" path="res://Assets/Sounds/flipping_pages.mp3" id="3_po1qt"]
+[ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="4_gmial"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0qby")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.713726)
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7nymo")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="FlippingPages" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_po1qt")
+
+[node name="StoryAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="BookContent" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 90.0
+offset_top = 42.0
+offset_right = 1061.0
+offset_bottom = 621.0
+
+[node name="1" type="Control" parent="BookContent"]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 13.0
+offset_right = 952.0
+offset_bottom = 607.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BookContent/1"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("4_gmial")
+bbcode_enabled = true
+text = "La princesse pense avoir triomphé,
+Et s'empresse de libérer Celestia.
+Mais le monstre se relève, énervé, 
+Et fait prisonnier Dyspraxia !"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="BookContent/1"]
+layout_mode = 0
+offset_left = 508.0
+offset_right = 939.0
+offset_bottom = 597.0
+theme = ExtResource("4_gmial")
+bbcode_enabled = true
+text = "Celestia s'empare de l'épée,
+Et la brandit contre le dragon.
+« C'est à mon tour de t'aider,
+On va lui régler son compte pour de bon ! »"
+
+[node name="Control" type="Control" parent="BookContent/1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -725.0
+offset_bottom = 595.0
+grow_horizontal = 0
+
+[node name="Flip" type="Control" parent="BookContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 567.0
+offset_right = -17.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BookContent/Flip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftFLip" type="Button" parent="BookContent/Flip/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gmial")
+text = "Page précédente"
+
+[node name="Margin" type="Control" parent="BookContent/Flip/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="RightFlip" type="Button" parent="BookContent/Flip/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gmial")
+text = "Page suivante"
+
+[node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gmial")
+text = "Combattre le dragon"
+
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/LeftFLip" to="." method="_on_left_f_lip_pressed"]
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/RightFlip" to="." method="_on_right_flip_pressed"]
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/BeginGame" to="." method="_on_begin_game_pressed"]

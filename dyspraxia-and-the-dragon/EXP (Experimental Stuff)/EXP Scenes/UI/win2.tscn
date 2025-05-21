@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfh18yp5au4v6"]
+[gd_scene load_steps=2 format=3 uid="uid://dgfupuiweu3d0"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_m5pxg"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_gxkk0"]
 
 [node name="Win1" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m5pxg")
+script = ExtResource("1_gxkk0")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -56,8 +56,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
-text = "[center]Tu as réussi à vaincre le dragon !
-Mais le jeu n'est pas fini. Réessaie sans la dyspraxie !
+text = "[center]Tu as réussi à vaincre le dragon une seconde fois !
+As-tu trouvé ça plus facile sans la dyspraxie ?
 
 Appuie sur n'importe quelle touche pour continuer.[/center]"
 

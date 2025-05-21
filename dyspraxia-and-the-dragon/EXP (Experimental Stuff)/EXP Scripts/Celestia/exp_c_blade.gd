@@ -4,10 +4,12 @@ extends CharacterBody2D
 var dyspraxia_speed = 1
 var dyspraxia_hand = 0.1
 var dyspraxia_blade = 0.1
-var dyspraxia = true
+var dyspraxia 
 var stored_left_input = Vector2(0, 0)
 var stored_right_input = Vector2(0, 0)
 
+func _ready() -> void:
+	dyspraxia = $"../../../../Main".global_dyspraxia
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
