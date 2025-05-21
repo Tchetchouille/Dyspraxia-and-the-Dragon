@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://havowf1f6j8n"]
+[gd_scene load_steps=4 format=3 uid="uid://havowf1f6j8n"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_v1nrr"]
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_0l4t0"]
+[ext_resource type="Theme" uid="uid://b6aqrss3vat5y" path="res://Themes/win_info_gameover.tres" id="2_6jdo6"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -21,27 +22,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.424644, 0, 0.0450833, 0.54902)
 
-[node name="TextControl" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -171.0
-offset_right = 257.0
-offset_bottom = 178.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextControl"]
+[node name="TextControl" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextControl"]
+layout_mode = 2
 
 [node name="GameOver" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
@@ -51,28 +45,32 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center][tornado radius=1.5 freq=10.0 connected=1][pulse freq=1.0 color=#680000 ease=-2.0][b][color=#680000]GAME OVER[/color][/b][/pulse][/tornado][/center]"
+scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_6jdo6")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Malheureusement, tu as perdu face au dragon...
-C'est tout-à-fait normal. La dyspraxie est un réel handicap.
-N'hésite pas à réessayer !
-
-Appuye sur n'importe quelle touche pour réessayer ![/center]"
+Mais ne te décourage pas ![/center]"
+scroll_active = false
 
 [node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("2_6jdo6")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
-text = "[center]Appuye sur n'importe quelle touche pour réessayer ![/center]"
+text = "[center]Appuie sur n'importe quelle touche pour réessayer ![/center]"
+scroll_active = false
 script = ExtResource("2_0l4t0")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true
 

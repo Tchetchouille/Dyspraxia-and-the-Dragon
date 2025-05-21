@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2a68jhocntnm"]
+[gd_scene load_steps=4 format=3 uid="uid://b2a68jhocntnm"]
 
-[ext_resource type="Script" uid="uid://brh4tb2jcud1i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_b5ol1"]
-[ext_resource type="Script" uid="uid://dihwv4il85i6i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_ea6gt"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_b5ol1"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_ea6gt"]
+[ext_resource type="Theme" uid="uid://b6aqrss3vat5y" path="res://Themes/win_info_gameover.tres" id="2_v88l7"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -21,27 +22,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.424644, 0, 0.0450833, 0.54902)
 
-[node name="TextControl" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -171.0
-offset_right = 257.0
-offset_bottom = 178.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextControl"]
+[node name="TextControl" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextControl"]
+layout_mode = 2
 
 [node name="GameOver" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
@@ -55,6 +49,7 @@ text = "[center][tornado radius=1.5 freq=10.0 connected=1][pulse freq=1.0 color=
 [node name="Text" type="RichTextLabel" parent="TextControl/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_v88l7")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Malheureusement, tu as perdu face au dragon...
@@ -62,12 +57,13 @@ C'est tout-à-fait normal. La dyspraxie est un réel handicap.
 N'hésite pas à réessayer ![/center]"
 
 [node name="Text2" type="RichTextLabel" parent="TextControl/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("2_v88l7")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
-text = "[center]Appuye sur n'importe quelle touche pour réessayer ![/center]"
+text = "[center]Appuie sur n'importe quelle touche pour réessayer ![/center]"
 script = ExtResource("2_ea6gt")
 
 [node name="Timer" type="Timer" parent="."]

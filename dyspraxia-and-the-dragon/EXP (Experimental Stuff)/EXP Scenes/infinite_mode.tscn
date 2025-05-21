@@ -1,18 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://ba2rqmnvxem0s"]
+[gd_scene load_steps=10 format=3 uid="uid://y3p64ac0ih0c"]
 
-[ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_dragon.tscn" id="1_1jfms"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/dyspraxia_combat.gd" id="1_h6uyb"]
-[ext_resource type="Texture2D" uid="uid://dw5i6knspfsrh" path="res://Assets/Other Pictures/Sky.jpeg" id="1_y8fg8"]
-[ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/PC/exp_celestia_character.tscn" id="2_6vsj1"]
-[ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="3_a1aoi"]
-[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_left_claw.tscn" id="4_x0hwv"]
-[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_right_claw.tscn" id="5_eyi82"]
-[ext_resource type="PackedScene" uid="uid://btyfs2ogh11q5" path="res://EXP (Experimental Stuff)/EXP Scenes/UI/main_ui.tscn" id="6_a8mq2"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/dyspraxia_combat.gd" id="1_lbyj1"]
+[ext_resource type="Texture2D" uid="uid://dw5i6knspfsrh" path="res://Assets/Other Pictures/Sky.jpeg" id="2_bl3d8"]
+[ext_resource type="PackedScene" uid="uid://dptogfynpfrby" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_dragon.tscn" id="3_yh3uo"]
+[ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://EXP (Experimental Stuff)/EXP Scenes/PC/exp_celestia_character.tscn" id="4_5l3c0"]
+[ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://EXP (Experimental Stuff)/EXP Scenes/game_manager.tscn" id="5_b7460"]
+[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_left_claw.tscn" id="6_88qeg"]
+[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_right_claw.tscn" id="7_4m8lo"]
+[ext_resource type="PackedScene" uid="uid://btyfs2ogh11q5" path="res://EXP (Experimental Stuff)/EXP Scenes/UI/main_ui.tscn" id="8_1axw0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
 [node name="DyspraxiaCombat" type="Node"]
-script = ExtResource("1_h6uyb")
+script = ExtResource("1_lbyj1")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 z_index = -2
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_y8fg8")
+texture = ExtResource("2_bl3d8")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 900)
@@ -36,24 +36,24 @@ collision_layer = 32
 position = Vector2(0, -100)
 shape = SubResource("WorldBoundaryShape2D_bavmj")
 
-[node name="Dragon" parent="." instance=ExtResource("1_1jfms")]
+[node name="Dragon" parent="." instance=ExtResource("3_yh3uo")]
 position = Vector2(1350, 864)
 scale = Vector2(0.6, 0.6)
 
-[node name="CelestiaCharacter" parent="." instance=ExtResource("2_6vsj1")]
+[node name="CelestiaCharacter" parent="." instance=ExtResource("4_5l3c0")]
 position = Vector2(250, 657)
 
-[node name="GameManager" parent="." instance=ExtResource("3_a1aoi")]
+[node name="GameManager" parent="." instance=ExtResource("5_b7460")]
 
-[node name="ExpLeftClaw" parent="." instance=ExtResource("4_x0hwv")]
+[node name="ExpLeftClaw" parent="." instance=ExtResource("6_88qeg")]
 visible = false
 position = Vector2(1800, 1200)
 
-[node name="ExpRightClaw" parent="." instance=ExtResource("5_eyi82")]
+[node name="ExpRightClaw" parent="." instance=ExtResource("7_4m8lo")]
 visible = false
 position = Vector2(1700, 1200)
 
-[node name="MainUi" parent="." instance=ExtResource("6_a8mq2")]
+[node name="MainUi" parent="." instance=ExtResource("8_1axw0")]
 offset_right = 386.0
 offset_bottom = 216.0
 

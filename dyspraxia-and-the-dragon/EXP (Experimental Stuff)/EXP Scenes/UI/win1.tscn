@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfh18yp5au4v6"]
+[gd_scene load_steps=4 format=3 uid="uid://cfh18yp5au4v6"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_m5pxg"]
+[ext_resource type="Theme" uid="uid://b6aqrss3vat5y" path="res://Themes/win_info_gameover.tres" id="2_3xl2p"]
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_5hcgx"]
 
 [node name="Win1" type="Control"]
@@ -21,27 +22,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.20611, 0.380107, 0.282804, 1)
 
-[node name="TextControl2" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -171.0
-offset_right = 257.0
-offset_bottom = 178.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextControl2"]
+[node name="TextControl2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextControl2"]
+layout_mode = 2
 
 [node name="Bravo" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
 layout_mode = 2
@@ -51,25 +45,32 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center][wave amp=50.0 freq=5.0 connected=1][color=#084e27][b]VICTOIRE[/b][/color][/wave][/center]"
+scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_3xl2p")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
 text = "[center]Tu as réussi à vaincre le dragon !
 Mais le jeu n'est pas fini. Réessaie sans la dyspraxie ![/center]"
+scroll_active = false
 
 [node name="Text2" type="RichTextLabel" parent="TextControl2/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("2_3xl2p")
 theme_override_constants/outline_size = 5
 bbcode_enabled = true
-text = "[center]Appuye sur n'importe quelle touche pour continuer.[/center]"
+text = "[center]Appuie sur n'importe quelle touche pour continuer.[/center]"
+scroll_active = false
 script = ExtResource("2_5hcgx")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true
 
