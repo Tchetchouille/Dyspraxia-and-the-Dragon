@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfh18yp5au4v6"]
 
-[ext_resource type="Script" uid="uid://5ontasd8vvxq" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_m5pxg"]
-[ext_resource type="Script" uid="uid://dihwv4il85i6i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_5hcgx"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/win_1.gd" id="1_m5pxg"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_5hcgx"]
 
 [node name="Win1" type="Control"]
 layout_mode = 3

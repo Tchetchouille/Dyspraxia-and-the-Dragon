@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfl2bqo0qhiq2"]
 
-[ext_resource type="Script" uid="uid://b2n3bc6ycaayt" path="res://EXP (Experimental Stuff)/EXP Scripts/game_manager.gd" id="1_vlmfa"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/game_manager.gd" id="1_vlmfa"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_vlmfa")

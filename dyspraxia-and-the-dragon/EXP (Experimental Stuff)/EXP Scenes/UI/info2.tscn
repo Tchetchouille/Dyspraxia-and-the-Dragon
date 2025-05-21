@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jx2japq1keil"]
 
-[ext_resource type="Script" uid="uid://brh4tb2jcud1i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_w4nw3"]
-[ext_resource type="Script" uid="uid://dihwv4il85i6i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_rqk3e"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_w4nw3"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="2_rqk3e"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
-[ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
-[ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
-[ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
-[ext_resource type="Script" uid="uid://dm05p1mfjqeu" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
-[ext_resource type="Script" uid="uid://c3qdupa4ufo7l" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")

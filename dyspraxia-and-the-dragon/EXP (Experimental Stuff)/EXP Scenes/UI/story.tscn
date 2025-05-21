@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpeo2apemj4oo"]
 
-[ext_resource type="Script" uid="uid://dlngbysb4c11t" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story.gd" id="1_1qp7m"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story.gd" id="1_1qp7m"]
 [ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="1_87163"]
 [ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="2_2rwbu"]
 [ext_resource type="AudioStream" uid="uid://d3ty5pr3nyqfn" path="res://Assets/Sounds/flipping_pages.mp3" id="4_60yup"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://ce61kpweab77u"]
 
-[ext_resource type="Script" uid="uid://dqervw2ux7u7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/celestia.gd" id="1_55sdg"]
 [ext_resource type="Texture2D" uid="uid://b3pw83omr71ww" path="res://Assets/PC Pictures/dyspraxia_body.png" id="2_da8me"]
 [ext_resource type="Texture2D" uid="uid://c28n25rgvn2x4" path="res://Assets/PC Pictures/stick1.png" id="2_lrbdl"]
 [ext_resource type="Texture2D" uid="uid://cywrtb7sp4ygn" path="res://Assets/PC Pictures/d_upper_right_arm.png" id="3_nvo4m"]
-[ext_resource type="Script" uid="uid://c764c8cq48hb7" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_sword.gd" id="3_r13uh"]
 [ext_resource type="Texture2D" uid="uid://dpk7cidvthrjm" path="res://Assets/PC Pictures/right_hand.png" id="4_3hmvt"]
-[ext_resource type="Script" uid="uid://dscgvmi7owpsf" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/exp_c_blade.gd" id="4_6s2yu"]
 [ext_resource type="Texture2D" uid="uid://s63teny2sy7b" path="res://Assets/PC Pictures/celestia_body.png" id="4_nqx63"]
 [ext_resource type="Texture2D" uid="uid://cn2ako2466gvt" path="res://Assets/PC Pictures/d_lower_right_arm.png" id="5_llwpt"]
 [ext_resource type="Texture2D" uid="uid://v1355rel58ny" path="res://Assets/PC Pictures/d_upper_left_arm.png" id="6_0x1h6"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ccntot51tqaet" path="res://Assets/PC Pictures/dyspraxia_upper_right_arm.png" id="10_pwsn2"]
 [ext_resource type="Texture2D" uid="uid://dwh4exra4pehj" path="res://Assets/PC Pictures/sword.png" id="10_yx6nn"]
 [ext_resource type="Texture2D" uid="uid://bujjttvo63os8" path="res://Assets/PC Pictures/celestia_arm3.png" id="11_vqqi7"]
-[ext_resource type="Script" uid="uid://b2vkyghlp7s0m" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/sword_stick.gd" id="12_6wh8i"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Celestia/sword_stick.gd" id="12_6wh8i"]
 [ext_resource type="Texture2D" uid="uid://bwo7xsph7pbfg" path="res://Assets/PC Pictures/stick2.png" id="12_56tte"]
 [ext_resource type="Texture2D" uid="uid://dt2fbfh76bvm3" path="res://Assets/PC Pictures/celestia_arm2.png" id="13_hdgkv"]
 [ext_resource type="AudioStream" uid="uid://0g5imjkhoc1c" path="res://Assets/Sounds/dyspraxia_hurt_1.mp3" id="17_si6x4"]
@@ -205,27 +205,9 @@ script = ExtResource("3_r13uh")
 [node name="SwordStick" type="Sprite2D" parent="Sword/Handle"]
 z_index = -2
 rotation = 1.5708
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.5, 0.12)
 texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
-script = ExtResource("12_6wh8i")
-
-[node name="SwordStick2" type="Sprite2D" parent="Sword/Handle"]
-z_index = -2
-position = Vector2(-20, 349)
-rotation = 1.5708
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
-script = ExtResource("12_6wh8i")
-
-[node name="SwordStick3" type="Sprite2D" parent="Sword/Handle"]
-z_index = -2
-position = Vector2(-11, 190)
-rotation = 1.5708
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
+offset = Vector2(920, 59)
 script = ExtResource("12_6wh8i")
 
 [node name="LeftPin" type="PinJoint2D" parent="Sword/Handle"]
@@ -242,7 +224,6 @@ node_a = NodePath("..")
 node_b = NodePath("../../../RightArm/RightHand")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sword/Handle/RightPin"]
-position = Vector2(0, 200)
 rotation = 1.57079
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_dclej")
@@ -258,29 +239,11 @@ script = ExtResource("4_6s2yu")
 
 [node name="SwordStick" type="Sprite2D" parent="Sword/Blade"]
 z_index = -2
-position = Vector2(561, -6.00203)
+position = Vector2(202, 3.99924)
 rotation = -0.0872665
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.5, 0.12)
 texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
-script = ExtResource("12_6wh8i")
-
-[node name="SwordStick2" type="Sprite2D" parent="Sword/Blade"]
-z_index = -2
-position = Vector2(374, -0.00135469)
-rotation = -0.0872665
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
-script = ExtResource("12_6wh8i")
-
-[node name="SwordStick3" type="Sprite2D" parent="Sword/Blade"]
-z_index = -2
-position = Vector2(374, -0.00135469)
-rotation = -0.0872665
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("12_56tte")
-offset = Vector2(850, 59)
+offset = Vector2(920, 60)
 script = ExtResource("12_6wh8i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sword/Blade"]
@@ -294,7 +257,7 @@ position = Vector2(111, 0)
 polygon = PackedVector2Array(-79, 12.9999, -79, -11.0001, 93, -8.00074, 116, 3.99918, 95.0001, 14.9993)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sword/Blade"]
-position = Vector2(212, 2.99928)
+position = Vector2(202, 2.99927)
 rotation = 1.57079
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_dclej")
