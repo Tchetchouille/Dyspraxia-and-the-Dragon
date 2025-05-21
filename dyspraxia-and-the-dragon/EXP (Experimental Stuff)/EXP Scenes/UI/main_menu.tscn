@@ -1,11 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7alq6j8svvkn"]
+[gd_scene load_steps=15 format=3 uid="uid://b7alq6j8svvkn"]
 
 [ext_resource type="Theme" uid="uid://cwihu1ipcd6n6" path="res://Themes/main_menu.tres" id="1_iiuee"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
+[ext_resource type="Script" uid="uid://dmwgvdehndvr3" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu.gd" id="1_jum1s"]
+[ext_resource type="Script" uid="uid://ffxabvsgyeh8" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu.gd" id="2_b27td"]
+[ext_resource type="Texture2D" uid="uid://ccvk05pqwefuv" path="res://Assets/Other Pictures/main_menu_bg.jpeg" id="2_lsq3j"]
+[ext_resource type="Script" uid="uid://cep44qbqp73y0" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/bbcode_main_menu_negative.gd" id="2_xvmiy"]
+[ext_resource type="Script" uid="uid://dm05p1mfjqeu" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/main_menu_pointer.gd" id="5_hlj22"]
+[ext_resource type="Texture2D" uid="uid://c52nqpcxcnf03" path="res://Assets/Other Pictures/mode_histoire_button.png" id="5_iccvq"]
+[ext_resource type="Script" uid="uid://c3qdupa4ufo7l" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/mode_histoire_button.gd" id="5_j6vtd"]
+[ext_resource type="Texture2D" uid="uid://dtkxlbjbv0vco" path="res://Assets/Other Pictures/mode_infini_button.png" id="8_al7uy"]
+[ext_resource type="Texture2D" uid="uid://dov7w5qqp03iy" path="res://Assets/Other Pictures/credits_button.png" id="9_nkr4q"]
+[ext_resource type="Texture2D" uid="uid://d1oq5pf0n511n" path="res://Assets/Other Pictures/quitter_button.png" id="10_x64cc"]
+[ext_resource type="Texture2D" uid="uid://do8fkuyka8acp" path="res://Assets/Other Pictures/pointer.png" id="12_7drfw"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_jum1s"]
 script = ExtResource("2_xvmiy")
@@ -24,14 +30,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jum1s")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.323058, 0.192593, 0.10795, 1)
+texture = ExtResource("2_lsq3j")
 
 [node name="Title" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -99,39 +105,44 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_iiuee")
-text = "Mode Histoire"
+icon = ExtResource("5_iccvq")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("5_j6vtd")
 
 [node name="Mode Infini" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_iiuee")
-text = "Mode Infini"
+icon = ExtResource("8_al7uy")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Crédits" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_iiuee")
-text = "Crédits"
+icon = ExtResource("9_nkr4q")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Quitter" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_iiuee")
-text = "Quitter
-"
+icon = ExtResource("10_x64cc")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Pointer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 script = ExtResource("5_hlj22")
 
-[node name="ColorRect" type="ColorRect" parent="Pointer"]
-layout_mode = 0
-offset_left = 158.0
-offset_top = 583.0
-offset_right = 198.0
-offset_bottom = 683.0
+[node name="ColorRect" type="Sprite2D" parent="Pointer"]
+position = Vector2(183, 638)
+scale = Vector2(0.207678, 0.207678)
+texture = ExtResource("12_7drfw")
 
 [node name="Block Mouse" type="Control" parent="."]
 layout_mode = 1
