@@ -46,8 +46,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("toggle_dyspraxia"):
-		dyspraxia = not dyspraxia
+	# Uncomment to give the possibility to toggle dyspraxia by pressing cntrl
+	#if Input.is_action_just_pressed("toggle_dyspraxia"):
+		#dyspraxia = not dyspraxia
 	if health <= 0:
 		death.emit()
 
@@ -66,7 +67,7 @@ func _emit_particles(body):
 	$"..".add_child(particles_instance)
 	for particle in particles_instance.get_child(1).get_children():
 		if body is UpFireball:
-			particle.modulate = Color(0, 1, 1)
+			particle.modulate = Color(2, 2, 1)
 		particle.restart()
 
 func dyspraxia_process(_delta):

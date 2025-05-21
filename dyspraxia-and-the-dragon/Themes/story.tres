@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d10kavfvudbv2"]
-
-[ext_resource type="FontFile" uid="uid://c2dbfw3j63hqk" path="res://Assets/Fonts/OldLondon.ttf" id="1_500fj"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d10kavfvudbv2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_500fj"]
 
@@ -22,8 +20,6 @@ Button/styles/hover = SubResource("StyleBoxEmpty_kpye8")
 Button/styles/normal = SubResource("StyleBoxEmpty_6v7dv")
 Button/styles/pressed = SubResource("StyleBoxEmpty_s0u3h")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/constants/line_separation = 20
+RichTextLabel/constants/line_separation = -8
 RichTextLabel/font_sizes/bold_font_size = 20
-RichTextLabel/font_sizes/normal_font_size = 20
-RichTextLabel/fonts/bold_font = ExtResource("1_500fj")
-RichTextLabel/fonts/normal_font = ExtResource("1_500fj")
+RichTextLabel/font_sizes/normal_font_size = 32
