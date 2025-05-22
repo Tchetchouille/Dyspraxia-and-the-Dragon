@@ -9,11 +9,12 @@ var page_number
 var story_audios = []
 
 func _ready() -> void:
-	$"../Main/Music".stream = load("res://Assets/Musics/Thaxted.mp3")
-	$"../Main/Music".play()
+	pass
+	#$"../Main/Music".stream = load("res://Assets/Musics/Thaxted.mp3")
+	#$"../Main/Music".play()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("page_right"):
+	if Input.is_action_just_pressed("page_right") and $BookContent/Flip/HBoxContainer/Back.visible == true:
 		back_to_main_menu()
 
 func play_story_audio(index):
@@ -26,3 +27,7 @@ func back_to_main_menu():
 
 func _on_back_pressed() -> void:
 	back_to_main_menu()
+
+
+func _on_story_audio_1_finished() -> void:
+	$BookContent/Flip/HBoxContainer/Back.visible = true

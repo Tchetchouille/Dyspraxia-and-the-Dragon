@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxydf4q08fhwx"]
+[gd_scene load_steps=8 format=3 uid="uid://bxydf4q08fhwx"]
 
 [ext_resource type="Script" uid="uid://b0qqxw6j48ff7" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story_2.gd" id="1_r0qby"]
 [ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="2_7nymo"]
 [ext_resource type="AudioStream" uid="uid://d3ty5pr3nyqfn" path="res://Assets/Sounds/flipping_pages.mp3" id="3_po1qt"]
 [ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="4_gmial"]
+[ext_resource type="AudioStream" uid="uid://cc7g0waa8d0xk" path="res://Assets/Sounds/story_switch.mp3" id="5_vrdqe"]
+[ext_resource type="AudioStream" uid="uid://dkyejgrkt7kjp" path="res://Assets/Sounds/story_switch2_1.mp3" id="6_fq4t1"]
+[ext_resource type="AudioStream" uid="uid://ct715n8l4s10f" path="res://Assets/Sounds/story_switch2_2.mp3" id="7_h0nkk"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -36,8 +39,6 @@ stretch_mode = 3
 
 [node name="FlippingPages" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_po1qt")
-
-[node name="StoryAudio" type="AudioStreamPlayer" parent="."]
 
 [node name="BookContent" type="Control" parent="."]
 anchors_preset = 0
@@ -92,6 +93,19 @@ offset_left = -725.0
 offset_bottom = 595.0
 grow_horizontal = 0
 
+[node name="StoryAudio1" type="AudioStreamPlayer" parent="BookContent/1"]
+stream = ExtResource("5_vrdqe")
+volume_db = 20.0
+autoplay = true
+
+[node name="StoryAudio2_1" type="AudioStreamPlayer" parent="BookContent/1"]
+stream = ExtResource("6_fq4t1")
+volume_db = 20.0
+
+[node name="StoryAudio2_2" type="AudioStreamPlayer" parent="BookContent/1"]
+stream = ExtResource("7_h0nkk")
+volume_db = 20.0
+
 [node name="Flip" type="Control" parent="BookContent"]
 layout_mode = 1
 anchors_preset = 15
@@ -136,8 +150,11 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gmial")
-text = "Combattre le dragon"
+text = "Appuie sur n'importe quelle touche pour commencer le jeu"
 
+[connection signal="finished" from="BookContent/1/StoryAudio1" to="." method="_on_story_audio_1_finished"]
+[connection signal="finished" from="BookContent/1/StoryAudio2_1" to="." method="_on_story_audio_2_1_finished"]
+[connection signal="finished" from="BookContent/1/StoryAudio2_2" to="." method="_on_story_audio_2_2_finished"]
 [connection signal="pressed" from="BookContent/Flip/HBoxContainer/LeftFLip" to="." method="_on_left_f_lip_pressed"]
 [connection signal="pressed" from="BookContent/Flip/HBoxContainer/RightFlip" to="." method="_on_right_flip_pressed"]
 [connection signal="pressed" from="BookContent/Flip/HBoxContainer/BeginGame" to="." method="_on_begin_game_pressed"]

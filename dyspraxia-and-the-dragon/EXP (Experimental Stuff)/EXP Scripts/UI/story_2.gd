@@ -13,7 +13,7 @@ func _ready() -> void:
 	$"../Main/Music".play()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("page_right"):
+	if Input.is_action_just_pressed("page_right") and $BookContent/Flip/HBoxContainer/BeginGame.visible == true:
 		begin_game()
 
 func play_story_audio(index):
@@ -26,3 +26,16 @@ func begin_game():
 
 func _on_begin_game_pressed() -> void:
 	begin_game()
+
+
+func _on_story_audio_1_finished() -> void:
+	$"BookContent/1/StoryAudio2_1".play()
+
+
+func _on_story_audio_2_1_finished() -> void:
+	$"BookContent/1/StoryAudio2_2".play()
+
+
+func _on_story_audio_2_2_finished() -> void:
+	begin_button.visible = true
+	begin_button.disabled = false
