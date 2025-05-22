@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpeo2apemj4oo"]
+[gd_scene load_steps=13 format=3 uid="uid://bpeo2apemj4oo"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story.gd" id="1_1qp7m"]
 [ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="1_87163"]
 [ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="2_2rwbu"]
 [ext_resource type="AudioStream" uid="uid://d3ty5pr3nyqfn" path="res://Assets/Sounds/flipping_pages.mp3" id="4_60yup"]
+[ext_resource type="AudioStream" uid="uid://mf0evwaqa4ks" path="res://Assets/Sounds/story01.mp3" id="5_60yup"]
+[ext_resource type="AudioStream" uid="uid://sw0a55sx1fx0" path="res://Assets/Sounds/story02.mp3" id="6_xkd6w"]
+[ext_resource type="AudioStream" uid="uid://b8vknidfisgcv" path="res://Assets/Sounds/story03.mp3" id="7_3460l"]
+[ext_resource type="AudioStream" uid="uid://bkpwgimsq8lyw" path="res://Assets/Sounds/story04.mp3" id="8_6pekb"]
+[ext_resource type="AudioStream" uid="uid://ch1c6jova0tpp" path="res://Assets/Sounds/story05_01.mp3" id="9_7ni3d"]
+[ext_resource type="AudioStream" uid="uid://d07ou772r23sd" path="res://Assets/Sounds/story05_02.mp3" id="10_3n207"]
+[ext_resource type="AudioStream" uid="uid://ccurrdidy8ltb" path="res://Assets/Sounds/story06.mp3" id="11_mi0u8"]
+[ext_resource type="AudioStream" uid="uid://ctqwolqvnolh2" path="res://Assets/Sounds/story07.mp3" id="12_3n207"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -92,6 +100,15 @@ offset_left = -725.0
 offset_bottom = 595.0
 grow_horizontal = 0
 
+[node name="StoryAudio1" type="AudioStreamPlayer" parent="BookContent/1"]
+stream = ExtResource("5_60yup")
+volume_db = 20.0
+autoplay = true
+
+[node name="StoryAudio2" type="AudioStreamPlayer" parent="BookContent/1"]
+stream = ExtResource("6_xkd6w")
+volume_db = 20.0
+
 [node name="2" type="Control" parent="BookContent"]
 visible = false
 anchors_preset = 0
@@ -138,6 +155,14 @@ anchor_right = 1.0
 offset_left = -725.0
 offset_bottom = 595.0
 grow_horizontal = 0
+
+[node name="StoryAudio3" type="AudioStreamPlayer" parent="BookContent/2"]
+stream = ExtResource("7_3460l")
+volume_db = 20.0
+
+[node name="StoryAudio4" type="AudioStreamPlayer" parent="BookContent/2"]
+stream = ExtResource("8_6pekb")
+volume_db = 20.0
 
 [node name="3" type="Control" parent="BookContent"]
 visible = false
@@ -186,6 +211,18 @@ offset_left = -725.0
 offset_bottom = 595.0
 grow_horizontal = 0
 
+[node name="StoryAudio5_1" type="AudioStreamPlayer" parent="BookContent/3"]
+stream = ExtResource("9_7ni3d")
+volume_db = 20.0
+
+[node name="StoryAudio5_2" type="AudioStreamPlayer" parent="BookContent/3"]
+stream = ExtResource("10_3n207")
+volume_db = 20.0
+
+[node name="StoryAudio6" type="AudioStreamPlayer" parent="BookContent/3"]
+stream = ExtResource("11_mi0u8")
+volume_db = 20.0
+
 [node name="4" type="Control" parent="BookContent"]
 visible = false
 anchors_preset = 0
@@ -218,6 +255,10 @@ offset_left = -725.0
 offset_bottom = 595.0
 grow_horizontal = 0
 
+[node name="StoryAudio7" type="AudioStreamPlayer" parent="BookContent/4"]
+stream = ExtResource("12_3n207")
+volume_db = 20.0
+
 [node name="5" type="Control" parent="BookContent"]
 visible = false
 anchors_preset = 0
@@ -243,6 +284,14 @@ Et la brandit contre le dragon.
 « C’est à mon tour de t’aider,
 On va lui régler son compte pour de bon ! »"
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="BookContent/5"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 459.0
+offset_bottom = 597.0
+theme = ExtResource("2_2rwbu")
+bbcode_enabled = true
+
 [node name="Control" type="Control" parent="BookContent/5"]
 layout_mode = 1
 anchors_preset = 1
@@ -264,7 +313,20 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
+<<<<<<< Updated upstream
 [node name="RightFlip" type="Button" parent="BookContent/Flip"]
+=======
+[node name="HBoxContainer" type="HBoxContainer" parent="BookContent/Flip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftFLip" type="Button" parent="BookContent/Flip/HBoxContainer"]
+visible = false
+>>>>>>> Stashed changes
 layout_mode = 2
 offset_left = 468.0
 offset_top = -9.0
@@ -274,7 +336,23 @@ size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
 text = "Appuie sur n'importe quelle touche pour tourner la page"
 
+<<<<<<< Updated upstream
 [node name="BeginGame" type="Button" parent="BookContent/Flip"]
+=======
+[node name="Margin" type="Control" parent="BookContent/Flip/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="RightFlip" type="Button" parent="BookContent/Flip/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2rwbu")
+text = "Appuie sur n'importe quelle touche pour continuer"
+
+[node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
+>>>>>>> Stashed changes
 visible = false
 layout_mode = 2
 offset_top = -9.5
@@ -282,7 +360,21 @@ offset_right = 161.0
 offset_bottom = 13.5
 size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
-text = "Combattre le dragon"
+text = "Appuie sur n'importe quelle touche pour commencer le jeu"
 
+<<<<<<< Updated upstream
 [connection signal="pressed" from="BookContent/Flip/RightFlip" to="." method="_on_right_flip_pressed"]
 [connection signal="pressed" from="BookContent/Flip/BeginGame" to="." method="_on_begin_game_pressed"]
+=======
+[connection signal="finished" from="BookContent/1/StoryAudio1" to="." method="_on_story_audio_1_finished"]
+[connection signal="finished" from="BookContent/1/StoryAudio2" to="." method="_on_story_audio_2_finished"]
+[connection signal="finished" from="BookContent/2/StoryAudio3" to="." method="_on_story_audio_3_finished"]
+[connection signal="finished" from="BookContent/2/StoryAudio4" to="." method="_on_story_audio_4_finished"]
+[connection signal="finished" from="BookContent/3/StoryAudio5_1" to="." method="_on_story_audio_5_1_finished"]
+[connection signal="finished" from="BookContent/3/StoryAudio5_2" to="." method="_on_story_audio_5_2_finished"]
+[connection signal="finished" from="BookContent/3/StoryAudio6" to="." method="_on_story_audio_6_finished"]
+[connection signal="finished" from="BookContent/4/StoryAudio7" to="." method="_on_story_audio_7_finished"]
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/LeftFLip" to="." method="_on_left_f_lip_pressed"]
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/RightFlip" to="." method="_on_right_flip_pressed"]
+[connection signal="pressed" from="BookContent/Flip/HBoxContainer/BeginGame" to="." method="_on_begin_game_pressed"]
+>>>>>>> Stashed changes

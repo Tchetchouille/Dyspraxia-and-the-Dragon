@@ -1,4 +1,4 @@
-[gd_resource type="Theme" format=3 uid="uid://34f07l3ng83d"]
+[gd_resource type="Theme" load_steps=0 format=3 uid="uid://34f07l3ng83d"]
 
 [resource]
 RichTextLabel/constants/outline_size = 15

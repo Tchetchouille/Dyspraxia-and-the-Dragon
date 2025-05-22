@@ -21,9 +21,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("page_left") and page_number != 1:
 		go_to_prev_page()
-	if Input.is_action_just_pressed("page_right") and page_number == 4:
+	if Input.is_anything_pressed() and begin_button.visible == true and page_number == 4:
 		begin_game()
-	if Input.is_action_just_pressed("page_right") and page_number != 4:
+	elif Input.is_anything_pressed() and next_button.visible == true:
 		go_to_next_page()
 
 func _on_left_f_lip_pressed() -> void:
@@ -37,6 +37,7 @@ func go_to_next_page():
 	book.get_child(page_number-1).visible = false
 	page_number += 1
 	book.get_child(page_number-1).visible = true
+<<<<<<< Updated upstream
 	if page_number == 4:
 		next_button.disabled = true
 		next_button.visible = false
@@ -45,6 +46,29 @@ func go_to_next_page():
 	#if page_number == 2:
 		#prev_button.disabled = false
 		#prev_button.visible = true
+=======
+	book.get_child(page_number-1)
+	match page_number:
+		2:
+			#prev_button.disabled = false
+			#prev_button.visible = true
+			next_button.disabled = true
+			next_button.visible = false
+			$"BookContent/2/StoryAudio3".play()
+		3:
+			next_button.disabled = true
+			next_button.visible = false
+			$"BookContent/3/StoryAudio5_1".play()
+		4:
+			next_button.disabled = true
+			next_button.visible = false
+			$"BookContent/4/StoryAudio7".play()
+			#next_button.disabled = true
+			#next_button.visible = false
+			#begin_button.disabled = false
+			#begin_button.visible = true
+
+>>>>>>> Stashed changes
 
 func go_to_prev_page():
 	$FlippingPages.play()
@@ -70,3 +94,40 @@ func begin_game():
 
 func _on_begin_game_pressed() -> void:
 	begin_game()
+
+
+
+func _on_story_audio_1_finished() -> void:
+	$"BookContent/1/StoryAudio2".play()
+
+
+func _on_story_audio_2_finished() -> void:
+	next_button.visible = true
+	next_button.disabled = false
+
+
+func _on_story_audio_3_finished() -> void:
+	$"BookContent/2/StoryAudio4".play()
+
+
+func _on_story_audio_4_finished() -> void:
+	next_button.visible = true
+	next_button.disabled = false
+
+
+func _on_story_audio_5_1_finished() -> void:
+	$"BookContent/3/StoryAudio5_2".play()
+
+
+func _on_story_audio_5_2_finished() -> void:
+	$"BookContent/3/StoryAudio6".play()
+
+
+func _on_story_audio_6_finished() -> void:
+	next_button.visible = true
+	next_button.disabled = false
+
+
+func _on_story_audio_7_finished() -> void:
+	begin_button.visible = true
+	begin_button.disabled = false
