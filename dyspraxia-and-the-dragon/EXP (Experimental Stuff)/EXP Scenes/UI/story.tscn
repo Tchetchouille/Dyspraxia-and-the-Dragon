@@ -326,6 +326,9 @@ grow_vertical = 2
 
 [node name="LeftFLip" type="Button" parent="BookContent/Flip/HBoxContainer"]
 visible = false
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 layout_mode = 2
 offset_left = 468.0
@@ -345,10 +348,21 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
 [node name="RightFlip" type="Button" parent="BookContent/Flip/HBoxContainer"]
+<<<<<<< Updated upstream
+=======
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
+text = "Appuie sur n'importe quelle touche pour continuer"
+
+[node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
+>>>>>>> Stashed changes
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2rwbu")
+<<<<<<< Updated upstream
 text = "Appuie sur n'importe quelle touche pour continuer"
 
 [node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
@@ -366,6 +380,10 @@ text = "Appuie sur n'importe quelle touche pour commencer le jeu"
 [connection signal="pressed" from="BookContent/Flip/RightFlip" to="." method="_on_right_flip_pressed"]
 [connection signal="pressed" from="BookContent/Flip/BeginGame" to="." method="_on_begin_game_pressed"]
 =======
+=======
+text = "Appuie sur n'importe quelle touche pour commencer le jeu"
+
+>>>>>>> Stashed changes
 [connection signal="finished" from="BookContent/1/StoryAudio1" to="." method="_on_story_audio_1_finished"]
 [connection signal="finished" from="BookContent/1/StoryAudio2" to="." method="_on_story_audio_2_finished"]
 [connection signal="finished" from="BookContent/2/StoryAudio3" to="." method="_on_story_audio_3_finished"]

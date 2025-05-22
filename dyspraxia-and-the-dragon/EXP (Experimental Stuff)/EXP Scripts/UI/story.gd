@@ -38,6 +38,7 @@ func go_to_next_page():
 	page_number += 1
 	book.get_child(page_number-1).visible = true
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	if page_number == 4:
 		next_button.disabled = true
 		next_button.visible = false
@@ -47,6 +48,8 @@ func go_to_next_page():
 		#prev_button.disabled = false
 		#prev_button.visible = true
 =======
+=======
+>>>>>>> Stashed changes
 	book.get_child(page_number-1)
 	match page_number:
 		2:
@@ -68,6 +71,9 @@ func go_to_next_page():
 			#begin_button.disabled = false
 			#begin_button.visible = true
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 func go_to_prev_page():
