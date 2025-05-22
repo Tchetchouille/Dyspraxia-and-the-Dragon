@@ -153,5 +153,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Histoire" to="." method="_on_mode_histoire_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Infini" to="." method="_on_mode_infini_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Quitter" to="." method="_on_quitter_pressed"]

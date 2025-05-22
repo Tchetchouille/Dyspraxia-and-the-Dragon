@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://y3p64ac0ih0c"]
+[gd_scene load_steps=13 format=3 uid="uid://y3p64ac0ih0c"]
 
 [ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/dyspraxia_combat.gd" id="1_lbyj1"]
 [ext_resource type="Texture2D" uid="uid://dw5i6knspfsrh" path="res://Assets/Other Pictures/Sky.jpeg" id="2_bl3d8"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_left_claw.tscn" id="6_88qeg"]
 [ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/exp_right_claw.tscn" id="7_4m8lo"]
 [ext_resource type="PackedScene" uid="uid://btyfs2ogh11q5" path="res://EXP (Experimental Stuff)/EXP Scenes/UI/main_ui.tscn" id="8_1axw0"]
+[ext_resource type="Theme" uid="uid://34f07l3ng83d" path="res://Themes/infinite.tres" id="9_v1at6"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/infinite_score.gd" id="9_y61gf"]
+[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/clock.gd" id="10_ih1kt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
 
@@ -57,6 +60,33 @@ position = Vector2(1700, 1200)
 offset_right = 386.0
 offset_bottom = 216.0
 
+[node name="Clock" type="RichTextLabel" parent="MainUi/VBoxContainer/HBoxContainer/MiddleMargin" index="0"]
+layout_mode = 2
+theme = ExtResource("9_v1at6")
+bbcode_enabled = true
+text = "[center]test[/center]"
+scroll_active = false
+script = ExtResource("10_ih1kt")
+
+[node name="Timer" type="Timer" parent="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock"]
+autostart = true
+
+[node name="HealthBar" parent="MainUi/VBoxContainer/HBoxContainer/DragonHealth" index="0"]
+visible = false
+
+[node name="Score" type="RichTextLabel" parent="MainUi/VBoxContainer/HBoxContainer/DragonHealth" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_v1at6")
+text = "placeholder"
+fit_content = true
+scroll_active = false
+script = ExtResource("9_y61gf")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(0.75, 0.75)
@@ -69,3 +99,7 @@ zoom = Vector2(0.75, 0.75)
 [connection signal="up_fireball" from="GameManager" to="Dragon" method="_on_game_manager_up_fireball"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]
 [connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]
+[connection signal="timeout" from="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock/Timer" to="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock" method="_on_timer_timeout"]
+
+[editable path="Dragon"]
+[editable path="MainUi"]
