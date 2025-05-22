@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bpeo2apemj4oo"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story.gd" id="1_1qp7m"]
+[ext_resource type="Script" uid="uid://dlngbysb4c11t" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/story.gd" id="1_1qp7m"]
 [ext_resource type="Texture2D" uid="uid://rsem37ik3pku" path="res://Assets/UI Pictures/FlippingPages.png" id="1_87163"]
 [ext_resource type="Theme" uid="uid://d10kavfvudbv2" path="res://Themes/story.tres" id="2_2rwbu"]
 [ext_resource type="AudioStream" uid="uid://d3ty5pr3nyqfn" path="res://Assets/Sounds/flipping_pages.mp3" id="4_60yup"]
@@ -313,23 +313,8 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-<<<<<<< Updated upstream
 [node name="RightFlip" type="Button" parent="BookContent/Flip"]
-=======
-[node name="HBoxContainer" type="HBoxContainer" parent="BookContent/Flip"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LeftFLip" type="Button" parent="BookContent/Flip/HBoxContainer"]
 visible = false
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 layout_mode = 2
 offset_left = 468.0
 offset_top = -9.0
@@ -339,34 +324,7 @@ size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
 text = "Appuie sur n'importe quelle touche pour tourner la page"
 
-<<<<<<< Updated upstream
 [node name="BeginGame" type="Button" parent="BookContent/Flip"]
-=======
-[node name="Margin" type="Control" parent="BookContent/Flip/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 10.0
-
-[node name="RightFlip" type="Button" parent="BookContent/Flip/HBoxContainer"]
-<<<<<<< Updated upstream
-=======
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_2rwbu")
-text = "Appuie sur n'importe quelle touche pour continuer"
-
-[node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
->>>>>>> Stashed changes
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_2rwbu")
-<<<<<<< Updated upstream
-text = "Appuie sur n'importe quelle touche pour continuer"
-
-[node name="BeginGame" type="Button" parent="BookContent/Flip/HBoxContainer"]
->>>>>>> Stashed changes
 visible = false
 layout_mode = 2
 offset_top = -9.5
@@ -376,14 +334,6 @@ size_flags_horizontal = 3
 theme = ExtResource("2_2rwbu")
 text = "Appuie sur n'importe quelle touche pour commencer le jeu"
 
-<<<<<<< Updated upstream
-[connection signal="pressed" from="BookContent/Flip/RightFlip" to="." method="_on_right_flip_pressed"]
-[connection signal="pressed" from="BookContent/Flip/BeginGame" to="." method="_on_begin_game_pressed"]
-=======
-=======
-text = "Appuie sur n'importe quelle touche pour commencer le jeu"
-
->>>>>>> Stashed changes
 [connection signal="finished" from="BookContent/1/StoryAudio1" to="." method="_on_story_audio_1_finished"]
 [connection signal="finished" from="BookContent/1/StoryAudio2" to="." method="_on_story_audio_2_finished"]
 [connection signal="finished" from="BookContent/2/StoryAudio3" to="." method="_on_story_audio_3_finished"]
@@ -392,7 +342,5 @@ text = "Appuie sur n'importe quelle touche pour commencer le jeu"
 [connection signal="finished" from="BookContent/3/StoryAudio5_2" to="." method="_on_story_audio_5_2_finished"]
 [connection signal="finished" from="BookContent/3/StoryAudio6" to="." method="_on_story_audio_6_finished"]
 [connection signal="finished" from="BookContent/4/StoryAudio7" to="." method="_on_story_audio_7_finished"]
-[connection signal="pressed" from="BookContent/Flip/HBoxContainer/LeftFLip" to="." method="_on_left_f_lip_pressed"]
-[connection signal="pressed" from="BookContent/Flip/HBoxContainer/RightFlip" to="." method="_on_right_flip_pressed"]
-[connection signal="pressed" from="BookContent/Flip/HBoxContainer/BeginGame" to="." method="_on_begin_game_pressed"]
->>>>>>> Stashed changes
+[connection signal="pressed" from="BookContent/Flip/RightFlip" to="." method="_on_right_flip_pressed"]
+[connection signal="pressed" from="BookContent/Flip/BeginGame" to="." method="_on_begin_game_pressed"]
