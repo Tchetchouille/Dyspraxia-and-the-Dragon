@@ -14,7 +14,7 @@ func _ready() -> void:
 	#$"../Main/Music".play()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("page_right") and $BookContent/Flip/HBoxContainer/Back.visible == true:
+	if Input.is_anything_pressed() and $BookContent/Flip/HBoxContainer/Back.visible == true:
 		back_to_main_menu()
 
 func play_story_audio(index):
