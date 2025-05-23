@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpk62pamvoh62"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over.gd" id="1_0q8to"]
+[ext_resource type="Script" uid="uid://c0ku18my1wkbo" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/game_over_infinite.gd" id="1_mt0bi"]
 [ext_resource type="Theme" uid="uid://b6aqrss3vat5y" path="res://Themes/win_info_gameover.tres" id="2_hgtre"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="3_2yy3j"]
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scenes/UI/infinite_text.gd" id="3_7ig10"]
+[ext_resource type="Script" uid="uid://dihwv4il85i6i" path="res://EXP (Experimental Stuff)/EXP Scripts/UI/text.gd" id="3_2yy3j"]
+[ext_resource type="Script" uid="uid://pqlvsgsky23c" path="res://EXP (Experimental Stuff)/EXP Scenes/UI/infinite_text.gd" id="3_7ig10"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0q8to")
+script = ExtResource("1_mt0bi")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
