@@ -47,8 +47,8 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	# Uncomment to give the possibility to toggle dyspraxia by pressing cntrl
-	#if Input.is_action_just_pressed("toggle_dyspraxia"):
-		#dyspraxia = not dyspraxia
+	if Input.is_action_just_pressed("toggle_dyspraxia"):
+		dyspraxia = not dyspraxia
 	if health <= 0:
 		death.emit()
 
