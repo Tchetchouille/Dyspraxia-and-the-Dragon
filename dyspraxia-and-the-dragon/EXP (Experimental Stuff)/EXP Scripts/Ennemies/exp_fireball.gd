@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var dmg = 5
+@export var dmg = 3
 @onready var player = $"../CelestiaCharacter"
 @onready var fireball_spawn = $"../Dragon/FireballSpawn"
 @onready var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")

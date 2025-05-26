@@ -50,9 +50,9 @@ func _process(_delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body is UpFireball:
-		health -= 10
+		health -= body.dmg * 2
 	else:
-		health -= 5
+		health -= body.dmg * 2
 	health_bar.set_health(health)
 	body.queue_free()
 	_emit_particles(body)

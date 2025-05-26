@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name UpFireball
 
 var size = Vector2(2, 2)
-var dmg = 10
+var dmg = 6
 @onready var player = $"../CelestiaCharacter"
 @onready var fireball_spawn = $"../Dragon/UpFireballSpawn"
 @onready var particles = preload("res://EXP (Experimental Stuff)/EXP Scenes/Ennemies/particles_system.tscn")

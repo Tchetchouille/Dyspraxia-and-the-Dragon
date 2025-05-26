@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqsfsi46c4js3"]
 
-[ext_resource type="Script" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
+[ext_resource type="Script" uid="uid://mkbqs3xjhwia" path="res://EXP (Experimental Stuff)/EXP Scripts/Ennemies/exp_fireball.gd" id="1_mi4nq"]
 [ext_resource type="Texture2D" uid="uid://8wts4b4dofbo" path="res://Assets/Fireball Pictures/o1.png" id="2_4b3eu"]
 [ext_resource type="Texture2D" uid="uid://5dqowesghfwa" path="res://Assets/Fireball Pictures/y1.png" id="2_05c8o"]
 [ext_resource type="Texture2D" uid="uid://c6m5b0sc2exli" path="res://Assets/Fireball Pictures/r1.png" id="2_rnf45"]
