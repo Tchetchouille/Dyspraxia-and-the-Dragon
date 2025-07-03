@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-
-const SPEED = 750.0
-const JUMP_VELOCITY = -1500.0
-const JUMP_DYSPRAXIA = 100
+# health of the character
 var health = 100
+# wether or not character is dyspraxic
 var dyspraxia
+# triggers on death
 signal death
 
 @onready var health_bar = get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
@@ -34,33 +33,31 @@ func _ready() -> void:
 		
 		
 
+# Basic physics
 func _physics_process(delta: float) -> void:
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if dyspraxia == true:
-		dyspraxia_process(delta)
-	else:
-		celestia_process(delta)
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	# Uncomment to give the possibility to toggle dyspraxia by pressing cntrl
+	# Gives the possibility to toggle dyspraxia by pressing cntrl
 	if Input.is_action_just_pressed("toggle_dyspraxia"):
 		dyspraxia = not dyspraxia
 	if health <= 0:
 		death.emit()
 
+# Taking a hit
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	health -= body.dmg
 	$Sounds/DyspraxiaHurt.get_child(randi_range(0, 2)).play()
 	health_bar.set_health(health)
-	if body.name != "ExpRightClaw" and body.name != "ExpLeftClaw" and body.name != "Dragon":
+	if body.name != "Dragon":
 		body.queue_free()
 		_emit_particles(body)
 		print(body.name)
 
+# Particles when hit.
 func _emit_particles(body):
 	var particles_instance = particles.instantiate()
 	particles_instance.position = body.global_position
@@ -69,30 +66,3 @@ func _emit_particles(body):
 		if body is UpFireball:
 			particle.modulate = Color(2, 2, 1)
 		particle.restart()
-
-func dyspraxia_process(_delta):
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		# For Dyspraxia, we add a little randomness to throw the player off
-		velocity.y = JUMP_VELOCITY + randf_range(-JUMP_DYSPRAXIA, JUMP_DYSPRAXIA)
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-func celestia_process(_delta):
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
