@@ -13,15 +13,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	var left_stick_input = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 160
+	var left_stick_input = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 150
 	var right_stick_input = Input.get_vector("sword_left", "sword_right", "sword_up", "sword_down") * 2000
 	if dyspraxia == true:
-		if not stored_left_input == left_stick_input:
+		var input_diff = (stored_left_input - left_stick_input).length()
+		if input_diff > 10:
+			print(input_diff)
 			dyspraxia_process_hand(left_stick_input, delta)
+			stored_left_input = left_stick_input
 		dyspraxia_process_blade(right_stick_input, delta)
 	else:
 		celestia_process(left_stick_input, right_stick_input, delta)
-	stored_left_input = left_stick_input
 	stored_right_input = right_stick_input
 	
 	# Dyspraxia toggle
@@ -33,7 +35,8 @@ func dyspraxia_process_hand(l_input, _delta):
 	var new_l_y = l_input.y + l_input.y * randf_range(-dyspraxia_hand, dyspraxia_hand)
 	l_input = Vector2(new_l_x, new_l_y)
 	var tween = create_tween()
-	tween.tween_property(self, "position", l_input, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "position", l_input, 0.3)
+		#.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func dyspraxia_process_blade(r_input, delta):	
 	var new_r_x = r_input.x + r_input.x * randf_range(-dyspraxia_blade, dyspraxia_blade)
