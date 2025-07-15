@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=3 uid="uid://dptogfynpfrby"]
+
+[ext_resource type="Script" uid="uid://si27aky8x3bp" path="res://Scripts/Ennemies/dragon.gd" id="1_xameb"]
+[ext_resource type="Texture2D" uid="uid://cjgysg8fp042o" path="res://Assets/Dragon Pictures/down_open.png" id="2_er55f"]
+[ext_resource type="Texture2D" uid="uid://iq66r5lhhnxr" path="res://Assets/Dragon Pictures/rest_down.png" id="3_ngus7"]
+[ext_resource type="Texture2D" uid="uid://ceot37f8k0uka" path="res://Assets/Dragon Pictures/rest_up.png" id="4_sr4ss"]
+[ext_resource type="Texture2D" uid="uid://dycyyeox54y7t" path="res://Assets/Dragon Pictures/up_open.png" id="5_vpmp8"]
+[ext_resource type="AudioStream" uid="uid://df6axgkjnm68r" path="res://Assets/Sounds/up_fireball_1.mp3" id="6_jtmrf"]
+[ext_resource type="AudioStream" uid="uid://dppgdlbtueb82" path="res://Assets/Sounds/up_fireball_2.mp3" id="7_fh4db"]
+[ext_resource type="AudioStream" uid="uid://7jy1ctnkmf6b" path="res://Assets/Sounds/up_fireball_3.mp3" id="8_qo3rj"]
+[ext_resource type="AudioStream" uid="uid://dsnpj6gsb4ffh" path="res://Assets/Sounds/down_fireball_1.mp3" id="9_tmnxb"]
+[ext_resource type="AudioStream" uid="uid://cl1ropjrktrtu" path="res://Assets/Sounds/down_fireball_2.mp3" id="10_igcb4"]
+[ext_resource type="AudioStream" uid="uid://e475g76xkryc" path="res://Assets/Sounds/down_fireball_3.mp3" id="11_p62hc"]
+[ext_resource type="AudioStream" uid="uid://dvx5mjueixuca" path="res://Assets/Sounds/dragon_hurt_1.mp3" id="12_hu1ym"]
+[ext_resource type="AudioStream" uid="uid://cb56f0oyn6c4e" path="res://Assets/Sounds/dragon_hurt_2.mp3" id="13_bgrsk"]
+[ext_resource type="AudioStream" uid="uid://bc8s8acccatwn" path="res://Assets/Sounds/dragon_hurt_3.mp3" id="14_npl0q"]
+[ext_resource type="AudioStream" uid="uid://ba5ie71uncq4q" path="res://Assets/Sounds/dragon_hurt_4.mp3" id="15_5ljls"]
+
+[node name="Dragon" type="CharacterBody2D"]
+z_index = 4
+scale = Vector2(0.9, 0.9)
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_xameb")
+
+[node name="Animation" type="Node2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="DownOpen" type="Node2D" parent="Animation"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation/DownOpen"]
+position = Vector2(-406, -818)
+texture = ExtResource("2_er55f")
+
+[node name="HitBox" type="Area2D" parent="Animation/DownOpen"]
+position = Vector2(0, -99.9997)
+scale = Vector2(1.66667, 1.66667)
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Animation/DownOpen/HitBox"]
+position = Vector2(0, -14.0002)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(-149, 64.9998, -156, 17.9998, -159, -48.0002, -152, -146, -144, -225, -130, -326, -120, -421, -152, -420, -231, -358, -235, -346, -220, -349, -272, -301, -299, -261, -347, -204, -370, -196, -415, -210, -453, -235, -409, -246, -395, -269, -293, -439, -474, -403, -486, -376, -503, -393, -514, -365, -533, -383, -542, -354, -560, -376, -577, -423, -580, -476, -565, -529, -534, -495, -510, -490, -464, -513, -437, -544, -438, -578, -426, -615, -385, -680, -322, -745, -318, -743, -344, -696, -340, -691, -274, -736, -228, -762, -221, -759, -276, -714, -304, -679, -300, -675, -248, -692, -237, -694, -288, -647, -274, -636, -180, -681, -130, -698, -214, -620, -167, -620, -161, -616, -177, -605, -159, -599, -105, -601, -125, -591, -55, -566, -17, -542, 9, -510, 33, -467, 67, -381, 133, -150, 161, -11.0002, 173, 62.9998)
+
+[node name="RestDown" type="Node2D" parent="Animation"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation/RestDown"]
+position = Vector2(-363, -932)
+texture = ExtResource("3_ngus7")
+
+[node name="HitBox" type="Area2D" parent="Animation/RestDown"]
+position = Vector2(0, -99.9997)
+scale = Vector2(1.66667, 1.66667)
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Animation/RestDown/HitBox"]
+position = Vector2(0, -14.0002)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(-150, 57.5, -157.5, -7.5, -158.333, -105.833, -150, -199.167, -140, -299.167, -128.333, -419.167, -127.5, -473.333, -162.5, -480, -184.167, -491.667, -212.5, -485.833, -277.5, -495, -286.667, -491.667, -276.667, -483.333, -298.333, -481.667, -339.167, -489.167, -405, -481.667, -483.333, -480.833, -501.667, -490.833, -527.5, -546.667, -540, -590.833, -540, -637.5, -532.5, -666.667, -509.167, -714.167, -505, -710.833, -490, -683.333, -471.667, -666.667, -453.333, -663.333, -413.333, -670, -389.167, -680.833, -370.833, -694.167, -365, -721.667, -349.167, -758.333, -322.5, -786.667, -275, -824.167, -201.667, -867.5, -197.5, -865.833, -236.667, -824.167, -232.5, -818.333, -159.167, -844.167, -105.833, -856.667, -98.3333, -854.167, -157.5, -825, -197.5, -795.833, -195, -790, -135.833, -790.833, -133.333, -786.667, -189.167, -757.5, -179.167, -744.167, -80, -760, -33.3333, -765.833, -19.1667, -765, -123.333, -710.833, -77.5, -699.167, -70, -695, -108.333, -683.333, -20, -664.167, -91.6667, -650.833, -79.1667, -630, 5, -519.167, 37.5, -453.333, 71.6667, -358.333, 121.667, -189.167, 154.167, -59.1667, 175, 58.3333)
+
+[node name="RestUp" type="Node2D" parent="Animation"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation/RestUp"]
+position = Vector2(-341, -948)
+texture = ExtResource("4_sr4ss")
+
+[node name="HitBox" type="Area2D" parent="Animation/RestUp"]
+position = Vector2(0, -99.9997)
+scale = Vector2(1.66667, 1.66667)
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Animation/RestUp/HitBox"]
+position = Vector2(0, -14.0002)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(-153.333, 55.8333, -159.167, -13.3333, -156.667, -110.833, -143.333, -263.333, -134.167, -404.167, -128.333, -464.167, -137.5, -480, -168.333, -490.833, -187.5, -506.667, -200.833, -511.667, -207.5, -509.167, -253.333, -527.5, -278.333, -534.167, -280, -525.833, -274.167, -518.333, -307.5, -530.833, -331.667, -541.667, -391.667, -548.333, -473.333, -566.667, -494.167, -575, -502.5, -592.5, -511.667, -655.833, -509.167, -709.167, -493.333, -747.5, -461.667, -792.5, -448.333, -802.5, -449.167, -789.167, -432.5, -750, -412.5, -737.5, -370, -735, -333.333, -743.333, -320, -751.667, -307.5, -783.333, -280, -813.333, -228.333, -842.5, -164.167, -869.167, -118.333, -882.5, -113.333, -879.167, -161.667, -845, -157.5, -838.333, -98.3333, -847.5, -21.6667, -849.167, -16.6667, -844.167, -80.8333, -830.833, -129.167, -810, -124.167, -803.333, -60.8333, -792.5, -126.667, -771.667, -120, -756.667, -61.6667, -755, 40, -744.167, -70.8333, -710.833, -22.5, -685, -63.3333, -680.833, 21.6667, -641.667, -70, -646.667, -45.8333, -624.167, -45.8333, -619.167, -55.8333, -620, -30.8333, -565.833, 16.6667, -480, 45, -418.333, 95, -260.833, 143.333, -95, 172.5, 55.8333)
+
+[node name="UpOpen" type="Node2D" parent="Animation"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Animation/UpOpen"]
+position = Vector2(-43, -1089)
+texture = ExtResource("5_vpmp8")
+
+[node name="HitBox" type="Area2D" parent="Animation/UpOpen"]
+position = Vector2(0, -99.9997)
+scale = Vector2(1.66667, 1.66667)
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Animation/UpOpen/HitBox"]
+position = Vector2(0, -14.0002)
+scale = Vector2(1.2, 1.2)
+polygon = PackedVector2Array(-145, 59.1667, -158.333, -50, -160, -212.5, -157.5, -344.167, -157.5, -438.333, -148.333, -500.833, -150, -583.333, -138.333, -628.333, -162.5, -710.833, -179.167, -730, -195.833, -775, -230, -819.167, -268.333, -888.333, -268.333, -906.667, -252.5, -931.667, -225, -961.667, -205, -974.167, -207.5, -931.667, -80, -780, -59.1667, -760.833, -44.1667, -745, 3.33333, -866.667, 29.1667, -936.667, 13.3333, -962.5, 37.5, -966.667, 20.8333, -993.333, 50, -997.5, 29.1667, -1024.17, 64.1667, -1025.83, 97.5, -1019.17, 135, -999.167, 168.333, -970, 184.167, -947.5, 167.5, -947.5, 135, -938.333, 124.167, -926.667, 116.667, -885.833, 114.167, -859.167, 123.333, -826.667, 150.833, -808.333, 176.667, -779.167, 195.833, -732.5, 223.333, -642.5, 225.833, -610.833, 197.5, -660.833, 191.667, -660.833, 191.667, -583.333, 187.5, -530, 181.667, -520, 177.5, -585.833, 161.667, -635, 155, -626.667, 139.167, -570, 127.5, -636.667, 111.667, -630.833, 98.3333, -550.833, 81.6667, -478.333, 65, -588.333, 39.1667, -549.167, 33.3333, -545.833, 34.1667, -572.5, 20, -555, -13.3333, -498.333, -13.3333, -466.667, 12.5, -419.167, 45.8333, -340.833, 110.833, -165.833, 155, -35.8333, 178.333, 63.3333)
+
+[node name="AnimationTimer" type="Timer" parent="Animation"]
+wait_time = 0.3
+autostart = true
+
+[node name="FireballSpawn" type="Marker2D" parent="."]
+position = Vector2(-455.556, -575.556)
+
+[node name="UpFireballSpawn" type="Marker2D" parent="."]
+position = Vector2(-96.6667, -1058.89)
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="UpFireballSounds" type="Node" parent="SoundEffects"]
+
+[node name="UpFireballSound1" type="AudioStreamPlayer" parent="SoundEffects/UpFireballSounds"]
+stream = ExtResource("6_jtmrf")
+
+[node name="UpFireballSound2" type="AudioStreamPlayer" parent="SoundEffects/UpFireballSounds"]
+stream = ExtResource("7_fh4db")
+
+[node name="UpFireballSound3" type="AudioStreamPlayer" parent="SoundEffects/UpFireballSounds"]
+stream = ExtResource("8_qo3rj")
+
+[node name="DownFireballSounds" type="Node" parent="SoundEffects"]
+
+[node name="DownFireballSound1" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
+stream = ExtResource("9_tmnxb")
+volume_db = 10.0
+
+[node name="DownFireballSound2" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
+stream = ExtResource("10_igcb4")
+volume_db = 10.0
+
+[node name="DownFireballSound3" type="AudioStreamPlayer" parent="SoundEffects/DownFireballSounds"]
+stream = ExtResource("11_p62hc")
+volume_db = 10.0
+
+[node name="DragonHurtSounds" type="Node" parent="SoundEffects"]
+
+[node name="DragonHurtSound1" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
+stream = ExtResource("12_hu1ym")
+volume_db = 5.0
+
+[node name="DragonHurtSound2" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
+stream = ExtResource("13_bgrsk")
+volume_db = 5.0
+
+[node name="DragonHurtSound3" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
+stream = ExtResource("14_npl0q")
+volume_db = 5.0
+
+[node name="DragonHurtSound4" type="AudioStreamPlayer" parent="SoundEffects/DragonHurtSounds"]
+stream = ExtResource("15_5ljls")
+volume_db = 5.0
+
+[connection signal="body_entered" from="Animation/DownOpen/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="Animation/RestDown/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="Animation/RestUp/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="Animation/UpOpen/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Animation/AnimationTimer" to="." method="_on_animation_timer_timeout"]

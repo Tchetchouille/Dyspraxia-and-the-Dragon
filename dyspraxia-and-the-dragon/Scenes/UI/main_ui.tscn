@@ -1,0 +1,150 @@
+[gd_scene load_steps=11 format=3 uid="uid://btyfs2ogh11q5"]
+
+[ext_resource type="Script" uid="uid://cxw1fw3l6i86q" path="res://Scripts/UI/player_health_bar.gd" id="1_yllub"]
+[ext_resource type="Script" uid="uid://bsirql0iowfqx" path="res://Scripts/UI/dragon_health_bar.gd" id="2_5upj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d386c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr3vu"]
+bg_color = Color(0.572549, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1v3s"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bqpj"]
+bg_color = Color(0.999976, 0.784686, 0.749006, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36rlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhldi"]
+bg_color = Color(0.572549, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyrha"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36veg"]
+bg_color = Color(1, 0.784314, 0.74902, 1)
+
+[node name="MainUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopMargin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="PlayerHealth" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_d386c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qr3vu")
+value = 50.0
+show_percentage = false
+script = ExtResource("1_yllub")
+
+[node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_v1v3s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7bqpj")
+value = 75.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar"]
+wait_time = 0.5
+one_shot = true
+
+[node name="MiddleMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="DragonHealth" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/DragonHealth"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_36rlr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mhldi")
+value = 50.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("2_5upj8")
+
+[node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/DragonHealth/HealthBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_nyrha")
+theme_override_styles/fill = SubResource("StyleBoxFlat_36veg")
+value = 75.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/DragonHealth/HealthBar"]
+wait_time = 0.5
+one_shot = true
+
+[node name="RightMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BottomMargin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar/Timer" to="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar" method="_on_timer_timeout"]
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/DragonHealth/HealthBar/Timer" to="VBoxContainer/HBoxContainer/DragonHealth/HealthBar" method="_on_timer_timeout"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyjrp0beilfpm"]
+
+[ext_resource type="Script" uid="uid://dp46tpmgrqthj" path="res://Scripts/UI/credits.gd" id="1_syabw"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syabw")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MUSIQUES ET SONS" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[center]MUSIQUES ET SONS[/center]"
+fit_content = true
+
+[node name="m et s" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Musique \"Professor and the Plant\" -  Kevin MacLeod
+(incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Musique \"Thaxted (Holst)\"- Kevin MacLeod
+(incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Musique \"The Show Must Be Go\" - Kevin MacLeod
+(incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Voix de Dyspraxia - Dayani Tscherrig
+
+Voix de Celestia - Mei Chi Lam
+
+Voix des méchantes princesses - Dayani Tscherrig
+
+Narration - Jeremias Kuehne
+
+Sons du grimoire - yd
+(https://opengameart.org/content/old-pagesflip-with-sound)
+
+Autres effets sonores - Jeremias Kuehne[/center]
+
+"
+fit_content = true
+
+[node name="RESSOURCES VISUELLES" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[center]RESSOURCES VISUELLES[/center]"
+fit_content = true
+
+[node name="r v" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Police \"Old London\" - Dieter Steffmann
+(http://www.steffmann.de/wordpress/)
+
+Grimoire \"Old Pages\" - yd
+(https://opengameart.org/content/old-pagesflip-with-sound)
+
+Icône de manette - alxl
+(https://opengameart.org/content/mouse-keyboard-gamepad-inputs)[/center]"
+fit_content = true
