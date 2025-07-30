@@ -9,6 +9,6 @@ func _on_timer_timeout() -> void:
 	var s = total_time - m * 60
 	text = "[center]%02d:%02d[/center]" % [m, s]
 	if gm.down_fireball_threshold < 100:
-		gm.down_fireball_threshold += round(s / 10)
+		gm.down_fireball_threshold += round(s / 10.0)
 	if gm.up_fireball_threshold < 50:
-		gm.up_fireball_threshold += round(s / 10)
+		gm.up_fireball_threshold += round(s / 10.0)
