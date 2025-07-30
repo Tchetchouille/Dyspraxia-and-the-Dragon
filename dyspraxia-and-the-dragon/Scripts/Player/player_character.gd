@@ -9,6 +9,8 @@ signal death
 
 @onready var health_bar = get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
 @onready var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
+var damage_display = preload("res://Scenes/UI/damage_display.tscn")
+
 
 func _ready() -> void:
 	dyspraxia = $"../../Main".global_dyspraxia
@@ -49,12 +51,14 @@ func _process(_delta: float) -> void:
 
 # Taking a hit
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	health -= body.dmg
+	var damage = body.dmg
+	health -= damage
 	$Sounds/DyspraxiaHurt.get_child(randi_range(0, 2)).play()
 	health_bar.set_health(health)
 	if body.name != "Dragon":
 		body.queue_free()
 		_emit_particles(body)
+		_emit_damage_display(damage, body.position)
 		print(body.name)
 
 # Particles when hit.
@@ -66,3 +70,11 @@ func _emit_particles(body):
 		if body is UpFireball:
 			particle.modulate = Color(2, 2, 1)
 		particle.restart()
+		
+func _emit_damage_display(dmg, pos):
+	var damage_display_instance = damage_display.instantiate()
+	damage_display_instance.position = pos
+	damage_display_instance.get_child(0).text = "%s" % [str(dmg)]
+	damage_display_instance.get_child(0).set("theme_override_font_sizes/normal_font_size", 30 + dmg)
+	damage_display_instance.get_child(0).set("theme_override_constants/outline_size", 15 + dmg)
+	$"..".add_child(damage_display_instance)

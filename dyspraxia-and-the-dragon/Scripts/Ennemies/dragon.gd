@@ -12,6 +12,7 @@ signal death
 var up_fireball_scene = preload("res://Scenes/Ennemies/big_fireball.tscn")
 var down_fireball_scene = preload("res://Scenes/Ennemies/small_fireball.tscn")
 var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
+var damage_display = preload("res://Scenes/UI/damage_display.tscn")
 @onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/DragonHealth/HealthBar")
 @onready var animation_frames = [
 	$Animation/DownOpen,
@@ -49,13 +50,15 @@ func _process(_delta: float) -> void:
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
+	var damage = int(body.dmg * body.linear_velocity.length() / 1000)
 	if body is UpFireball:
-		health -= body.dmg * 2
+		health -= damage
 	else:
-		health -= body.dmg * 2
+		health -= damage
 	health_bar.set_health(health)
 	body.queue_free()
 	_emit_particles(body)
+	_emit_damage_display(damage, body.position)
 	dragon_hurt_sounds.get_child(randi_range(0, 3))
 
 
@@ -69,6 +72,14 @@ func _emit_particles(body):
 			particle.modulate = Color(2, 2, 1)
 		particle.restart()
 
+func _emit_damage_display(dmg, pos):
+	var damage_display_instance = damage_display.instantiate()
+	damage_display_instance.position = pos
+	damage_display_instance.get_child(0).text = "%s" % [str(dmg)]
+	damage_display_instance.get_child(0).set("theme_override_font_sizes/normal_font_size", 30 + dmg)
+	damage_display_instance.get_child(0).set("theme_override_constants/outline_size", 15 + dmg)
+	$"..".add_child(damage_display_instance)
+	
 
 func _on_animation_timer_timeout() -> void:
 	# If we have reached the animation target, we define the next one
