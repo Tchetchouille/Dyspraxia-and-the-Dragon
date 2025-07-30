@@ -102,6 +102,10 @@ page_right={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Texts/Texts.en.translation", "res://Assets/Texts/Texts.fr.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Body"

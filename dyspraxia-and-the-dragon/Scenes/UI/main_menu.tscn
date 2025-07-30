@@ -59,7 +59,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
-text = "[center][wave amp=100.0 freq=5.0 connected=1]DYSPRAXIA[/wave][/center]"
+text = "TITLE_dyspraxia"
 scroll_active = false
 custom_effects = [SubResource("RichTextEffect_jum1s")]
 
@@ -71,7 +71,7 @@ theme = ExtResource("1_iiuee")
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[center]ET LE[/center]"
+text = "TITLE_and_the"
 scroll_active = false
 
 [node name="Dragon" type="RichTextLabel" parent="Title/VBoxContainer"]
@@ -79,7 +79,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_iiuee")
 bbcode_enabled = true
-text = "[center][shake rate=20.0 level=20 connected=1]DRAGON[/shake][/center]"
+text = "TITLE_dragon"
 scroll_active = false
 custom_effects = [SubResource("RichTextEffect_xvmiy")]
 
