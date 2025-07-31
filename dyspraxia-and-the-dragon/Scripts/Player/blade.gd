@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	var right_stick_input = Vector2(right_x, right_y)
 	if dyspraxia == true:
 		var input_diff = (stored_left_input - left_stick_input).length()
-		print(" stored: " + str(stored_left_input) + "current: " + str(left_stick_input))
 		if input_diff > 0.5:
 			dyspraxia_process_hand(left_stick_input, delta)
 			stored_left_input = left_stick_input

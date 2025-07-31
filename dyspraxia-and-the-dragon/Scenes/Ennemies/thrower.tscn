@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3sennnuob80h"]
+
+[ext_resource type="Texture2D" uid="uid://do8fkuyka8acp" path="res://Assets/Other Pictures/pointer.png" id="1_coegf"]
+[ext_resource type="Script" uid="uid://bgmltjrisq8l4" path="res://Scripts/Ennemies/thrower.gd" id="1_egexu"]
+
+[node name="Thrower" type="Node2D"]
+script = ExtResource("1_egexu")
+
+[node name="Graphics" type="Node2D" parent="."]
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("1_coegf")

@@ -13,7 +13,7 @@ var up_fireball_scene = preload("res://Scenes/Ennemies/big_fireball.tscn")
 var down_fireball_scene = preload("res://Scenes/Ennemies/small_fireball.tscn")
 var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
 var damage_display = preload("res://Scenes/UI/damage_display.tscn")
-@onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/DragonHealth/HealthBar")
+@onready var health_bar =  get_node("../MainUi/VBoxContainer/HBoxContainer/CharacterHealth1/HealthBar")
 @onready var animation_frames = [
 	$Animation/DownOpen,
 	$Animation/RestDown,

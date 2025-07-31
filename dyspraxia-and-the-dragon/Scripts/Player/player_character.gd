@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var player_id = 0
+@export var player_id: int
 
 # health of the character
 var health = 100
@@ -8,15 +8,21 @@ var health = 100
 var dyspraxia
 # triggers on death
 signal death
-var health_path = "../MainUi/VBoxContainer/HBoxContainer/PlayerHealth" + str(player_id) + "/HealthBar"
-@onready var health_bar = get_node(health_path)
+var health_path_0 = "../MainUi/VBoxContainer/HBoxContainer/CharacterHealth0/HealthBar"
+@onready var health_bar_0 = get_node(health_path_0)
+var health_path_1 = "../MainUi/VBoxContainer/HBoxContainer/CharacterHealth1/HealthBar"
+@onready var health_bar_1 = get_node(health_path_1)
 @onready var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
 var damage_display = preload("res://Scenes/UI/damage_display.tscn")
 
 
 func _ready() -> void:
 	dyspraxia = $"../../Main".global_dyspraxia
-	health_bar.init_health(health)
+	match player_id:
+		0:
+			health_bar_0.init_health(health)
+		1:
+			health_bar_1.init_health(health)
 	# Changing character model
 	if not dyspraxia:
 		$Model/DyspraxiaBody.visible = false
@@ -56,7 +62,11 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	var damage = body.dmg
 	health -= damage
 	$Sounds/DyspraxiaHurt.get_child(randi_range(0, 2)).play()
-	health_bar.set_health(health)
+	match player_id:
+		0:
+			health_bar_0.set_health(health)
+		1:
+			health_bar_1.set_health(health)
 	if body.name != "Dragon":
 		body.queue_free()
 		_emit_particles(body)

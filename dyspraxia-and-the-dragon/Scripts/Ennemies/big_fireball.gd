@@ -12,7 +12,7 @@ var impulse_offset = 200
 
 
 
-@onready var player = $"../PlayerCharacter"
+@onready var player = $"../PlayerCharacter0"
 @onready var fireball_spawn = $"../Dragon/UpFireballSpawn"
 @onready var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
 @onready var yellow_sprite = $YSprite

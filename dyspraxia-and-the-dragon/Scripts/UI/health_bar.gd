@@ -5,6 +5,7 @@ extends ProgressBar
 @onready var timer = $Timer
 @onready var damage_bar = $DamageBar
 
+
 signal game_over
 
 var health = 0

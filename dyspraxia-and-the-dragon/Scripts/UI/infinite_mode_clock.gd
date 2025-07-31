@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 var total_time = 0
-@onready var gm = 	$"../../../../../GameManager"
+@onready var gm = 	$"../../GameManager"
 
 func _on_timer_timeout() -> void:
 	total_time += 1

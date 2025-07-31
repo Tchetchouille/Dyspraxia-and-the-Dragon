@@ -40,7 +40,7 @@ shape = SubResource("WorldBoundaryShape2D_bavmj")
 position = Vector2(1350, 864)
 scale = Vector2(0.6, 0.6)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("4_517t8")]
+[node name="PlayerCharacter0" parent="." instance=ExtResource("4_517t8")]
 position = Vector2(250, 657)
 
 [node name="GameManager" parent="." instance=ExtResource("5_n3ae5")]
@@ -62,7 +62,7 @@ anchor_mode = 0
 zoom = Vector2(0.75, 0.75)
 
 [connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
-[connection signal="death" from="PlayerCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="death" from="PlayerCharacter0" to="GameManager" method="_on_exp_celestia_character_death"]
 [connection signal="down_fireball" from="GameManager" to="Dragon" method="_on_game_manager_down_fireball"]
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]

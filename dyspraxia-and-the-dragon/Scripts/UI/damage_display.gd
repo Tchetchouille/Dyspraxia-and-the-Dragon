@@ -23,6 +23,6 @@ func _on_destroy_timer_timeout() -> void:
 func _process(delta: float) -> void:
 	frame_count += 1
 	position.x = base_x + cos(frame_count / 5.0) * frame_count / 2
-	position.y = position.y - (frame_count / 10) ** 1.1
+	position.y = position.y - (frame_count / 10.0) ** 1.1
 	get_child(0).set("theme_override_colors/default_color", font_color)
 	get_child(0).set("theme_override_colors/font_outline_color", outline_color)

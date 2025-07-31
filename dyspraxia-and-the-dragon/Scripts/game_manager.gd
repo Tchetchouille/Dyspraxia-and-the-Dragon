@@ -4,7 +4,7 @@ extends Node
 @export var down_fireball_threshold : int = 60
 @export var up_fireball_threshold : int = 5
 @export var claw_threshold : int = -10
-@onready var player = $"../PlayerCharacter"
+@onready var player = $"../PlayerCharacter0"
 # Count of currently available claws
 var claw_count : int = 2
 # Used to count seconds

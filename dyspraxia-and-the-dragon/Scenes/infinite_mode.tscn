@@ -43,7 +43,7 @@ shape = SubResource("WorldBoundaryShape2D_bavmj")
 position = Vector2(1350, 864)
 scale = Vector2(0.6, 0.6)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("4_5l3c0")]
+[node name="PlayerCharacter0" parent="." instance=ExtResource("4_5l3c0")]
 position = Vector2(250, 657)
 
 [node name="GameManager" parent="." instance=ExtResource("5_b7460")]
@@ -60,25 +60,33 @@ position = Vector2(1700, 1200)
 offset_right = 386.0
 offset_bottom = 216.0
 
-[node name="Clock" type="RichTextLabel" parent="MainUi/VBoxContainer/HBoxContainer/MiddleMargin" index="0"]
+[node name="HealthBar" parent="MainUi/VBoxContainer/HBoxContainer/CharacterHealth1" index="0"]
+visible = false
+
+[node name="Clock" type="RichTextLabel" parent="MainUi"]
 layout_mode = 2
+offset_left = 922.0
+offset_top = 44.0
+offset_right = 1052.0
+offset_bottom = 95.0
 theme = ExtResource("9_v1at6")
 bbcode_enabled = true
 text = "[center]test[/center]"
 scroll_active = false
 script = ExtResource("10_ih1kt")
 
-[node name="Timer" type="Timer" parent="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock"]
+[node name="Timer" type="Timer" parent="MainUi/Clock"]
 autostart = true
 
-[node name="HealthBar" parent="MainUi/VBoxContainer/HBoxContainer/DragonHealth" index="0"]
-visible = false
-
-[node name="Score" type="RichTextLabel" parent="MainUi/VBoxContainer/HBoxContainer/DragonHealth" index="1"]
+[node name="Score" type="RichTextLabel" parent="MainUi"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1056.0
+offset_top = 42.0
+offset_right = 1056.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_v1at6")
@@ -92,14 +100,14 @@ anchor_mode = 0
 zoom = Vector2(0.75, 0.75)
 
 [connection signal="death" from="Dragon" to="GameManager" method="_on_exp_dragon_death"]
-[connection signal="death" from="PlayerCharacter" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="death" from="PlayerCharacter0" to="GameManager" method="_on_exp_celestia_character_death"]
 [connection signal="down_fireball" from="GameManager" to="Dragon" method="_on_game_manager_down_fireball"]
 [connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
 [connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
 [connection signal="up_fireball" from="GameManager" to="Dragon" method="_on_game_manager_up_fireball"]
 [connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]
 [connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]
-[connection signal="timeout" from="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock/Timer" to="MainUi/VBoxContainer/HBoxContainer/MiddleMargin/Clock" method="_on_timer_timeout"]
+[connection signal="timeout" from="MainUi/Clock/Timer" to="MainUi/Clock" method="_on_timer_timeout"]
 
 [editable path="Dragon"]
 [editable path="MainUi"]
