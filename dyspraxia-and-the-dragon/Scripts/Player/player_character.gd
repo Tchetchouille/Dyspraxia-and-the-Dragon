@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
+@export var player_id = 0
+
 # health of the character
 var health = 100
 # wether or not character is dyspraxic
 var dyspraxia
 # triggers on death
 signal death
-
-@onready var health_bar = get_node("../MainUi/VBoxContainer/HBoxContainer/PlayerHealth/HealthBar")
+var health_path = "../MainUi/VBoxContainer/HBoxContainer/PlayerHealth" + str(player_id) + "/HealthBar"
+@onready var health_bar = get_node(health_path)
 @onready var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
 var damage_display = preload("res://Scenes/UI/damage_display.tscn")
 

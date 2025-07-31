@@ -29,3 +29,9 @@ func _on_mode_infini_pressed() -> void:
 	var credit_scene = load("res://Scenes/infinite_mode.tscn").instantiate()
 	get_tree().root.add_child(credit_scene)
 	queue_free()
+
+
+func _on_mode_versus_pressed() -> void:
+	var credit_scene = load("res://Scenes/versus_mode.tscn").instantiate()
+	get_tree().root.add_child(credit_scene)
+	queue_free()

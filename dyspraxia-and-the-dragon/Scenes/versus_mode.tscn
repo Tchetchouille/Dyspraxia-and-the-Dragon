@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://bata6aqmvlo06"]
+
+[ext_resource type="Script" uid="uid://4uidhjs7dxl6" path="res://Scripts/combat.gd" id="1_8kbk8"]
+[ext_resource type="Texture2D" uid="uid://dw5i6knspfsrh" path="res://Assets/Other Pictures/Sky.jpeg" id="2_5ydbm"]
+[ext_resource type="PackedScene" uid="uid://ce61kpweab77u" path="res://Scenes/PC/player_character.tscn" id="4_jrxp8"]
+[ext_resource type="PackedScene" uid="uid://cfl2bqo0qhiq2" path="res://Scenes/game_manager.tscn" id="5_hmy6s"]
+[ext_resource type="PackedScene" uid="uid://diuvwq45ssf53" path="res://Scenes/Ennemies/obsolete_left_claw.tscn" id="6_aubnc"]
+[ext_resource type="PackedScene" uid="uid://c77gklna32eor" path="res://Scenes/Ennemies/obsolete_right_claw.tscn" id="7_s08fg"]
+[ext_resource type="PackedScene" uid="uid://btyfs2ogh11q5" path="res://Scenes/UI/main_ui.tscn" id="8_ss3bb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bavmj"]
+
+[node name="DyspraxiaCombat" type="Node"]
+script = ExtResource("1_8kbk8")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 383.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_5ydbm")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 900)
+scale = Vector2(60, 1)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, -100)
+shape = SubResource("WorldBoundaryShape2D_bavmj")
+
+[node name="PlayerCharacter0" parent="." instance=ExtResource("4_jrxp8")]
+position = Vector2(250, 657)
+
+[node name="PlayerCharacter1" parent="." instance=ExtResource("4_jrxp8")]
+position = Vector2(250, 657)
+player_id = 1
+
+[node name="GameManager" parent="." instance=ExtResource("5_hmy6s")]
+
+[node name="ExpLeftClaw" parent="." instance=ExtResource("6_aubnc")]
+visible = false
+position = Vector2(1800, 1200)
+
+[node name="ExpRightClaw" parent="." instance=ExtResource("7_s08fg")]
+visible = false
+position = Vector2(1700, 1200)
+
+[node name="MainUi" parent="." instance=ExtResource("8_ss3bb")]
+offset_right = 386.0
+offset_bottom = 216.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.75, 0.75)
+
+[connection signal="death" from="PlayerCharacter0" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="death" from="PlayerCharacter1" to="GameManager" method="_on_exp_celestia_character_death"]
+[connection signal="left_claw_attack" from="GameManager" to="ExpLeftClaw" method="_on_game_manager_left_claw_attack"]
+[connection signal="right_claw_attack" from="GameManager" to="ExpRightClaw" method="_on_game_manager_right_claw_attack"]
+[connection signal="available" from="ExpLeftClaw" to="GameManager" method="_on_exp_left_claw_available"]
+[connection signal="available" from="ExpRightClaw" to="GameManager" method="_on_exp_right_claw_available"]

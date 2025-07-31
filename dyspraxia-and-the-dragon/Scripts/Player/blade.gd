@@ -1,24 +1,34 @@
 extends CharacterBody2D
 
-@export var swing_speed = 10
+@onready var player_id = $"../..".player_id
+var swing_speed = 10
 var dyspraxia_speed = 1
 var dyspraxia_hand = 0.3
 var dyspraxia_blade = 0.1
 var dyspraxia 
 var stored_left_input = Vector2(0, 0)
 var stored_right_input = Vector2(0, 0)
+# We need to multiply the input from the sticks to have values that are easier manipulated
+var left_stick_multiplier = 120
+var right_stick_multiplier = 1500
 
 func _ready() -> void:
 	dyspraxia = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	var left_stick_input = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 150
-	var right_stick_input = Input.get_vector("sword_left", "sword_right", "sword_up", "sword_down") * 2000
+	#var left_stick_input = Input.get_vector("hand_left", "hand_right", "hand_up", "hand_down") * 150
+	#var right_stick_input = Input.get_vector("sword_left", "sword_right", "sword_up", "sword_down") * 2000
+	var left_x = Input.get_joy_axis(player_id, JOY_AXIS_LEFT_X) * left_stick_multiplier
+	var left_y = Input.get_joy_axis(player_id, JOY_AXIS_LEFT_Y) * left_stick_multiplier
+	var right_x = Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_X) * right_stick_multiplier
+	var right_y = Input.get_joy_axis(player_id, JOY_AXIS_RIGHT_Y) * right_stick_multiplier
+	var left_stick_input = Vector2(left_x, left_y)
+	var right_stick_input = Vector2(right_x, right_y)
 	if dyspraxia == true:
 		var input_diff = (stored_left_input - left_stick_input).length()
-		if input_diff > 10:
-			print(input_diff)
+		print(" stored: " + str(stored_left_input) + "current: " + str(left_stick_input))
+		if input_diff > 0.5:
 			dyspraxia_process_hand(left_stick_input, delta)
 			stored_left_input = left_stick_input
 		dyspraxia_process_blade(right_stick_input, delta)

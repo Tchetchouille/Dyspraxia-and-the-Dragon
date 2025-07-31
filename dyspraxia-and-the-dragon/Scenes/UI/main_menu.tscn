@@ -134,6 +134,14 @@ icon = ExtResource("10_x64cc")
 icon_alignment = 1
 expand_icon = true
 
+[node name="Mode Versus" type="Button" parent="Title/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_iiuee")
+text = "Mode Versus"
+icon_alignment = 1
+expand_icon = true
+
 [node name="Pointer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
@@ -156,3 +164,4 @@ grow_vertical = 2
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Infini" to="." method="_on_mode_infini_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/Buttons/HBoxContainer/Mode Versus" to="." method="_on_mode_versus_pressed"]

@@ -57,11 +57,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="PlayerHealth" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="PlayerHealth0" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth"]
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +75,7 @@ value = 50.0
 show_percentage = false
 script = ExtResource("1_yllub")
 
-[node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar"]
+[node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth0/HealthBar"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -89,7 +89,43 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7bqpj")
 value = 75.0
 show_percentage = false
 
-[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar"]
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/PlayerHealth0/HealthBar"]
+wait_time = 0.5
+one_shot = true
+
+[node name="PlayerHealth1" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_d386c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qr3vu")
+value = 50.0
+show_percentage = false
+script = ExtResource("1_yllub")
+
+[node name="DamageBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PlayerHealth1/HealthBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_v1v3s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7bqpj")
+value = 75.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer/PlayerHealth1/HealthBar"]
 wait_time = 0.5
 one_shot = true
 
@@ -146,5 +182,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 15.0
 
-[connection signal="timeout" from="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar/Timer" to="VBoxContainer/HBoxContainer/PlayerHealth/HealthBar" method="_on_timer_timeout"]
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/PlayerHealth0/HealthBar/Timer" to="VBoxContainer/HBoxContainer/PlayerHealth0/HealthBar" method="_on_timer_timeout"]
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/PlayerHealth1/HealthBar/Timer" to="VBoxContainer/HBoxContainer/PlayerHealth1/HealthBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="VBoxContainer/HBoxContainer/DragonHealth/HealthBar/Timer" to="VBoxContainer/HBoxContainer/DragonHealth/HealthBar" method="_on_timer_timeout"]
