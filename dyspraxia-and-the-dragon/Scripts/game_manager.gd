@@ -18,6 +18,8 @@ signal up_fireball()
 signal down_fireball()
 # Array containing the claws that are available for attacks
 var available_claws : Array = [left_claw_attack, right_claw_attack]
+# Used for the big fireball cooldown
+var big_fb_available = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,7 +36,7 @@ func dragon_action(target):
 	if claw_threshold >= chance and available_claws.size() > 0:
 		claw_attack(target)
 	
-	elif up_fireball_threshold >= chance:
+	elif up_fireball_threshold >= chance and big_fb_available:
 		up_fireball_attack() 
 
 	elif down_fireball_threshold >= chance:
@@ -50,6 +52,8 @@ func down_fireball_attack():
 
 func up_fireball_attack():
 	up_fireball.emit()
+	big_fb_available = false
+	$BigFireballTimer.start()
 
 # When the claw has finished attacking, it sends a signal
 func _on_exp_left_claw_available() -> void:
@@ -91,3 +95,7 @@ func _on_exp_celestia_character_death() -> void:
 		var dyspraxia_game_over_scene = load("res://Scenes/UI/game_over_infinite.tscn").instantiate()
 		get_tree().root.add_child(dyspraxia_game_over_scene)
 		$"..".queue_free()
+
+
+func _on_big_fireball_timer_timeout() -> void:
+	big_fb_available = true

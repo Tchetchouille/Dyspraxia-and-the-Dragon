@@ -33,6 +33,7 @@ radius = 7.07107
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_mask = 49
+platform_on_leave = 2
 script = ExtResource("1_nsg2u")
 
 [node name="Model" type="Node2D" parent="."]

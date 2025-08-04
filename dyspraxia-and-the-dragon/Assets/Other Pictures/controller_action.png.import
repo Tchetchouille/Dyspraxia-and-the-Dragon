@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r0qgxwd00jva"
-path="res://.godot/imported/controller_action.png-37a0700fe57bf2386323d53204902535.ctex"
+path="res://.godot/imported/controller_action.png-be15cbc11ef0fd68b821e08e05bf6d0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/controller_action.png"
-dest_files=["res://.godot/imported/controller_action.png-37a0700fe57bf2386323d53204902535.ctex"]
+source_file="res://Assets/Other Pictures/controller_action.png"
+dest_files=["res://.godot/imported/controller_action.png-be15cbc11ef0fd68b821e08e05bf6d0b.ctex"]
 
 [params]
 

@@ -1,10 +1,6 @@
 extends Node2D
 
-var noise = FastNoiseLite.new()
 var frame_count = 0
-
-func _ready() -> void:
-	noise.seed = randi()
 
 func _process(delta: float) -> void:
 	frame_count += 1

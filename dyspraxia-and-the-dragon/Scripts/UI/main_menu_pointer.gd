@@ -15,4 +15,3 @@ func _process(delta: float) -> void:
 func _on_focus_changed(control: Control) -> void:
 	if control != null:
 		target = control.position
-		print(target)

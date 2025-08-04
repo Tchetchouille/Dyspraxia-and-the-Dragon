@@ -15,8 +15,18 @@ var health_path_1 = "../MainUi/VBoxContainer/HBoxContainer/CharacterHealth1/Heal
 @onready var particles = preload("res://Scenes/Ennemies/particles_system.tscn")
 var damage_display = preload("res://Scenes/UI/damage_display.tscn")
 
+var frame_count = 0
+@onready var noise = FastNoiseLite.new()
+var original_position : Vector2
+var wobble_intensity = 50
+var wobble_speed = 0.25
+var back_and_forth_speed = 0.05
+var back_and_forth_intensity = 0.1
+
 
 func _ready() -> void:
+	original_position = global_position
+	noise.seed = randi()
 	dyspraxia = $"../../Main".global_dyspraxia
 	match player_id:
 		0:
@@ -48,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	move_and_slide()
+	wobble()
 
 func _process(_delta: float) -> void:
 	# Gives the possibility to toggle dyspraxia by pressing cntrl
@@ -90,3 +100,15 @@ func _emit_damage_display(dmg, pos):
 	damage_display_instance.get_child(0).set("theme_override_font_sizes/normal_font_size", 30 + dmg)
 	damage_display_instance.get_child(0).set("theme_override_constants/outline_size", 15 + dmg)
 	$"..".add_child(damage_display_instance)
+
+func wobble():
+	frame_count += 1
+	var noise_x = noise.get_noise_1d(frame_count * wobble_speed + (player_id * 10 + 10)) * wobble_intensity
+	var noise_y = noise.get_noise_1d((frame_count + 500.0) * wobble_speed + (player_id * 10 + 10)) * wobble_intensity
+	var noise_position = Vector2(noise_x, noise_y)
+	var back_and_forth_x = cos(frame_count * back_and_forth_speed + (player_id * 10 + 10))
+	var back_and_forth_y = -abs(sin(frame_count * back_and_forth_speed + (player_id * 10 + 10)))
+	var back_and_forth = Vector2(back_and_forth_x, back_and_forth_y) * 10
+	rotate(deg_to_rad((-sin(frame_count * back_and_forth_speed + (player_id * 10 + 10)) * back_and_forth_intensity - cos(frame_count * back_and_forth_speed + (player_id * 10 + 10))) * back_and_forth_intensity))
+	global_position = original_position + noise_position + back_and_forth
+	
