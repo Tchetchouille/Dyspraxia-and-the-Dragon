@@ -14,6 +14,10 @@ config/name="Dyspraxia and the Dragon"
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+TimeFreezeManager="*res://Scripts/time_freeze_manager.gd"
+
 [display]
 
 window/size/mode=2

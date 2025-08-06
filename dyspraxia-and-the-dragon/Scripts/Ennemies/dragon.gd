@@ -51,15 +51,19 @@ func _process(_delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	var damage = int(body.dmg * body.linear_velocity.length() / 1000)
+	var b_position = body.position
 	if body is UpFireball:
 		health -= damage
 	else:
 		health -= damage
 	health_bar.set_health(health)
-	body.queue_free()
 	_emit_particles(body)
-	_emit_damage_display(damage, body.position)
+	_emit_damage_display(damage, b_position)
 	dragon_hurt_sounds.get_child(randi_range(0, 3))
+	body.queue_free()
+	Engine.time_scale = 0.1
+	await get_tree().create_timer(0.1, true, false, true).timeout
+	Engine.time_scale = 1
 
 
 

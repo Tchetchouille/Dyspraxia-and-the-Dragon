@@ -50,8 +50,6 @@ func _ready() -> void:
 		$LeftArm2/LowerLeftArm/Dyspraxia.visible = false
 		$LeftArm2/LowerLeftArm/Celestia.visible = true
 		
-		
-		
 
 # Basic physics
 func _physics_process(delta: float) -> void:
@@ -77,11 +75,12 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 			health_bar_0.set_health(health)
 		1:
 			health_bar_1.set_health(health)
-	if body.name != "Dragon":
-		body.queue_free()
-		_emit_particles(body)
-		_emit_damage_display(damage, body.position)
-		print(body.name)
+	_emit_particles(body)
+	_emit_damage_display(damage, body.position)
+	body.queue_free()
+	Engine.time_scale = 0.1
+	await get_tree().create_timer(0.1, true, false, true).timeout
+	Engine.time_scale = 1
 
 # Particles when hit.
 func _emit_particles(body):
